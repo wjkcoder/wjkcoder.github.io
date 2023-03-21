@@ -1,0 +1,3545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://wjkcoder.github.io</id>
+    <title>Jikun WANG</title>
+    <updated>2023-03-21T10:23:16.356Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://wjkcoder.github.io"/>
+    <link rel="self" href="https://wjkcoder.github.io/atom.xml"/>
+    <logo>https://wjkcoder.github.io/images/avatar.png</logo>
+    <icon>https://wjkcoder.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, Jikun WANG</rights>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot Run]]></title>
+        <id>https://wjkcoder.github.io/post/springboot-run/</id>
+        <link href="https://wjkcoder.github.io/post/springboot-run/">
+        </link>
+        <updated>2021-03-05T09:19:46.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="#%E5%88%9B%E5%BB%BAspringapplication">创建SpringApplication</a></li>
+<li><a href="#springapplicationrun">SpringApplication#run</a>
+<ul>
+<li><a href="#springapplicationrunlisteners%E5%AE%9E%E4%BE%8B">SpringApplicationRunListeners实例</a></li>
+<li><a href="#springapplicationrunlisteners%E5%AE%9E%E4%BE%8B%E5%BC%80%E5%90%AF%E7%9B%91%E5%90%AC">SpringApplicationRunListeners实例开启监听</a></li>
+<li><a href="#prepare%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">prepare环境变量</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAapplicationcontext">创建ApplicationContext</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%B3%A8%E8%A7%A3beandefinitionreader">创建注解beanDefinitionReader</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAclasspathbeandefinitionscanner">创建ClassPathBeanDefinitionScanner</a>
+<ul>
+<li><a href="#%E6%B3%A8%E5%86%8C%E9%BB%98%E8%AE%A4filter">注册默认filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#springapplicationpreparecontext">SpringApplication#prepareContext</a>
+<ul>
+<li><a href="#abstractapplicationcontextrefresh">AbstractApplicationContext#refresh</a>
+<ul>
+<li><a href="#abstractapplicationcontextpreparerefresh">AbstractApplicationContext#prepareRefresh</a></li>
+<li><a href="#abstractapplicationcontextpreparebeanfactory">AbstractApplicationContext#prepareBeanFactory</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0bpp-applicationcontextawareprocessor">添加BPP ApplicationContextAwareProcessor</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0ignore%E6%8E%A5%E5%8F%A3">添加ignore接口</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8Cdependency">注册dependency</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0bpp-applicationlistenerdetector">添加BPP ApplicationListenerDetector</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8C%E9%BB%98%E8%AE%A4%E7%8E%AF%E5%A2%83bean%E5%88%B0singleton">注册默认环境bean到singleton</a></li>
+</ul>
+</li>
+<li><a href="#postprocessbeanfactory">postProcessBeanFactory</a></li>
+<li><a href="#invokebeanfactorypostprocessors">invokeBeanFactoryPostProcessors</a>
+<ul>
+<li><a href="#invokebeandefinitionregistrypostprocessors">invokeBeanDefinitionRegistryPostProcessors</a>
+<ul>
+<li><a href="#configurationclasspostprocessorprocessconfigbeandefinitions">ConfigurationClassPostProcessor#processConfigBeanDefinitions</a></li>
+<li><a href="#configurationclassparserparse">ConfigurationClassParser#parse</a></li>
+</ul>
+</li>
+<li><a href="#invokebeanfactorypostprocessors-1">invokeBeanFactoryPostProcessors</a></li>
+<li><a href="#%E5%88%86%E6%89%B9%E6%AC%A1%E6%89%A7%E8%A1%8Cbeanfactoryprocessor">分批次执行BeanFactoryProcessor</a></li>
+</ul>
+</li>
+<li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a></li>
+<li><a href="#initmessagesource">initMessageSource</a></li>
+<li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
+<li><a href="#onfresh">onfresh</a></li>
+<li><a href="#registerlisteners">registerListeners</a></li>
+<li><a href="#finishbeanfactoryinitialization">finishBeanFactoryInitialization</a>
+<ul>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96bean">初始化bean</a>
+<ul>
+<li><a href="#1%E5%88%A4%E6%96%AD%E4%B8%8D%E6%98%AFabstract%E6%98%AF%E5%8D%95%E4%BE%8B%E9%9D%9E%E6%87%92%E5%8A%A0%E8%BD%BD%E6%89%A7%E8%A1%8Cgetbean">1.判断不是abstract，是单例非懒加载，执行getBean</a></li>
+<li><a href="#2abstractbeanfactorydogetbean">2.AbstractBeanFactory#doGetbean</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%A7%E8%A1%8Cbean%E5%90%8E%E7%BD%AE%E5%A4%84%E7%90%86">执行bean后置处理</a></li>
+</ul>
+</li>
+<li><a href="#finishrefresh">finishRefresh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#springapplicationafterrefresh">SpringApplication#afterRefresh</a></li>
+<li><a href="#listeners%E5%93%8D%E5%BA%94%E6%89%A7%E8%A1%8Cstart%E4%BA%8B%E4%BB%B6">listeners响应执行start事件</a></li>
+</ul>
+</li>
+</ul>
+<p>SpringBoot的启动过程<br>
+simple</p>
+<pre><code class="language-java">@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        ConfigurableApplicationContext ctx = SpringApplication.run(Application.class);
+        UserService userService = ctx.getBean(UserService.class);
+        userService.setUsername(&quot;wonder&quot;);
+        System.out.println(userService.getUsername());
+    }
+}
+</code></pre>
+<h1 id="创建springapplication">创建SpringApplication</h1>
+<ul>
+<li>推测webApplicationType</li>
+<li>根据Spring factories加载接口实现类名称<br>
+BootstrapRegistryInitializer<br>
+ApplicationContextInitializer<br>
+ApplicationListener</li>
+</ul>
+<pre><code class="language-java">	public SpringApplication(ResourceLoader resourceLoader, Class&lt;?&gt;... primarySources) {
+		this.resourceLoader = resourceLoader;
+		Assert.notNull(primarySources, &quot;PrimarySources must not be null&quot;);
+		this.primarySources = new LinkedHashSet&lt;&gt;(Arrays.asList(primarySources));
+		this.webApplicationType = WebApplicationType.deduceFromClasspath();
+		this.bootstrapRegistryInitializers = new ArrayList&lt;&gt;(
+				getSpringFactoriesInstances(BootstrapRegistryInitializer.class));
+		setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
+		setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+		this.mainApplicationClass = deduceMainApplicationClass();
+	}
+
+</code></pre>
+<h1 id="springapplicationrun">SpringApplication#run</h1>
+<pre><code class="language-java">public ConfigurableApplicationContext run(String... args) {
+		long startTime = System.nanoTime();
+		DefaultBootstrapContext bootstrapContext = createBootstrapContext();
+		ConfigurableApplicationContext context = null;
+		configureHeadlessProperty();
+		SpringApplicationRunListeners listeners = getRunListeners(args);
+		listeners.starting(bootstrapContext, this.mainApplicationClass);
+		try {
+			ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+			ConfigurableEnvironment environment = prepareEnvironment(listeners, bootstrapContext, applicationArguments);
+			configureIgnoreBeanInfo(environment);
+			Banner printedBanner = printBanner(environment);
+			context = createApplicationContext();
+			context.setApplicationStartup(this.applicationStartup);
+			prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
+			refreshContext(context);
+			afterRefresh(context, applicationArguments);
+			Duration timeTakenToStartup = Duration.ofNanos(System.nanoTime() - startTime);
+			if (this.logStartupInfo) {
+				new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), timeTakenToStartup);
+			}
+			listeners.started(context, timeTakenToStartup);
+			callRunners(context, applicationArguments);
+		}
+		catch (Throwable ex) {
+			handleRunFailure(context, ex, listeners);
+			throw new IllegalStateException(ex);
+		}
+		try {
+			Duration timeTakenToReady = Duration.ofNanos(System.nanoTime() - startTime);
+			listeners.ready(context, timeTakenToReady);
+		}
+		catch (Throwable ex) {
+			handleRunFailure(context, ex, null);
+			throw new IllegalStateException(ex);
+		}
+		return context;
+	}
+
+</code></pre>
+<h2 id="springapplicationrunlisteners实例">SpringApplicationRunListeners实例</h2>
+<pre><code>根据Spring factories加载SpringApplicationRunListener实现类名称，创建SpringApplicationRunListeners实例
+</code></pre>
+<h2 id="springapplicationrunlisteners实例开启监听">SpringApplicationRunListeners实例开启监听</h2>
+<h2 id="prepare环境变量">prepare环境变量</h2>
+<h2 id="创建applicationcontext">创建ApplicationContext</h2>
+<p>根据webApplicationType创建ApplicationContext</p>
+<pre><code class="language-java">ApplicationContextFactory DEFAULT = (webApplicationType) -&gt; {
+   try {
+      switch (webApplicationType) {
+      case SERVLET:
+         return new AnnotationConfigServletWebServerApplicationContext();
+      case REACTIVE:
+         return new AnnotationConfigReactiveWebServerApplicationContext();
+      default:
+         return new AnnotationConfigApplicationContext();
+      }
+   }
+   catch (Exception ex) {
+      throw new IllegalStateException(&quot;Unable create a default ApplicationContext instance, &quot;
+            + &quot;you may need a custom ApplicationContextFactory&quot;, ex);
+   }
+};
+
+</code></pre>
+<p>这里若不是web项目，则创建AnnotationConfigApplicationContext</p>
+<pre><code class="language-java">public AnnotationConfigApplicationContext() {
+   StartupStep createAnnotatedBeanDefReader = this.getApplicationStartup().start(&quot;spring.context.annotated-bean-reader.create&quot;);
+   this.reader = new AnnotatedBeanDefinitionReader(this);
+   createAnnotatedBeanDefReader.end();
+   this.scanner = new ClassPathBeanDefinitionScanner(this);
+}
+
+</code></pre>
+<h3 id="创建注解beandefinitionreader">创建注解beanDefinitionReader</h3>
+<p>根据实际情况选择添加以下beanDefinition到bdMap中</p>
+<ul>
+<li>org.springframework.context.annotation.internalConfigurationAnnotationProcessor</li>
+<li>org.springframework.context.annotation.internalAutowiredAnnotationProcessor</li>
+<li>org.springframework.context.annotation.internalCommonAnnotationProcessor</li>
+<li>org.springframework.context.annotation.internalPersistenceAnnotationProcessor</li>
+<li>org.springframework.context.event.internalEventListenerProcessor</li>
+<li>org.springframework.context.event.internalEventListenerFactory</li>
+</ul>
+<h3 id="创建classpathbeandefinitionscanner">创建ClassPathBeanDefinitionScanner</h3>
+<h4 id="注册默认filter">注册默认filter</h4>
+<ul>
+<li>Component.class</li>
+<li>JSR250 javax.annotation.ManagedBean</li>
+<li>JSR330 javax.inject.Named</li>
+</ul>
+<h2 id="springapplicationpreparecontext">SpringApplication#prepareContext</h2>
+<p>1.添加一个close事件监听</p>
+<h3 id="abstractapplicationcontextrefresh">AbstractApplicationContext#refresh</h3>
+<h4 id="abstractapplicationcontextpreparerefresh">AbstractApplicationContext#prepareRefresh</h4>
+<ul>
+<li>initPropertySources</li>
+<li>env验证必要属性</li>
+</ul>
+<h4 id="abstractapplicationcontextpreparebeanfactory">AbstractApplicationContext#prepareBeanFactory</h4>
+<h5 id="添加bpp-applicationcontextawareprocessor">添加BPP ApplicationContextAwareProcessor</h5>
+<h5 id="添加ignore接口">添加ignore接口</h5>
+<ol>
+<li>EnvironmentAware</li>
+<li>EmbeddedValueResolverAware</li>
+<li>ResourceLoaderAware</li>
+<li>ApplicationEventPublisherAware</li>
+<li>MessageSourceAware</li>
+<li>ApplicationContextAware</li>
+<li>ApplicationStartupAware</li>
+</ol>
+<h5 id="注册dependency">注册dependency</h5>
+<h5 id="添加bpp-applicationlistenerdetector">添加BPP ApplicationListenerDetector</h5>
+<h5 id="注册默认环境bean到singleton">注册默认环境bean到singleton</h5>
+<ol>
+<li>environment</li>
+<li>systemProperties</li>
+<li>systemEnvironment</li>
+<li>applicationStartup</li>
+</ol>
+<h4 id="postprocessbeanfactory">postProcessBeanFactory</h4>
+<h4 id="invokebeanfactorypostprocessors">invokeBeanFactoryPostProcessors</h4>
+<h5 id="invokebeandefinitionregistrypostprocessors">invokeBeanDefinitionRegistryPostProcessors</h5>
+<h6 id="configurationclasspostprocessorprocessconfigbeandefinitions">ConfigurationClassPostProcessor#processConfigBeanDefinitions</h6>
+<h6 id="configurationclassparserparse">ConfigurationClassParser#parse</h6>
+<ol>
+<li>判断是否有@Component，若有则处理成员变量</li>
+<li>处理任何有@PropertySource</li>
+<li>处理@ComponentScan<br>
+1.1 处理basePackages</li>
+</ol>
+<ul>
+<li>处理basePackageClasses</li>
+<li>若最终basePackages为空，添加配置类所在package到basePackages</li>
+<li>执行scanner.doScan</li>
+<li></li>
+</ul>
+<p>遍历每一个basePackage，组装路径，拿到所有class文件<br>
+遍历每一个class，拿到注解等元数据，判断是否满足扫描标准<br>
+若满足，生成一个bd ScannedGenericBeanDefinition<br>
+判断bd是否满足添加到bdSet的需求，若满足，添加并注册到bdSet<br>
+遍历bdSet，bd包装成BeanDefinitionHolder并注册</p>
+<ol>
+<li>处理@Import</li>
+<li>处理@ImportResource</li>
+<li>处理@Bean</li>
+<li>处理interface default method</li>
+<li>处理父类</li>
+</ol>
+<h5 id="invokebeanfactorypostprocessors-2">invokeBeanFactoryPostProcessors</h5>
+<h5 id="分批次执行beanfactoryprocessor">分批次执行BeanFactoryProcessor</h5>
+<ul>
+<li>PriorityOrdered</li>
+<li>Ordered</li>
+<li>all other BeanFactoryPostProcessors</li>
+</ul>
+<h4 id="registerbeanpostprocessors">registerBeanPostProcessors</h4>
+<ol>
+<li>注册实现PriorityOrdered接口的</li>
+<li>注册实现Ordered接口的</li>
+<li>注册所有的 regular BeanPostProcessors</li>
+<li>重新注册internal BeanPostProcessors</li>
+<li>添加BPP ApplicationListenerDetector</li>
+</ol>
+<h4 id="initmessagesource">initMessageSource</h4>
+<p>注册messageSource到singleton</p>
+<h4 id="initapplicationeventmulticaster">initApplicationEventMulticaster</h4>
+<p>实例化一个SimpleApplicationEventMulticaster并注册到singleton</p>
+<h4 id="onfresh">onfresh</h4>
+<p>子类的实现，初始化某些特殊的bean，比如ServletWebServerApplicationContext就会再次创建webServer</p>
+<h4 id="registerlisteners">registerListeners</h4>
+<ol>
+<li>所有的ApplicationListener绑定到eventMulticaster</li>
+<li>添加ApplicationListenerBean</li>
+<li>广播事件</li>
+</ol>
+<h4 id="finishbeanfactoryinitialization">finishBeanFactoryInitialization</h4>
+<h5 id="初始化bean">初始化bean</h5>
+<h6 id="1判断不是abstract是单例非懒加载执行getbean">1.判断不是abstract，是单例非懒加载，执行getBean</h6>
+<h6 id="2abstractbeanfactorydogetbean">2.AbstractBeanFactory#doGetbean</h6>
+<ol>
+<li>getSingleton获取到实例，直接返回</li>
+<li>标记为已创建</li>
+<li>处理依赖，若依赖没有被实例化，执行getBean（dep）</li>
+<li>getSingleton（beanName，beanFactory）</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>获取object，若空，执行beanFactory的getObject方法</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>调用getObject中的createBean</li>
+</ol>
+</li>
+<li>
+<ul>
+<li>
+<ol>
+<li>resolveBeforeInstantiation 若需要代理，相关beanPostProcessor在此创建后返回</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>doCreateBean</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>移除缓存</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>允许MergedBeanDefinitionPostProcessor修改beanDefinition</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="3">
+<li>提前暴露</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="4">
+<li>populateBean</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="5">
+<li>initializeBean</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>执行aware方法 BeanNameAware BeanClassLoaderAware BeanFactoryAware</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>执行beanPostProcessor的before</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="3">
+<li>执行initMethod</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="4">
+<li>执行beanPostProcessor的after</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="6">
+<li>暴露并注册</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ol start="3">
+<li>添加object到singleton</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="执行bean后置处理">执行bean后置处理</h5>
+<h4 id="finishrefresh">finishRefresh</h4>
+<ol>
+<li>clearResourceCaches，清除一些元数据缓存</li>
+<li>initLifecycleProcessor，赋值lifeCycleProcessor</li>
+<li>执行lifecycyleProcessor的refresh</li>
+<li>publishEvent，发布一个refreshed事件</li>
+</ol>
+<h2 id="springapplicationafterrefresh">SpringApplication#afterRefresh</h2>
+<h2 id="listeners响应执行start事件">listeners响应执行start事件</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Netty Core Channel Read&Write]]></title>
+        <id>https://wjkcoder.github.io/post/netty-core-channel-readandwrite/</id>
+        <link href="https://wjkcoder.github.io/post/netty-core-channel-readandwrite/">
+        </link>
+        <updated>2020-03-26T06:45:38.000Z</updated>
+        <summary type="html"><![CDATA[<ul>
+<li><a href="#niosocketchannel-read%E5%AE%9E%E7%8E%B0">NioSocketChannel read实现</a>
+<ul>
+<li><a href="#abstractniobytechannelread">AbstractNioByteChannel#read</a></li>
+<li><a href="#niobyteunsaferead">NioByteUnsafe#read</a></li>
+<li><a href="#niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</a>
+<ul>
+<li><a href="#abstractbytebufwritebytes">AbstractByteBuf#writeBytes</a></li>
+<li><a href="#pooledbytebufsetbytes">PooledByteBuf#setBytes</a></li>
+</ul>
+</li>
+<li><a href="#jdk-socketchannelimplread">JDK SocketChannelImpl#read</a>
+<ul>
+<li><a href="#ioutilread">IOUtil#read</a></li>
+<li><a href="#ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</a></li>
+<li><a href="#socketdispatcherread">SocketDispatcher#read</a>
+<ul>
+<li><a href="#filedispatcherimplread0">FileDispatcherImpl#read0</a></li>
+<li><a href="#jni-read0">JNI read0</a></li>
+<li><a href="#ioh--read">io.h  #read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#niosocketchannel-write%E5%AE%9E%E7%8E%B0">NioSocketChannel Write实现</a>
+<ul>
+<li><a href="#abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</a></li>
+<li><a href="#invokewrite0">invokeWrite0</a>
+<ul>
+<li><a href="#unsafewrite">unsafe#write</a></li>
+</ul>
+</li>
+<li><a href="#invokeflush0">invokeFlush0</a>
+<ul>
+<li><a href="#unsafeflush">unsafe#flush</a></li>
+<li><a href="#flush0">flush0</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchanneldowrite">NioSocketChannel#doWrite</a></li>
+<li><a href="#jdk-socketchannelwirte">JDK SocketChannel#wirte</a>
+<ul>
+<li><a href="#ioutilwrite">IOUtil#write</a></li>
+<li><a href="#ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</a></li>
+<li><a href="#socketdispatcherwrite">SocketDispatcher#write</a>
+<ul>
+<li><a href="#filedispatcherwrite0">FileDispatcher#write0</a></li>
+<li><a href="#jni-write0">JNI write0</a></li>
+<li><a href="#ioh-write">io.h #write</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>零拷贝是Netty自身实现的吗？<br>
+至少在读/写操作时，零拷贝并不是Netty去实现的，而是jdk的NIO本身提供的api</p>
+<h2 id="niosocketchannel-read实现">NioSocketChannel read实现</h2>
+<p>起点在NioEventLoop的run中的processSelectedKeys，调用unsafe的read</p>
+<h3 id="abstractniobytechannelread">AbstractNioByteChannel#read</h3>
+<p>这里和NSSC的AbstractNioMessageChannel区分开，这里的byte是专门处理字节流的, 具体参与处理的其内部实现类NioByteUnsafe</p>
+<h3 id="niobyteunsaferead">NioByteUnsafe#read</h3>
+<ul>
+<li>1.分配一块ByteBuffer</li>
+<li>2.把channel的字节流读到buffer</li>
+<li>3.处理完之后的buffer作为参数处理之后的pipline.fireChannelRead这里跟io读写相关的只发生在2，fireChannelRead可以看作是业务层面的处理，因为底层的字节流已经拿到了。下面只讨论2</li>
+</ul>
+<pre><code class="language-java">protected class NioByteUnsafe extends AbstractNioUnsafe {
+
+    @Override
+    public final void read() {
+        final ChannelConfig config = config();
+        if (shouldBreakReadReady(config)) {
+            clearReadPending();
+            return;
+        }
+        final ChannelPipeline pipeline = pipeline();
+        final ByteBufAllocator allocator = config.getAllocator();
+        final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        ByteBuf byteBuf = null;
+        boolean close = false;
+        try {
+            do {
+                byteBuf = allocHandle.allocate(allocator);
+                allocHandle.lastBytesRead(doReadBytes(byteBuf));
+                if (allocHandle.lastBytesRead() &lt;= 0) {
+                    // nothing was read. release the buffer.
+                    byteBuf.release();
+                    byteBuf = null;
+                    close = allocHandle.lastBytesRead() &lt; 0;
+                    if (close) {
+                        // There is nothing left to read as we received an EOF.
+                        readPending = false;
+                    }
+                    break;
+                }
+
+                allocHandle.incMessagesRead(1);
+                readPending = false;
+                pipeline.fireChannelRead(byteBuf);
+                byteBuf = null;
+            } while (allocHandle.continueReading());
+
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+    }
+}
+
+</code></pre>
+<h3 id="niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</h3>
+<pre><code class="language-java">protected int doReadBytes(ByteBuf byteBuf) throws Exception {
+    final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+    allocHandle.attemptedBytesRead(byteBuf.writableBytes());
+    return byteBuf.writeBytes(javaChannel(), allocHandle.attemptedBytesRead());
+}
+
+</code></pre>
+<h4 id="abstractbytebufwritebytes">AbstractByteBuf#writeBytes</h4>
+<pre><code class="language-java">public int writeBytes(ScatteringByteChannel in, int length) throws IOException {
+    ensureWritable(length);
+    int writtenBytes = setBytes(writerIndex, in, length);
+    if (writtenBytes &gt; 0) {
+        writerIndex += writtenBytes;
+    }
+    return writtenBytes;
+}
+
+</code></pre>
+<h4 id="pooledbytebufsetbytes">PooledByteBuf#setBytes</h4>
+<pre><code class="language-java">public final int setBytes(int index, ScatteringByteChannel in, int length) throws IOException {
+    try {
+        return in.read(internalNioBuffer(index, length));
+    } catch (ClosedChannelException ignored) {
+        return -1;
+    }
+}
+
+</code></pre>
+<h3 id="jdk-socketchannelimplread">JDK SocketChannelImpl#read</h3>
+<p>核心部分</p>
+<ul>
+<li>1.或者read同步锁</li>
+<li>2.while执行IOUtil read，从fd读字节流到buffer</li>
+</ul>
+<pre><code class="language-java">public int read(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.readLock) {
+            if (!this.ensureReadOpen()) {
+                return -1;
+            } else {
+                int var3 = 0;
+                boolean var20 = false;
+
+                byte var10000;
+                byte var5;
+                label360: {
+                    int var4;
+                    try {
+                        var20 = true;
+                        this.begin();
+                        synchronized(this.stateLock) {
+                            if (!this.isOpen()) {
+                                var5 = 0;
+                                var20 = false;
+                                break label360;
+                            }
+
+                            this.readerThread = NativeThread.current();
+                        }
+
+                        while(true) {
+                            var3 = IOUtil.read(this.fd, var1, -1L, nd);
+                            if (var3 != -3 || !this.isOpen()) {
+                                var4 = IOStatus.normalize(var3);
+                                var20 = false;
+                                break;
+                            }
+            }
+        }
+    }
+}
+
+</code></pre>
+<h4 id="ioutilread">IOUtil#read</h4>
+<ul>
+<li>1.区分buffer的类型，是否是直接内存/堆外内存</li>
+<li>2.若是直接内存，直接执行堆外内存的逻辑；</li>
+<li>3.若是heap，需要先将heap转化为堆外内存，再执行2的逻辑</li>
+</ul>
+<p>之所以认为不是Netty在读写时实现了零拷贝技术，是因为jdk本身就提供了堆内存和直接内存的实现，Netty只是在此基础上默认使用了DirectBuffer实例而已，<br>
+若自己用NIO的api来写read操作，在指定buffer的时候使用堆外内存也可以达到相同的效果；</p>
+<pre><code class="language-java">static int read(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1.isReadOnly()) {
+        throw new IllegalArgumentException(&quot;Read-only buffer&quot;);
+    } else if (var1 instanceof DirectBuffer) {
+        return readIntoNativeBuffer(var0, var1, var2, var4);
+    } else {
+        //这里要去分配一块直接内存
+        ByteBuffer var5 = Util.getTemporaryDirectBuffer(var1.remaining());
+
+        int var7;
+        try {
+            int var6 = readIntoNativeBuffer(var0, var5, var2, var4);
+            var5.flip();
+            if (var6 &gt; 0) {
+                var1.put(var5);
+            }
+
+            var7 = var6;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var5);
+        }
+
+        return var7;
+    }
+}
+
+</code></pre>
+<h4 id="ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</h4>
+<p>计算剩余要读的字节，使用dispatcher去读取</p>
+<pre><code class="language-java">private static int readIntoNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &lt;= var6;
+
+    int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        boolean var8 = false;
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pread(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.read(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+</code></pre>
+<h4 id="socketdispatcherread">SocketDispatcher#read</h4>
+<h5 id="filedispatcherimplread0">FileDispatcherImpl#read0</h5>
+<pre><code class="language-java">FileDispatcherImpl#read0
+</code></pre>
+<h5 id="jni-read0">JNI read0</h5>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_read0(JNIEnv *env, jclass clazz,
+                             jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, read(fd, buf, len), JNI_TRUE);
+}
+
+</code></pre>
+<h5 id="ioh-read">io.h  #read</h5>
+<p>从fd文件描述符所在文件，读size个字节到buf所在的内存地址</p>
+<pre><code class="language-cpp">static inline int read(int fd, void* buf, unsigned int size) { return _read(fd, buf, size); }
+</code></pre>
+<h2 id="niosocketchannel-write实现">NioSocketChannel Write实现</h2>
+<p>写的起点是ctx.writeAndFlush</p>
+<h3 id="abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</h3>
+<pre><code class="language-java">public ChannelFuture writeAndFlush(Object msg) {
+    return writeAndFlush(msg, newPromise());
+}
+public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
+    write(msg, true, promise);
+    return promise;
+}
+private void write(Object msg, boolean flush, ChannelPromise promise) {
+    ObjectUtil.checkNotNull(msg, &quot;msg&quot;);
+    try {
+        if (isNotValidPromise(promise, true)) {
+            ReferenceCountUtil.release(msg);
+            // cancelled
+            return;
+        }
+    } catch (RuntimeException e) {
+        ReferenceCountUtil.release(msg);
+        throw e;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(flush ?
+            (MASK_WRITE | MASK_FLUSH) : MASK_WRITE);
+    final Object m = pipeline.touch(msg, next);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        if (flush) {
+            next.invokeWriteAndFlush(m, promise);
+        } else {
+            next.invokeWrite(m, promise);
+        }
+    } else {
+        final WriteTask task = WriteTask.newInstance(next, m, promise, flush);
+        if (!safeExecute(executor, task, promise, m, !flush)) {
+            // We failed to submit the WriteTask. We need to cancel it so we decrement the pending bytes
+            // and put it back in the Recycler for re-use later.
+            //
+            // See https://github.com/netty/netty/issues/8343.
+            task.cancel();
+        }
+    }
+}
+void invokeWriteAndFlush(Object msg, ChannelPromise promise) {
+    if (invokeHandler()) {
+        invokeWrite0(msg, promise);
+        invokeFlush0();
+    } else {
+        writeAndFlush(msg, promise);
+    }
+}
+
+</code></pre>
+<p><strong>channel的字节流不是立刻发送的，分成了两个动作，一个缓存和组合message，另一个flush才是真正的发送；</strong></p>
+<h3 id="invokewrite0">invokeWrite0</h3>
+<h4 id="unsafewrite">unsafe#write</h4>
+<ul>
+<li>1.有一个outboundBuffer，代表最后真正要发送的字节</li>
+<li>2.过滤msg，通过之后的msg才会被加入到out中</li>
+<li>3.添加msg</li>
+</ul>
+<pre><code class="language-java">public final void write(Object msg, ChannelPromise promise) {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        try {
+            // release message now to prevent resource-leak
+            ReferenceCountUtil.release(msg);
+        } finally {
+            // If the outboundBuffer is null we know the channel was closed and so
+            // need to fail the future right away. If it is not null the handling of the rest
+            // will be done in flush0()
+            // See https://github.com/netty/netty/issues/2362
+            safeSetFailure(promise,
+                    newClosedChannelException(initialCloseCause, &quot;write(Object, ChannelPromise)&quot;));
+        }
+        return;
+    }
+
+    int size;
+    try {
+        msg = filterOutboundMessage(msg);
+        size = pipeline.estimatorHandle().size(msg);
+        if (size &lt; 0) {
+            size = 0;
+        }
+    } catch (Throwable t) {
+        try {
+            ReferenceCountUtil.release(msg);
+        } finally {
+            safeSetFailure(promise, t);
+        }
+        return;
+    }
+
+    outboundBuffer.addMessage(msg, size, promise);
+}
+
+</code></pre>
+<h3 id="invokeflush0">invokeFlush0</h3>
+<h4 id="unsafeflush">unsafe#flush</h4>
+<ul>
+<li>1.拿到write之后的outboundBuffer</li>
+<li>2.确认每一个promise</li>
+<li>3.执行flush0</li>
+</ul>
+<pre><code class="language-java">public final void flush() {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        return;
+    }
+
+    outboundBuffer.addFlush();
+    flush0();
+}
+public void addFlush() {
+    // There is no need to process all entries if there was already a flush before and no new messages
+    // where added in the meantime.
+    //
+    // See https://github.com/netty/netty/issues/2577
+    Entry entry = unflushedEntry;
+    if (entry != null) {
+        if (flushedEntry == null) {
+            // there is no flushedEntry yet, so start with the entry
+            flushedEntry = entry;
+        }
+        do {
+            flushed ++;
+            if (!entry.promise.setUncancellable()) {
+                // Was cancelled so make sure we free up memory and notify about the freed bytes
+                int pending = entry.cancel();
+                decrementPendingOutboundBytes(pending, false, true);
+            }
+            entry = entry.next;
+        } while (entry != null);
+
+        // All flushed so reset unflushedEntry
+        unflushedEntry = null;
+    }
+}
+
+</code></pre>
+<h4 id="flush0">flush0</h4>
+<pre><code class="language-java">protected void flush0() {
+    if (inFlush0) {
+        // Avoid re-entrance
+        return;
+    }
+
+    final ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null || outboundBuffer.isEmpty()) {
+        return;
+    }
+
+    inFlush0 = true;
+
+    // Mark all pending write requests as failure if the channel is inactive.
+    if (!isActive()) {
+        try {
+            // Check if we need to generate the exception at all.
+            if (!outboundBuffer.isEmpty()) {
+                if (isOpen()) {
+                    outboundBuffer.failFlushed(new NotYetConnectedException(), true);
+                } else {
+                    // Do not trigger channelWritabilityChanged because the channel is closed already.
+                    outboundBuffer.failFlushed(newClosedChannelException(initialCloseCause, &quot;flush0()&quot;), false);
+                }
+            }
+        } finally {
+            inFlush0 = false;
+        }
+        return;
+    }
+
+    try {
+        doWrite(outboundBuffer);
+    } catch (Throwable t) {
+        handleWriteError(t);
+    } finally {
+        inFlush0 = false;
+    }
+}
+
+</code></pre>
+<h3 id="niosocketchanneldowrite">NioSocketChannel#doWrite</h3>
+<ul>
+<li>1.获取nio的channel</li>
+<li>2.获取要处理的buffer数组</li>
+<li>3.执行channel.write</li>
+</ul>
+<pre><code class="language-java">protected void doWrite(ChannelOutboundBuffer in) throws Exception {
+    SocketChannel ch = javaChannel();
+    int writeSpinCount = config().getWriteSpinCount();
+    do {
+        if (in.isEmpty()) {
+            // All written so clear OP_WRITE
+            clearOpWrite();
+            // Directly return here so incompleteWrite(...) is not called.
+            return;
+        }
+
+        // Ensure the pending writes are made of ByteBufs only.
+        int maxBytesPerGatheringWrite = ((NioSocketChannelConfig) config).getMaxBytesPerGatheringWrite();
+        ByteBuffer[] nioBuffers = in.nioBuffers(1024, maxBytesPerGatheringWrite);
+        int nioBufferCnt = in.nioBufferCount();
+
+        // Always use nioBuffers() to workaround data-corruption.
+        // See https://github.com/netty/netty/issues/2761
+        switch (nioBufferCnt) {
+            case 0:
+                // We have something else beside ByteBuffers to write so fallback to normal writes.
+                writeSpinCount -= doWrite0(in);
+                break;
+            case 1: {
+                // Only one ByteBuf so use non-gathering write
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                ByteBuffer buffer = nioBuffers[0];
+                int attemptedBytes = buffer.remaining();
+                final int localWrittenBytes = ch.write(buffer);
+                if (localWrittenBytes &lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                adjustMaxBytesPerGatheringWrite(attemptedBytes, localWrittenBytes, maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+            default: {
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                // We limit the max amount to int above so cast is safe
+                long attemptedBytes = in.nioBufferSize();
+                final long localWrittenBytes = ch.write(nioBuffers, 0, nioBufferCnt);
+                if (localWrittenBytes &lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                // Casting to int is safe because we limit the total amount of data in the nioBuffers to int above.
+                adjustMaxBytesPerGatheringWrite((int) attemptedBytes, (int) localWrittenBytes,
+                        maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+        }
+    } while (writeSpinCount &gt; 0);
+
+    incompleteWrite(writeSpinCount &lt; 0);
+}
+
+</code></pre>
+<h3 id="jdk-socketchannelwirte">JDK SocketChannel#wirte</h3>
+<ul>
+<li>1.获取wirte同步锁</li>
+<li>2.执行IOUtil write</li>
+</ul>
+<pre><code class="language-java">public int write(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.writeLock) {
+            this.ensureWriteOpen();
+            int var3 = 0;
+            boolean var20 = false;
+
+            byte var5;
+            label310: {
+                int var4;
+                try {
+                    var20 = true;
+                    this.begin();
+                    synchronized(this.stateLock) {
+                        if (!this.isOpen()) {
+                            var5 = 0;
+                            var20 = false;
+                            break label310;
+                        }
+
+                        this.writerThread = NativeThread.current();
+                    }
+
+                    do {
+                        var3 = IOUtil.write(this.fd, var1, -1L, nd);
+                    } while(var3 == -3 &amp;&amp; this.isOpen());
+
+                    var4 = IOStatus.normalize(var3);
+                    var20 = false;
+                } finally {
+                    if (var20) {
+                        this.writerCleanup();
+                        this.end(var3 &gt; 0 || var3 == -2);
+                        synchronized(this.stateLock) {
+                            if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                                throw new AsynchronousCloseException();
+                            }
+                        }
+
+                        assert IOStatus.check(var3);
+
+                    }
+                }
+
+                this.writerCleanup();
+                this.end(var3 &gt; 0 || var3 == -2);
+                synchronized(this.stateLock) {
+                    if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                        throw new AsynchronousCloseException();
+                    }
+                }
+
+                assert IOStatus.check(var3);
+
+                return var4;
+            }
+
+            this.writerCleanup();
+            this.end(var3 &gt; 0 || var3 == -2);
+            synchronized(this.stateLock) {
+                if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                    throw new AsynchronousCloseException();
+                }
+            }
+
+            assert IOStatus.check(var3);
+
+            return var5;
+        }
+    }
+}
+
+</code></pre>
+<h4 id="ioutilwrite">IOUtil#write</h4>
+<ul>
+<li>1.判断是否是堆外内存</li>
+<li>2.若是堆外内存，直接执行内外内存处理逻辑；</li>
+<li>3.不是堆外内存，创建一块堆外内存，把heapbuffer拷贝到堆外内存，再执行2的逻辑</li>
+</ul>
+<pre><code class="language-java">static int write(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1 instanceof DirectBuffer) {
+        return writeFromNativeBuffer(var0, var1, var2, var4);
+    } else {
+        int var5 = var1.position();
+        int var6 = var1.limit();
+
+        assert var5 &lt;= var6;
+
+        int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+        ByteBuffer var8 = Util.getTemporaryDirectBuffer(var7);
+
+        int var10;
+        try {
+            var8.put(var1);//heap拷贝到direct
+            var8.flip();//切换读写模式
+            var1.position(var5);
+            int var9 = writeFromNativeBuffer(var0, var8, var2, var4);
+            if (var9 &gt; 0) {
+                var1.position(var5 + var9);
+            }
+
+            var10 = var9;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var8);
+        }
+
+        return var10;
+    }
+}
+
+</code></pre>
+<h4 id="ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</h4>
+<ul>
+<li>1.确认要写的边界</li>
+<li>2.执行dispatcher的write</li>
+</ul>
+<pre><code class="language-java">private static int writeFromNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &lt;= var6;
+
+    int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+    boolean var8 = false;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pwrite(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.write(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+</code></pre>
+<h4 id="socketdispatcherwrite">SocketDispatcher#write</h4>
+<pre><code class="language-java">int write(FileDescriptor var1, long var2, int var4) throws IOException {
+    return FileDispatcherImpl.write0(var1, var2, var4);
+}
+
+</code></pre>
+<h5 id="filedispatcherwrite0">FileDispatcher#write0</h5>
+<pre><code class="language-java">static native int write0(FileDescriptor var0, long var1, int var3) throws IOException;
+
+</code></pre>
+<h5 id="jni-write0">JNI write0</h5>
+<ul>
+<li>1.获取文件描述符fd</li>
+<li>2.获取要写入的buffer地址</li>
+</ul>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_write0(JNIEnv *env, jclass clazz,
+                              jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, write(fd, buf, len), JNI_FALSE);
+}
+
+</code></pre>
+<h5 id="ioh-write">io.h #write</h5>
+<p>从buf往fd文件描述符打开的文件写入size个字节</p>
+<pre><code class="language-cpp">static inline int write(int fd, const void* buf, unsigned int size) { return _write(fd, buf, size); }
+
+</code></pre>
+]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><a href="#niosocketchannel-read%E5%AE%9E%E7%8E%B0">NioSocketChannel read实现</a>
+<ul>
+<li><a href="#abstractniobytechannelread">AbstractNioByteChannel#read</a></li>
+<li><a href="#niobyteunsaferead">NioByteUnsafe#read</a></li>
+<li><a href="#niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</a>
+<ul>
+<li><a href="#abstractbytebufwritebytes">AbstractByteBuf#writeBytes</a></li>
+<li><a href="#pooledbytebufsetbytes">PooledByteBuf#setBytes</a></li>
+</ul>
+</li>
+<li><a href="#jdk-socketchannelimplread">JDK SocketChannelImpl#read</a>
+<ul>
+<li><a href="#ioutilread">IOUtil#read</a></li>
+<li><a href="#ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</a></li>
+<li><a href="#socketdispatcherread">SocketDispatcher#read</a>
+<ul>
+<li><a href="#filedispatcherimplread0">FileDispatcherImpl#read0</a></li>
+<li><a href="#jni-read0">JNI read0</a></li>
+<li><a href="#ioh--read">io.h  #read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#niosocketchannel-write%E5%AE%9E%E7%8E%B0">NioSocketChannel Write实现</a>
+<ul>
+<li><a href="#abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</a></li>
+<li><a href="#invokewrite0">invokeWrite0</a>
+<ul>
+<li><a href="#unsafewrite">unsafe#write</a></li>
+</ul>
+</li>
+<li><a href="#invokeflush0">invokeFlush0</a>
+<ul>
+<li><a href="#unsafeflush">unsafe#flush</a></li>
+<li><a href="#flush0">flush0</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchanneldowrite">NioSocketChannel#doWrite</a></li>
+<li><a href="#jdk-socketchannelwirte">JDK SocketChannel#wirte</a>
+<ul>
+<li><a href="#ioutilwrite">IOUtil#write</a></li>
+<li><a href="#ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</a></li>
+<li><a href="#socketdispatcherwrite">SocketDispatcher#write</a>
+<ul>
+<li><a href="#filedispatcherwrite0">FileDispatcher#write0</a></li>
+<li><a href="#jni-write0">JNI write0</a></li>
+<li><a href="#ioh-write">io.h #write</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>零拷贝是Netty自身实现的吗？<br>
+至少在读/写操作时，零拷贝并不是Netty去实现的，而是jdk的NIO本身提供的api</p>
+<h2 id="niosocketchannel-read实现">NioSocketChannel read实现</h2>
+<p>起点在NioEventLoop的run中的processSelectedKeys，调用unsafe的read</p>
+<h3 id="abstractniobytechannelread">AbstractNioByteChannel#read</h3>
+<p>这里和NSSC的AbstractNioMessageChannel区分开，这里的byte是专门处理字节流的, 具体参与处理的其内部实现类NioByteUnsafe</p>
+<h3 id="niobyteunsaferead">NioByteUnsafe#read</h3>
+<ul>
+<li>1.分配一块ByteBuffer</li>
+<li>2.把channel的字节流读到buffer</li>
+<li>3.处理完之后的buffer作为参数处理之后的pipline.fireChannelRead这里跟io读写相关的只发生在2，fireChannelRead可以看作是业务层面的处理，因为底层的字节流已经拿到了。下面只讨论2</li>
+</ul>
+<pre><code class="language-java">protected class NioByteUnsafe extends AbstractNioUnsafe {
+
+    @Override
+    public final void read() {
+        final ChannelConfig config = config();
+        if (shouldBreakReadReady(config)) {
+            clearReadPending();
+            return;
+        }
+        final ChannelPipeline pipeline = pipeline();
+        final ByteBufAllocator allocator = config.getAllocator();
+        final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        ByteBuf byteBuf = null;
+        boolean close = false;
+        try {
+            do {
+                byteBuf = allocHandle.allocate(allocator);
+                allocHandle.lastBytesRead(doReadBytes(byteBuf));
+                if (allocHandle.lastBytesRead() &lt;= 0) {
+                    // nothing was read. release the buffer.
+                    byteBuf.release();
+                    byteBuf = null;
+                    close = allocHandle.lastBytesRead() &lt; 0;
+                    if (close) {
+                        // There is nothing left to read as we received an EOF.
+                        readPending = false;
+                    }
+                    break;
+                }
+
+                allocHandle.incMessagesRead(1);
+                readPending = false;
+                pipeline.fireChannelRead(byteBuf);
+                byteBuf = null;
+            } while (allocHandle.continueReading());
+
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+    }
+}
+
+</code></pre>
+<h3 id="niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</h3>
+<pre><code class="language-java">protected int doReadBytes(ByteBuf byteBuf) throws Exception {
+    final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+    allocHandle.attemptedBytesRead(byteBuf.writableBytes());
+    return byteBuf.writeBytes(javaChannel(), allocHandle.attemptedBytesRead());
+}
+
+</code></pre>
+<h4 id="abstractbytebufwritebytes">AbstractByteBuf#writeBytes</h4>
+<pre><code class="language-java">public int writeBytes(ScatteringByteChannel in, int length) throws IOException {
+    ensureWritable(length);
+    int writtenBytes = setBytes(writerIndex, in, length);
+    if (writtenBytes &gt; 0) {
+        writerIndex += writtenBytes;
+    }
+    return writtenBytes;
+}
+
+</code></pre>
+<h4 id="pooledbytebufsetbytes">PooledByteBuf#setBytes</h4>
+<pre><code class="language-java">public final int setBytes(int index, ScatteringByteChannel in, int length) throws IOException {
+    try {
+        return in.read(internalNioBuffer(index, length));
+    } catch (ClosedChannelException ignored) {
+        return -1;
+    }
+}
+
+</code></pre>
+<h3 id="jdk-socketchannelimplread">JDK SocketChannelImpl#read</h3>
+<p>核心部分</p>
+<ul>
+<li>1.或者read同步锁</li>
+<li>2.while执行IOUtil read，从fd读字节流到buffer</li>
+</ul>
+<pre><code class="language-java">public int read(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.readLock) {
+            if (!this.ensureReadOpen()) {
+                return -1;
+            } else {
+                int var3 = 0;
+                boolean var20 = false;
+
+                byte var10000;
+                byte var5;
+                label360: {
+                    int var4;
+                    try {
+                        var20 = true;
+                        this.begin();
+                        synchronized(this.stateLock) {
+                            if (!this.isOpen()) {
+                                var5 = 0;
+                                var20 = false;
+                                break label360;
+                            }
+
+                            this.readerThread = NativeThread.current();
+                        }
+
+                        while(true) {
+                            var3 = IOUtil.read(this.fd, var1, -1L, nd);
+                            if (var3 != -3 || !this.isOpen()) {
+                                var4 = IOStatus.normalize(var3);
+                                var20 = false;
+                                break;
+                            }
+            }
+        }
+    }
+}
+
+</code></pre>
+<h4 id="ioutilread">IOUtil#read</h4>
+<ul>
+<li>1.区分buffer的类型，是否是直接内存/堆外内存</li>
+<li>2.若是直接内存，直接执行堆外内存的逻辑；</li>
+<li>3.若是heap，需要先将heap转化为堆外内存，再执行2的逻辑</li>
+</ul>
+<p>之所以认为不是Netty在读写时实现了零拷贝技术，是因为jdk本身就提供了堆内存和直接内存的实现，Netty只是在此基础上默认使用了DirectBuffer实例而已，<br>
+若自己用NIO的api来写read操作，在指定buffer的时候使用堆外内存也可以达到相同的效果；</p>
+<pre><code class="language-java">static int read(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1.isReadOnly()) {
+        throw new IllegalArgumentException(&quot;Read-only buffer&quot;);
+    } else if (var1 instanceof DirectBuffer) {
+        return readIntoNativeBuffer(var0, var1, var2, var4);
+    } else {
+        //这里要去分配一块直接内存
+        ByteBuffer var5 = Util.getTemporaryDirectBuffer(var1.remaining());
+
+        int var7;
+        try {
+            int var6 = readIntoNativeBuffer(var0, var5, var2, var4);
+            var5.flip();
+            if (var6 &gt; 0) {
+                var1.put(var5);
+            }
+
+            var7 = var6;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var5);
+        }
+
+        return var7;
+    }
+}
+
+</code></pre>
+<h4 id="ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</h4>
+<p>计算剩余要读的字节，使用dispatcher去读取</p>
+<pre><code class="language-java">private static int readIntoNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &lt;= var6;
+
+    int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        boolean var8 = false;
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pread(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.read(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+</code></pre>
+<h4 id="socketdispatcherread">SocketDispatcher#read</h4>
+<h5 id="filedispatcherimplread0">FileDispatcherImpl#read0</h5>
+<pre><code class="language-java">FileDispatcherImpl#read0
+</code></pre>
+<h5 id="jni-read0">JNI read0</h5>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_read0(JNIEnv *env, jclass clazz,
+                             jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, read(fd, buf, len), JNI_TRUE);
+}
+
+</code></pre>
+<h5 id="ioh-read">io.h  #read</h5>
+<p>从fd文件描述符所在文件，读size个字节到buf所在的内存地址</p>
+<pre><code class="language-cpp">static inline int read(int fd, void* buf, unsigned int size) { return _read(fd, buf, size); }
+</code></pre>
+<h2 id="niosocketchannel-write实现">NioSocketChannel Write实现</h2>
+<p>写的起点是ctx.writeAndFlush</p>
+<h3 id="abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</h3>
+<pre><code class="language-java">public ChannelFuture writeAndFlush(Object msg) {
+    return writeAndFlush(msg, newPromise());
+}
+public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
+    write(msg, true, promise);
+    return promise;
+}
+private void write(Object msg, boolean flush, ChannelPromise promise) {
+    ObjectUtil.checkNotNull(msg, &quot;msg&quot;);
+    try {
+        if (isNotValidPromise(promise, true)) {
+            ReferenceCountUtil.release(msg);
+            // cancelled
+            return;
+        }
+    } catch (RuntimeException e) {
+        ReferenceCountUtil.release(msg);
+        throw e;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(flush ?
+            (MASK_WRITE | MASK_FLUSH) : MASK_WRITE);
+    final Object m = pipeline.touch(msg, next);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        if (flush) {
+            next.invokeWriteAndFlush(m, promise);
+        } else {
+            next.invokeWrite(m, promise);
+        }
+    } else {
+        final WriteTask task = WriteTask.newInstance(next, m, promise, flush);
+        if (!safeExecute(executor, task, promise, m, !flush)) {
+            // We failed to submit the WriteTask. We need to cancel it so we decrement the pending bytes
+            // and put it back in the Recycler for re-use later.
+            //
+            // See https://github.com/netty/netty/issues/8343.
+            task.cancel();
+        }
+    }
+}
+void invokeWriteAndFlush(Object msg, ChannelPromise promise) {
+    if (invokeHandler()) {
+        invokeWrite0(msg, promise);
+        invokeFlush0();
+    } else {
+        writeAndFlush(msg, promise);
+    }
+}
+
+</code></pre>
+<p><strong>channel的字节流不是立刻发送的，分成了两个动作，一个缓存和组合message，另一个flush才是真正的发送；</strong></p>
+<h3 id="invokewrite0">invokeWrite0</h3>
+<h4 id="unsafewrite">unsafe#write</h4>
+<ul>
+<li>1.有一个outboundBuffer，代表最后真正要发送的字节</li>
+<li>2.过滤msg，通过之后的msg才会被加入到out中</li>
+<li>3.添加msg</li>
+</ul>
+<pre><code class="language-java">public final void write(Object msg, ChannelPromise promise) {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        try {
+            // release message now to prevent resource-leak
+            ReferenceCountUtil.release(msg);
+        } finally {
+            // If the outboundBuffer is null we know the channel was closed and so
+            // need to fail the future right away. If it is not null the handling of the rest
+            // will be done in flush0()
+            // See https://github.com/netty/netty/issues/2362
+            safeSetFailure(promise,
+                    newClosedChannelException(initialCloseCause, &quot;write(Object, ChannelPromise)&quot;));
+        }
+        return;
+    }
+
+    int size;
+    try {
+        msg = filterOutboundMessage(msg);
+        size = pipeline.estimatorHandle().size(msg);
+        if (size &lt; 0) {
+            size = 0;
+        }
+    } catch (Throwable t) {
+        try {
+            ReferenceCountUtil.release(msg);
+        } finally {
+            safeSetFailure(promise, t);
+        }
+        return;
+    }
+
+    outboundBuffer.addMessage(msg, size, promise);
+}
+
+</code></pre>
+<h3 id="invokeflush0">invokeFlush0</h3>
+<h4 id="unsafeflush">unsafe#flush</h4>
+<ul>
+<li>1.拿到write之后的outboundBuffer</li>
+<li>2.确认每一个promise</li>
+<li>3.执行flush0</li>
+</ul>
+<pre><code class="language-java">public final void flush() {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        return;
+    }
+
+    outboundBuffer.addFlush();
+    flush0();
+}
+public void addFlush() {
+    // There is no need to process all entries if there was already a flush before and no new messages
+    // where added in the meantime.
+    //
+    // See https://github.com/netty/netty/issues/2577
+    Entry entry = unflushedEntry;
+    if (entry != null) {
+        if (flushedEntry == null) {
+            // there is no flushedEntry yet, so start with the entry
+            flushedEntry = entry;
+        }
+        do {
+            flushed ++;
+            if (!entry.promise.setUncancellable()) {
+                // Was cancelled so make sure we free up memory and notify about the freed bytes
+                int pending = entry.cancel();
+                decrementPendingOutboundBytes(pending, false, true);
+            }
+            entry = entry.next;
+        } while (entry != null);
+
+        // All flushed so reset unflushedEntry
+        unflushedEntry = null;
+    }
+}
+
+</code></pre>
+<h4 id="flush0">flush0</h4>
+<pre><code class="language-java">protected void flush0() {
+    if (inFlush0) {
+        // Avoid re-entrance
+        return;
+    }
+
+    final ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null || outboundBuffer.isEmpty()) {
+        return;
+    }
+
+    inFlush0 = true;
+
+    // Mark all pending write requests as failure if the channel is inactive.
+    if (!isActive()) {
+        try {
+            // Check if we need to generate the exception at all.
+            if (!outboundBuffer.isEmpty()) {
+                if (isOpen()) {
+                    outboundBuffer.failFlushed(new NotYetConnectedException(), true);
+                } else {
+                    // Do not trigger channelWritabilityChanged because the channel is closed already.
+                    outboundBuffer.failFlushed(newClosedChannelException(initialCloseCause, &quot;flush0()&quot;), false);
+                }
+            }
+        } finally {
+            inFlush0 = false;
+        }
+        return;
+    }
+
+    try {
+        doWrite(outboundBuffer);
+    } catch (Throwable t) {
+        handleWriteError(t);
+    } finally {
+        inFlush0 = false;
+    }
+}
+
+</code></pre>
+<h3 id="niosocketchanneldowrite">NioSocketChannel#doWrite</h3>
+<ul>
+<li>1.获取nio的channel</li>
+<li>2.获取要处理的buffer数组</li>
+<li>3.执行channel.write</li>
+</ul>
+<pre><code class="language-java">protected void doWrite(ChannelOutboundBuffer in) throws Exception {
+    SocketChannel ch = javaChannel();
+    int writeSpinCount = config().getWriteSpinCount();
+    do {
+        if (in.isEmpty()) {
+            // All written so clear OP_WRITE
+            clearOpWrite();
+            // Directly return here so incompleteWrite(...) is not called.
+            return;
+        }
+
+        // Ensure the pending writes are made of ByteBufs only.
+        int maxBytesPerGatheringWrite = ((NioSocketChannelConfig) config).getMaxBytesPerGatheringWrite();
+        ByteBuffer[] nioBuffers = in.nioBuffers(1024, maxBytesPerGatheringWrite);
+        int nioBufferCnt = in.nioBufferCount();
+
+        // Always use nioBuffers() to workaround data-corruption.
+        // See https://github.com/netty/netty/issues/2761
+        switch (nioBufferCnt) {
+            case 0:
+                // We have something else beside ByteBuffers to write so fallback to normal writes.
+                writeSpinCount -= doWrite0(in);
+                break;
+            case 1: {
+                // Only one ByteBuf so use non-gathering write
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                ByteBuffer buffer = nioBuffers[0];
+                int attemptedBytes = buffer.remaining();
+                final int localWrittenBytes = ch.write(buffer);
+                if (localWrittenBytes &lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                adjustMaxBytesPerGatheringWrite(attemptedBytes, localWrittenBytes, maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+            default: {
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                // We limit the max amount to int above so cast is safe
+                long attemptedBytes = in.nioBufferSize();
+                final long localWrittenBytes = ch.write(nioBuffers, 0, nioBufferCnt);
+                if (localWrittenBytes &lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                // Casting to int is safe because we limit the total amount of data in the nioBuffers to int above.
+                adjustMaxBytesPerGatheringWrite((int) attemptedBytes, (int) localWrittenBytes,
+                        maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+        }
+    } while (writeSpinCount &gt; 0);
+
+    incompleteWrite(writeSpinCount &lt; 0);
+}
+
+</code></pre>
+<h3 id="jdk-socketchannelwirte">JDK SocketChannel#wirte</h3>
+<ul>
+<li>1.获取wirte同步锁</li>
+<li>2.执行IOUtil write</li>
+</ul>
+<pre><code class="language-java">public int write(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.writeLock) {
+            this.ensureWriteOpen();
+            int var3 = 0;
+            boolean var20 = false;
+
+            byte var5;
+            label310: {
+                int var4;
+                try {
+                    var20 = true;
+                    this.begin();
+                    synchronized(this.stateLock) {
+                        if (!this.isOpen()) {
+                            var5 = 0;
+                            var20 = false;
+                            break label310;
+                        }
+
+                        this.writerThread = NativeThread.current();
+                    }
+
+                    do {
+                        var3 = IOUtil.write(this.fd, var1, -1L, nd);
+                    } while(var3 == -3 &amp;&amp; this.isOpen());
+
+                    var4 = IOStatus.normalize(var3);
+                    var20 = false;
+                } finally {
+                    if (var20) {
+                        this.writerCleanup();
+                        this.end(var3 &gt; 0 || var3 == -2);
+                        synchronized(this.stateLock) {
+                            if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                                throw new AsynchronousCloseException();
+                            }
+                        }
+
+                        assert IOStatus.check(var3);
+
+                    }
+                }
+
+                this.writerCleanup();
+                this.end(var3 &gt; 0 || var3 == -2);
+                synchronized(this.stateLock) {
+                    if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                        throw new AsynchronousCloseException();
+                    }
+                }
+
+                assert IOStatus.check(var3);
+
+                return var4;
+            }
+
+            this.writerCleanup();
+            this.end(var3 &gt; 0 || var3 == -2);
+            synchronized(this.stateLock) {
+                if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                    throw new AsynchronousCloseException();
+                }
+            }
+
+            assert IOStatus.check(var3);
+
+            return var5;
+        }
+    }
+}
+
+</code></pre>
+<h4 id="ioutilwrite">IOUtil#write</h4>
+<ul>
+<li>1.判断是否是堆外内存</li>
+<li>2.若是堆外内存，直接执行内外内存处理逻辑；</li>
+<li>3.不是堆外内存，创建一块堆外内存，把heapbuffer拷贝到堆外内存，再执行2的逻辑</li>
+</ul>
+<pre><code class="language-java">static int write(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1 instanceof DirectBuffer) {
+        return writeFromNativeBuffer(var0, var1, var2, var4);
+    } else {
+        int var5 = var1.position();
+        int var6 = var1.limit();
+
+        assert var5 &lt;= var6;
+
+        int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+        ByteBuffer var8 = Util.getTemporaryDirectBuffer(var7);
+
+        int var10;
+        try {
+            var8.put(var1);//heap拷贝到direct
+            var8.flip();//切换读写模式
+            var1.position(var5);
+            int var9 = writeFromNativeBuffer(var0, var8, var2, var4);
+            if (var9 &gt; 0) {
+                var1.position(var5 + var9);
+            }
+
+            var10 = var9;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var8);
+        }
+
+        return var10;
+    }
+}
+
+</code></pre>
+<h4 id="ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</h4>
+<ul>
+<li>1.确认要写的边界</li>
+<li>2.执行dispatcher的write</li>
+</ul>
+<pre><code class="language-java">private static int writeFromNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &lt;= var6;
+
+    int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+    boolean var8 = false;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pwrite(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.write(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+</code></pre>
+<h4 id="socketdispatcherwrite">SocketDispatcher#write</h4>
+<pre><code class="language-java">int write(FileDescriptor var1, long var2, int var4) throws IOException {
+    return FileDispatcherImpl.write0(var1, var2, var4);
+}
+
+</code></pre>
+<h5 id="filedispatcherwrite0">FileDispatcher#write0</h5>
+<pre><code class="language-java">static native int write0(FileDescriptor var0, long var1, int var3) throws IOException;
+
+</code></pre>
+<h5 id="jni-write0">JNI write0</h5>
+<ul>
+<li>1.获取文件描述符fd</li>
+<li>2.获取要写入的buffer地址</li>
+</ul>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_write0(JNIEnv *env, jclass clazz,
+                              jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, write(fd, buf, len), JNI_FALSE);
+}
+
+</code></pre>
+<h5 id="ioh-write">io.h #write</h5>
+<p>从buf往fd文件描述符打开的文件写入size个字节</p>
+<pre><code class="language-cpp">static inline int write(int fd, const void* buf, unsigned int size) { return _write(fd, buf, size); }
+
+</code></pre>
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Netty Core NioEventLoop]]></title>
+        <id>https://wjkcoder.github.io/post/netty-nioeventloop-core/</id>
+        <link href="https://wjkcoder.github.io/post/netty-nioeventloop-core/">
+        </link>
+        <updated>2020-03-17T10:24:13.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="#nioeventloop-%E5%90%AF%E5%8A%A8">NioEventLoop 启动</a>
+<ul>
+<li><a href="#nioeventloop-register">NioEventLoop register</a></li>
+<li><a href="#nioeventloop-execute">NioEventLoop execute</a>
+<ul>
+<li><a href="#singlethreadeventexecutor-dostartthread">SingleThreadEventExecutor #doStartThread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#nioeventloop-run%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6%E5%92%8C%E4%BB%BB%E5%8A%A1">NioEventLoop #run()处理事件和任务</a>
+<ul>
+<li><a href="#select%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0">Select()机制实现</a>
+<ul>
+<li><a href="#nioeventloop-select">NioEventLoop select</a></li>
+<li><a href="#nioeventloop%E4%B8%ADwrappedselector">NioEventLoop中wrappedSelector</a></li>
+<li><a href="#selectorimplselect">SelectorImpl#select</a></li>
+<li><a href="#kqueueselectorimpldoselect">KQueueSelectorImpl#doSelect</a>
+<ul>
+<li><a href="#kqueuewrapper-poll">KqueueWrapper #poll</a></li>
+<li><a href="#jni-kevent">JNI kevent</a></li>
+<li><a href="#keventh">kevent.h</a></li>
+</ul>
+</li>
+<li><a href="#kqueueselectorimplupdateselectedkeys">KQueueSelectorImpl#updateSelectedKeys</a>
+<ul>
+<li><a href="#kqueuearraywrappergetdescriptor">KQueueArrayWrapper.getDescriptor</a></li>
+<li><a href="#thiskqueuewrappergetreventopsvar4">this.kqueueWrapper.getReventOps(var4)</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0selectedkeys">更新SelectedKeys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#processselectedkeys-%E5%A4%84%E7%90%86%E5%93%8D%E5%BA%94%E4%BA%8B%E4%BB%B6">processSelectedKeys 处理响应事件</a>
+<ul>
+<li><a href="#nioeventloopprocessselectedkeys">NioEventLoop#processSelectedKeys</a></li>
+<li><a href="#nioeventloopprocessselectedkeysoptimized">NioEventLoop#processSelectedKeysOptimized</a></li>
+<li><a href="#nioeventloopprocessselectedkeys-1">NioEventLoop#processSelectedKeys</a></li>
+<li><a href="#channelunsaferead">channel.unsafe().read()</a>
+<ul>
+<li><a href="#nioserversocketchannel%E4%B8%ADunsafe%E5%AE%9E%E4%BE%8Bread">NioServerSocketChannel中unsafe实例#read</a>
+<ul>
+<li><a href="#nioserversocketchanneldoreadmessages">NioServerSocketChannel#doReadMessages</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchannel%E4%B8%ADunsafe%E5%AE%9E%E4%BE%8Bread">NioSocketChannel中unsafe实例#read</a></li>
+</ul>
+</li>
+<li><a href="#piplinefirechannelread">pipline.fireChannelRead</a>
+<ul>
+<li><a href="#nioserversocketchannel-firechannelread">NioServerSocketChannel #fireChannelRead</a></li>
+<li><a href="#niosocketchannel-firechannelread">NioSocketChannel #fireChannelRead</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="nioeventloop-启动">NioEventLoop 启动</h1>
+<h2 id="nioeventloop-register">NioEventLoop register</h2>
+<p>NioEventLoop的实例化发生在NioEventLoopGroup的创建，但线程并没有开启，线程的开启是在register时发生的</p>
+<ul>
+<li>1.将channel注册到eventloop上</li>
+<li>2.判断eventloop是否是当前线程，非当前线程时，使用eventloop 执行task</li>
+</ul>
+<pre><code class="language-java">public final void register(EventLoop eventLoop, final ChannelPromise promise) {
+    AbstractChannel.this.eventLoop = eventLoop;
+    if (eventLoop.inEventLoop()) {
+        register0(promise);
+    } else {
+        try {
+            eventLoop.execute(new Runnable() {
+                @Override
+                public void run() {
+                    register0(promise);
+                }
+            });
+        } 
+    }
+}
+
+</code></pre>
+<h2 id="nioeventloop-execute">NioEventLoop execute</h2>
+<p>1.将task添加任务队列<br>
+2.判断eventloop是否开启，若未开启则执行startThread</p>
+<pre><code class="language-java">public void execute(Runnable task) {
+    ObjectUtil.checkNotNull(task, &quot;task&quot;);
+    execute(task, !(task instanceof LazyRunnable) &amp;&amp; wakesUpForTask(task));
+}
+
+</code></pre>
+<pre><code class="language-java">private void execute(Runnable task, boolean immediate) {
+    boolean inEventLoop = inEventLoop();
+    addTask(task);
+    if (!inEventLoop) {
+        startThread();
+    }
+
+    if (!addTaskWakesUp &amp;&amp; immediate) {
+        wakeup(inEventLoop);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">private void startThread() {
+    if (state == ST_NOT_STARTED) {
+        if (STATE_UPDATER.compareAndSet(this, ST_NOT_STARTED, ST_STARTED)) {
+            boolean success = false;
+            try {
+                doStartThread();
+                success = true;
+            } finally {
+                if (!success) {
+                    STATE_UPDATER.compareAndSet(this, ST_STARTED, ST_NOT_STARTED);
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="singlethreadeventexecutor-dostartthread">SingleThreadEventExecutor #doStartThread</h3>
+<ul>
+<li>1.执行包装好的runnable，thread赋值为当前线程也就是executor所在的线程</li>
+<li>2.执行NioEventLoop的run，就是处理SelectedKeys的for循环</li>
+<li>3.在外部加上shutdown和相关处理</li>
+</ul>
+<pre><code class="language-java">private void doStartThread() {
+    assert thread == null;
+    executor.execute(new Runnable() {
+        @Override
+        public void run() {
+            thread = Thread.currentThread();
+            if (interrupted) {
+                thread.interrupt();
+            }
+
+            boolean success = false;
+            updateLastExecutionTime();
+            try {
+                SingleThreadEventExecutor.this.run();
+                success = true;
+            } catch (Throwable t) {
+                logger.warn(&quot;Unexpected exception from an event executor: &quot;, t);
+            } finally {
+                for (;;) {
+                    int oldState = state;
+                    if (oldState &gt;= ST_SHUTTING_DOWN || STATE_UPDATER.compareAndSet(
+                            SingleThreadEventExecutor.this, oldState, ST_SHUTTING_DOWN)) {
+                        break;
+                    }
+                }
+
+                // Check if confirmShutdown() was called at the end of the loop.
+                if (success &amp;&amp; gracefulShutdownStartTime == 0) {
+                    if (logger.isErrorEnabled()) {
+                        logger.error(&quot;Buggy &quot; + EventExecutor.class.getSimpleName() + &quot; implementation; &quot; +
+                                SingleThreadEventExecutor.class.getSimpleName() + &quot;.confirmShutdown() must &quot; +
+                                &quot;be called before run() implementation terminates.&quot;);
+                    }
+                }
+
+                try {
+                    // Run all remaining tasks and shutdown hooks. At this point the event loop
+                    // is in ST_SHUTTING_DOWN state still accepting tasks which is needed for
+                    // graceful shutdown with quietPeriod.
+                    for (;;) {
+                        if (confirmShutdown()) {
+                            break;
+                        }
+                    }
+
+                    // Now we want to make sure no more tasks can be added from this point. This is
+                    // achieved by switching the state. Any new tasks beyond this point will be rejected.
+                    for (;;) {
+                        int oldState = state;
+                        if (oldState &gt;= ST_SHUTDOWN || STATE_UPDATER.compareAndSet(
+                                SingleThreadEventExecutor.this, oldState, ST_SHUTDOWN)) {
+                            break;
+                        }
+                    }
+
+                    // We have the final set of tasks in the queue now, no more can be added, run all remaining.
+                    // No need to loop here, this is the final pass.
+                    confirmShutdown();
+                } finally {
+                    try {
+                        cleanup();
+                    } finally {
+                        // Lets remove all FastThreadLocals for the Thread as we are about to terminate and notify
+                        // the future. The user may block on the future and once it unblocks the JVM may terminate
+                        // and start unloading classes.
+                        // See https://github.com/netty/netty/issues/6596.
+                        FastThreadLocal.removeAll();
+
+                        STATE_UPDATER.set(SingleThreadEventExecutor.this, ST_TERMINATED);
+                        threadLock.countDown();
+                        int numUserTasks = drainTasks();
+                        if (numUserTasks &gt; 0 &amp;&amp; logger.isWarnEnabled()) {
+                            logger.warn(&quot;An event executor terminated with &quot; +
+                                    &quot;non-empty task queue (&quot; + numUserTasks + ')');
+                        }
+                        terminationFuture.setSuccess(null);
+                    }
+                }
+            }
+        }
+    });
+}
+
+</code></pre>
+<h1 id="nioeventloop-run处理事件和任务">NioEventLoop #run()处理事件和任务</h1>
+<p>事件处理的核心</p>
+<ul>
+<li>1.根据当前是否有task计算选择策略，tasks为空时，默认是SELECT</li>
+<li>2.计算timeout，执行select()，这里若没有事件产生，阻塞当前线程</li>
+<li>3.事件产生或超时，线程唤醒；根据事件数量判定是否执行processKeys</li>
+<li>4.finally中处理tasks队列中的task</li>
+</ul>
+<pre><code class="language-java">protected void run() {
+    int selectCnt = 0;
+    for (;;) {
+        try {
+            int strategy;
+            try {
+                strategy = selectStrategy.calculateStrategy(selectNowSupplier, hasTasks());
+                switch (strategy) {
+                case SelectStrategy.CONTINUE:
+                    continue;
+
+                case SelectStrategy.BUSY_WAIT:
+                    // fall-through to SELECT since the busy-wait is not supported with NIO
+
+                case SelectStrategy.SELECT:
+                    long curDeadlineNanos = nextScheduledTaskDeadlineNanos();
+                    if (curDeadlineNanos == -1L) {
+                        curDeadlineNanos = NONE; // nothing on the calendar
+                    }
+                    nextWakeupNanos.set(curDeadlineNanos);
+                    try {
+                        if (!hasTasks()) {
+                            strategy = select(curDeadlineNanos);
+                        }
+                    } finally {
+                        // This update is just to help block unnecessary selector wakeups
+                        // so use of lazySet is ok (no race condition)
+                        nextWakeupNanos.lazySet(AWAKE);
+                    }
+                    // fall through
+                default:
+                }
+            } catch (IOException e) {
+                // If we receive an IOException here its because the Selector is messed up. Let's rebuild
+                // the selector and retry. https://github.com/netty/netty/issues/8566
+                rebuildSelector0();
+                selectCnt = 0;
+                handleLoopException(e);
+                continue;
+            }
+
+            selectCnt++;
+            cancelledKeys = 0;
+            needsToSelectAgain = false;
+            final int ioRatio = this.ioRatio;
+            boolean ranTasks;
+            if (ioRatio == 100) {
+                try {
+                    if (strategy &gt; 0) {
+                        processSelectedKeys();
+                    }
+                } finally {
+                    // Ensure we always run tasks.
+                    ranTasks = runAllTasks();
+                }
+            } else if (strategy &gt; 0) {
+                final long ioStartTime = System.nanoTime();
+                try {
+                    processSelectedKeys();
+                } finally {
+                    // Ensure we always run tasks.
+                    final long ioTime = System.nanoTime() - ioStartTime;
+                    ranTasks = runAllTasks(ioTime * (100 - ioRatio) / ioRatio);
+                }
+            } else {
+                ranTasks = runAllTasks(0); // This will run the minimum number of tasks
+            }
+
+            if (ranTasks || strategy &gt; 0) {
+                if (selectCnt &gt; MIN_PREMATURE_SELECTOR_RETURNS &amp;&amp; logger.isDebugEnabled()) {
+                    logger.debug(&quot;Selector.select() returned prematurely {} times in a row for Selector {}.&quot;,
+                            selectCnt - 1, selector);
+                }
+                selectCnt = 0;
+            } else if (unexpectedSelectorWakeup(selectCnt)) { // Unexpected wakeup (unusual case)
+                selectCnt = 0;
+            }
+        } catch (CancelledKeyException e) {
+            // Harmless exception - log anyway
+            if (logger.isDebugEnabled()) {
+                logger.debug(CancelledKeyException.class.getSimpleName() + &quot; raised by a Selector {} - JDK bug?&quot;,
+                        selector, e);
+            }
+        } catch (Error e) {
+            throw (Error) e;
+        } catch (Throwable t) {
+            handleLoopException(t);
+        } finally {
+            // Always handle shutdown even if the loop processing threw an exception.
+            try {
+                if (isShuttingDown()) {
+                    closeAll();
+                    if (confirmShutdown()) {
+                        return;
+                    }
+                }
+            } catch (Error e) {
+                throw (Error) e;
+            } catch (Throwable t) {
+                handleLoopException(t);
+            }
+        }
+    }
+}
+
+</code></pre>
+<h2 id="select机制实现">Select()机制实现</h2>
+<h3 id="nioeventloop-select">NioEventLoop select</h3>
+<pre><code class="language-java">strategy = select(curDeadlineNanos);
+
+</code></pre>
+<pre><code class="language-java">private int select(long deadlineNanos) throws IOException {
+    if (deadlineNanos == NONE) {
+        return selector.select();
+    }
+    // Timeout will only be 0 if deadline is within 5 microsecs
+    long timeoutMillis = deadlineToDelayNanos(deadlineNanos + 995000L) / 1000000L;
+    return timeoutMillis &lt;= 0 ? selector.selectNow() : selector.select(timeoutMillis);
+}
+
+</code></pre>
+<h3 id="nioeventloop中wrappedselector">NioEventLoop中wrappedSelector</h3>
+<ul>
+<li>1.重置selectKeys 如果是用jdk的nio去做，也需要自己手动去重置selectKeys，否则会有错误的keys</li>
+<li>2.执行unwrapped selector的select</li>
+</ul>
+<pre><code class="language-java">public int select() throws IOException {
+    selectionKeys.reset();
+    return delegate.select();
+}
+
+</code></pre>
+<h3 id="selectorimplselect">SelectorImpl#select</h3>
+<pre><code class="language-java">public int select() throws IOException {
+    return this.select(0L);
+}
+
+</code></pre>
+<pre><code class="language-java">public int select(long var1) throws IOException {
+    if (var1 &lt; 0L) {
+        throw new IllegalArgumentException(&quot;Negative timeout&quot;);
+    } else {
+        return this.lockAndDoSelect(var1 == 0L ? -1L : var1);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">private int lockAndDoSelect(long var1) throws IOException {
+    synchronized(this) {
+        if (!this.isOpen()) {
+            throw new ClosedSelectorException();
+        } else {
+            int var10000;
+            synchronized(this.publicKeys) {
+                synchronized(this.publicSelectedKeys) {
+                    var10000 = this.doSelect(var1);
+                }
+            }
+
+            return var10000;
+        }
+    }
+}
+
+</code></pre>
+<h3 id="kqueueselectorimpldoselect">KQueueSelectorImpl#doSelect</h3>
+<p>核心两件事情：</p>
+<ul>
+<li>1.返回产生的事件数量</li>
+<li>2.根据事件数量更新selectedKeys</li>
+</ul>
+<pre><code class="language-java">protected int doSelect(long var1) throws IOException {
+    boolean var3 = false;
+    if (this.closed) {
+        throw new ClosedSelectorException();
+    } else {
+        this.processDeregisterQueue();
+
+        int var7;
+        try {
+            this.begin();
+            var7 = this.kqueueWrapper.poll(var1);
+        } finally {
+            this.end();
+        }
+
+        this.processDeregisterQueue();
+        return this.updateSelectedKeys(var7);
+    }
+}
+
+</code></pre>
+<h4 id="kqueuewrapper-poll">KqueueWrapper #poll</h4>
+<pre><code class="language-java">int poll(long var1) {
+    this.updateRegistrations();
+    int var3 = this.kevent0(this.kq, this.keventArrayAddress, 128, var1);
+    return var3;
+}
+
+</code></pre>
+<h4 id="jni-kevent">JNI kevent</h4>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_KQueueArrayWrapper_kevent0(JNIEnv *env, jobject this, jint kq,
+                                           jlong kevAddr, jint kevCount,
+                                           jlong timeout)
+{
+    struct kevent *kevs = (struct kevent *)jlong_to_ptr(kevAddr);
+    struct timespec ts;
+    struct timespec *tsp;
+    int result;
+
+    // Java timeout is in milliseconds. Convert to struct timespec.
+    // Java timeout == -1 : wait forever : timespec timeout of NULL
+    // Java timeout == 0  : return immediately : timespec timeout of zero
+    if (timeout &gt;= 0) {
+        ts.tv_sec = timeout / 1000;
+        ts.tv_nsec = (timeout % 1000) * 1000000; //nanosec = 1 million millisec
+        tsp = &amp;ts;
+    } else {
+        tsp = NULL;
+    }
+
+    result = kevent(kq, NULL, 0, kevs, kevCount, tsp);
+
+    if (result &lt; 0) {
+        if (errno == EINTR) {
+            // ignore EINTR, pretend nothing was selected
+            result = 0;
+        } else {
+            JNU_ThrowIOExceptionWithLastError(env, &quot;KQueueArrayWrapper: kqueue failed&quot;);
+        }
+    }
+
+    return result;
+}
+
+</code></pre>
+<h4 id="keventh">kevent.h</h4>
+<p>返回timeout内产生的事件个数，产生的event会记录在eventlist的连续地址内；</p>
+<pre><code class="language-cpp">int     kevent(int kq,
+    const struct kevent *changelist, int nchanges,
+    struct kevent *eventlist, int nevents,
+    const struct timespec *timeout);
+
+</code></pre>
+<h3 id="kqueueselectorimplupdateselectedkeys">KQueueSelectorImpl#updateSelectedKeys</h3>
+<p>1.循环事件个数，以此为偏移量计算fd的identifier</p>
+<h4 id="kqueuearraywrappergetdescriptor">KQueueArrayWrapper.getDescriptor</h4>
+<p>eventlist是连续的内存，一个kevent是32字节，fd identifier long 是在第一个，偏移量是0</p>
+<pre><code class="language-java">int getDescriptor(int var1) {
+    int var2 = SIZEOF_KEVENT * var1 + FD_OFFSET;
+    if (is64bit) {
+        long var3 = this.keventArray.getLong(var2);
+
+        assert var3 &lt;= 2147483647L;
+
+        return (int)var3;
+    } else {
+        return this.keventArray.getInt(var2);
+    }
+}
+
+</code></pre>
+<p>2.根据偏移量访问直接内存，获取事件类型</p>
+<h4 id="thiskqueuewrappergetreventopsvar4">this.kqueueWrapper.getReventOps(var4)</h4>
+<p>同样的，也是根据偏移量拿到index处的kevent，8字节(64bit)后是filter，getshort拿到filter</p>
+<pre><code class="language-java">int getReventOps(int var1) {
+    int var2 = 0;
+    int var3 = SIZEOF_KEVENT * var1 + FILTER_OFFSET;
+    short var4 = this.keventArray.getShort(var3);
+    if (var4 == EVFILT_READ) {
+        var2 |= Net.POLLIN;
+    } else if (var4 == EVFILT_WRITE) {
+        var2 |= Net.POLLOUT;
+    }
+
+    return var2;
+}
+
+</code></pre>
+<h4 id="更新selectedkeys">更新SelectedKeys</h4>
+<p>这里的selectedkeys就是之后unwrapped selector中的keys</p>
+<pre><code class="language-java">private int updateSelectedKeys(int var1) throws IOException {
+    int var2 = 0;
+    boolean var3 = false;
+    ++this.updateCount;
+
+    for(int var4 = 0; var4 &lt; var1; ++var4) {
+        int var5 = this.kqueueWrapper.getDescriptor(var4);
+        if (var5 == this.fd0) {
+            var3 = true;
+        } else {
+            MapEntry var6 = (MapEntry)this.fdMap.get(var5);
+            if (var6 != null) {
+                int var7 = this.kqueueWrapper.getReventOps(var4);
+                SelectionKeyImpl var8 = var6.ski;
+                if (this.selectedKeys.contains(var8)) {
+                    if (var6.updateCount != this.updateCount) {
+                        if (var8.channel.translateAndSetReadyOps(var7, var8)) {
+                            ++var2;
+                            var6.updateCount = this.updateCount;
+                        }
+                    } else {
+                        var8.channel.translateAndUpdateReadyOps(var7, var8);
+                    }
+                } else {
+                    var8.channel.translateAndSetReadyOps(var7, var8);
+                    if ((var8.nioReadyOps() &amp; var8.nioInterestOps()) != 0) {
+                        this.selectedKeys.add(var8);
+                        ++var2;
+                        var6.updateCount = this.updateCount;
+                    }
+                }
+            }
+        }
+    }
+
+    if (var3) {
+        synchronized(this.interruptLock) {
+            IOUtil.drain(this.fd0);
+            this.interruptTriggered = false;
+        }
+    }
+
+    return var2;
+}
+
+</code></pre>
+<h2 id="processselectedkeys-处理响应事件">processSelectedKeys 处理响应事件</h2>
+<h3 id="nioeventloopprocessselectedkeys">NioEventLoop#processSelectedKeys</h3>
+<pre><code class="language-java">private void processSelectedKeys() {
+    if (selectedKeys != null) {
+        processSelectedKeysOptimized();
+    } else {
+        processSelectedKeysPlain(selector.selectedKeys());
+    }
+}
+
+</code></pre>
+<h3 id="nioeventloopprocessselectedkeysoptimized">NioEventLoop#processSelectedKeysOptimized</h3>
+<p>从key的attach上拿到channel，执行处理key</p>
+<pre><code class="language-java">private void processSelectedKeysOptimized() {
+    for (int i = 0; i &lt; selectedKeys.size; ++i) {
+        final SelectionKey k = selectedKeys.keys[i];
+        // null out entry in the array to allow to have it GC'ed once the Channel close
+        // See https://github.com/netty/netty/issues/2363
+        selectedKeys.keys[i] = null;
+
+        final Object a = k.attachment();
+
+        if (a instanceof AbstractNioChannel) {
+            processSelectedKey(k, (AbstractNioChannel) a);
+        } else {
+            @SuppressWarnings(&quot;unchecked&quot;)
+            NioTask&lt;SelectableChannel&gt; task = (NioTask&lt;SelectableChannel&gt;) a;
+            processSelectedKey(k, task);
+        }
+    }
+}
+
+</code></pre>
+<h3 id="nioeventloopprocessselectedkeys-2">NioEventLoop#processSelectedKeys</h3>
+<ul>
+<li>1.拿到channel的unsafe实例</li>
+<li>2.判断k的事件类型，依次处理 OP_CONNECT &gt; OP_WRITE &gt; OP_READ | OP_ACCEPT,这里read和accept是放在一起处理的，原因是ServerChannel的accept操作也是在channelRead方法里执行的；</li>
+<li>3.需要注意的是NioServerSocketChannel和NioSocketChannel的unsafe实例是不同的<br>
+前者对应AbstractNioMessageChannel的实现，用于处理连接；<br>
+后者对应AbstractNioByteChannel的实现，用于处理字节流读写；</li>
+</ul>
+<pre><code class="language-java">private void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
+    final AbstractNioChannel.NioUnsafe unsafe = ch.unsafe();
+    try {
+        int readyOps = k.readyOps();
+        // We first need to call finishConnect() before try to trigger a read(...) or write(...) as otherwise
+        // the NIO JDK channel implementation may throw a NotYetConnectedException.
+        if ((readyOps &amp; SelectionKey.OP_CONNECT) != 0) {
+            // remove OP_CONNECT as otherwise Selector.select(..) will always return without blocking
+            // See https://github.com/netty/netty/issues/924
+            int ops = k.interestOps();
+            ops &amp;= ~SelectionKey.OP_CONNECT;
+            k.interestOps(ops);
+    
+            unsafe.finishConnect();
+        }
+    
+        // Process OP_WRITE first as we may be able to write some queued buffers and so free memory.
+        if ((readyOps &amp; SelectionKey.OP_WRITE) != 0) {
+            // Call forceFlush which will also take care of clear the OP_WRITE once there is nothing left to write
+            ch.unsafe().forceFlush();
+        }
+    
+        // Also check for readOps of 0 to workaround possible JDK bug which may otherwise lead
+        // to a spin loop
+        if ((readyOps &amp; (SelectionKey.OP_READ | SelectionKey.OP_ACCEPT)) != 0 || readyOps == 0) {
+            unsafe.read();
+        }
+    } catch (CancelledKeyException ignored) {
+        unsafe.close(unsafe.voidPromise());
+    }
+}  
+
+</code></pre>
+<h3 id="channelunsaferead">channel.unsafe().read()</h3>
+<h4 id="nioserversocketchannel中unsafe实例read">NioServerSocketChannel中unsafe实例#read</h4>
+<ul>
+<li>1.调用NioServerSocketChannel的doReadMessages处理accept，把nio SocketChannel包装成NioSocketChannel放在readBuf列表中</li>
+<li>2.执行pipline的channelRead方法，这里的实现是固定的，用于配置childHandler</li>
+<li>3.执行pipline的channelReadComplete</li>
+<li>4.处理异常(若有)</li>
+</ul>
+<pre><code class="language-java">private final class NioMessageUnsafe extends AbstractNioUnsafe {
+
+    private final List&lt;Object&gt; readBuf = new ArrayList&lt;Object&gt;();
+
+    @Override
+    public void read() {
+        assert eventLoop().inEventLoop();
+        final ChannelConfig config = config();
+        final ChannelPipeline pipeline = pipeline();
+        final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        boolean closed = false;
+        Throwable exception = null;
+        try {
+            try {
+                do {
+                    int localRead = doReadMessages(readBuf);
+                    if (localRead == 0) {
+                        break;
+                    }
+                    if (localRead &lt; 0) {
+                        closed = true;
+                        break;
+                    }
+
+                    allocHandle.incMessagesRead(localRead);
+                } while (allocHandle.continueReading());
+            } catch (Throwable t) {
+                exception = t;
+            }
+
+            int size = readBuf.size();
+            for (int i = 0; i &lt; size; i ++) {
+                readPending = false;
+                pipeline.fireChannelRead(readBuf.get(i));
+            }
+            readBuf.clear();
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+
+            if (exception != null) {
+                closed = closeOnReadError(exception);
+
+                pipeline.fireExceptionCaught(exception);
+            }
+
+            if (closed) {
+                inputShutdown = true;
+                if (isOpen()) {
+                    close(voidPromise());
+                }
+            }
+        } finally {
+            // Check if there is a readPending which was not processed yet.
+            // This could be for two reasons:
+            // * The user called Channel.read() or ChannelHandlerContext.read() in channelRead(...) method
+            // * The user called Channel.read() or ChannelHandlerContext.read() in channelReadComplete(...) method
+            //
+            // See https://github.com/netty/netty/issues/2254
+            if (!readPending &amp;&amp; !config.isAutoRead()) {
+                removeReadOp();
+            }
+        }
+    }
+}
+
+</code></pre>
+<h5 id="nioserversocketchanneldoreadmessages">NioServerSocketChannel#doReadMessages</h5>
+<p>利用nio的api accept创建SocketChannel，包装成为NioSocketChannel</p>
+<pre><code class="language-java">protected int doReadMessages(List&lt;Object&gt; buf) throws Exception {
+    SocketChannel ch = SocketUtils.accept(javaChannel());
+
+    try {
+        if (ch != null) {
+            buf.add(new NioSocketChannel(this, ch));
+            return 1;
+        }
+    } catch (Throwable t) {
+        logger.warn(&quot;Failed to create a new channel from an accepted socket.&quot;, t);
+
+        try {
+            ch.close();
+        } catch (Throwable t2) {
+            logger.warn(&quot;Failed to close a socket.&quot;, t2);
+        }
+    }
+
+    return 0;
+}
+
+</code></pre>
+<h4 id="niosocketchannel中unsafe实例read">NioSocketChannel中unsafe实例#read</h4>
+<ul>
+<li>1.创建DirectBuffer，从channel中读取数据到buffer，作为参数执行pipline的fireChannelRead，netty的网络io层面的read操作已经完成了，handler中的操作属于是应用层自定义操作；</li>
+<li>2.read完之后，执行pipline的fireChannelReadComplete</li>
+</ul>
+<pre><code class="language-java">public final void read() {
+    final ChannelConfig config = config();
+    if (shouldBreakReadReady(config)) {
+        clearReadPending();
+        return;
+    }
+    final ChannelPipeline pipeline = pipeline();
+    final ByteBufAllocator allocator = config.getAllocator();
+    final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+    allocHandle.reset(config);
+
+    ByteBuf byteBuf = null;
+    boolean close = false;
+    try {
+        do {
+            byteBuf = allocHandle.allocate(allocator);
+            allocHandle.lastBytesRead(doReadBytes(byteBuf));
+            if (allocHandle.lastBytesRead() &lt;= 0) {
+                // nothing was read. release the buffer.
+                byteBuf.release();
+                byteBuf = null;
+                close = allocHandle.lastBytesRead() &lt; 0;
+                if (close) {
+                    // There is nothing left to read as we received an EOF.
+                    readPending = false;
+                }
+                break;
+            }
+
+            allocHandle.incMessagesRead(1);
+            readPending = false;
+            pipeline.fireChannelRead(byteBuf);
+            byteBuf = null;
+        } while (allocHandle.continueReading());
+
+        allocHandle.readComplete();
+        pipeline.fireChannelReadComplete();
+
+        if (close) {
+            closeOnRead(pipeline);
+        }
+    } catch (Throwable t) {
+        handleReadException(pipeline, byteBuf, t, close, allocHandle);
+    } finally {
+        // Check if there is a readPending which was not processed yet.
+        // This could be for two reasons:
+        // * The user called Channel.read() or ChannelHandlerContext.read() in channelRead(...) method
+        // * The user called Channel.read() or ChannelHandlerContext.read() in channelReadComplete(...) method
+        //
+        // See https://github.com/netty/netty/issues/2254
+        if (!readPending &amp;&amp; !config.isAutoRead()) {
+            removeReadOp();
+        }
+    }
+}
+
+</code></pre>
+<h3 id="piplinefirechannelread">pipline.fireChannelRead</h3>
+<p>NioServerSocketChannel和NioSocketChannel的实现也是不同的，一个关注对于新accept的NioSocketChannel的初始化；另一个则关注具体的read处理</p>
+<h4 id="nioserversocketchannel-firechannelread">NioServerSocketChannel #fireChannelRead</h4>
+<p>NSSC中添加了唯一一个handler用于处理child，设置child属性，用child的eventloopGroup异步register<br>
+ServerBootStrapAcceptor#channelRead</p>
+<pre><code class="language-java">ServerBootstrapAcceptor(
+        final Channel channel, EventLoopGroup childGroup, ChannelHandler childHandler,
+        Entry&lt;ChannelOption&lt;?&gt;, Object&gt;[] childOptions, Entry&lt;AttributeKey&lt;?&gt;, Object&gt;[] childAttrs) {
+    this.childGroup = childGroup;
+    this.childHandler = childHandler;
+    this.childOptions = childOptions;
+    this.childAttrs = childAttrs;
+
+    // Task which is scheduled to re-enable auto-read.
+    // It's important to create this Runnable before we try to submit it as otherwise the URLClassLoader may
+    // not be able to load the class because of the file limit it already reached.
+    //
+    // See https://github.com/netty/netty/issues/1328
+    enableAutoReadTask = new Runnable() {
+        @Override
+        public void run() {
+            channel.config().setAutoRead(true);
+        }
+    };
+}
+
+@Override
+@SuppressWarnings(&quot;unchecked&quot;)
+public void channelRead(ChannelHandlerContext ctx, Object msg) {
+    final Channel child = (Channel) msg;
+
+    child.pipeline().addLast(childHandler);
+
+    setChannelOptions(child, childOptions, logger);
+    setAttributes(child, childAttrs);
+
+    try {
+        childGroup.register(child).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                if (!future.isSuccess()) {
+                    forceClose(child, future.cause());
+                }
+            }
+        });
+    } catch (Throwable t) {
+        forceClose(child, t);
+    }
+}
+
+</code></pre>
+<h4 id="niosocketchannel-firechannelread">NioSocketChannel #fireChannelRead</h4>
+<p>NioSocketChannel的read会根据pipline中添加的handler，从head开始以此去执行channelRead，参数的起点就是ByteBuf<br>
+自定义handler中的channelRead</p>
+<pre><code class="language-java">protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    ByteBuf buf = (ByteBuf) msg;
+    int capacity = buf.readableBytes();
+    byte[] bytes = new byte[capacity];
+    buf.readBytes(bytes);
+    System.out.println(new String(bytes));
+    ctx.writeAndFlush(Unpooled.copiedBuffer(&quot;ack&quot;.getBytes(StandardCharsets.UTF_8)));
+}
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Netty Core ServerBootStrap]]></title>
+        <id>https://wjkcoder.github.io/post/netty-serverbootstrap/</id>
+        <link href="https://wjkcoder.github.io/post/netty-serverbootstrap/">
+        </link>
+        <updated>2020-03-16T07:30:53.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<ul>
+<li><a href="#netty-server-%E6%9E%84%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8">Netty Server 构建和启动</a>
+<ul>
+<li><a href="#netty-%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B">Netty 线程模型</a></li>
+<li><a href="#server-%E5%B1%9E%E6%80%A7%E8%A3%85%E9%85%8D">Server 属性装配</a></li>
+</ul>
+</li>
+<li><a href="#serverbootstrap-bind">ServerBootStrap bind()</a>
+<ul>
+<li><a href="#initandregister">initAndRegister()</a>
+<ul>
+<li><a href="#nioserversocketchannel%E5%AE%9E%E4%BE%8B">NioServerSocketChannel实例</a></li>
+<li><a href="#serverbootstrap%E5%88%9D%E5%A7%8B%E5%8C%96">ServerBootStrap初始化</a></li>
+<li><a href="#serversocketchannel%E6%B3%A8%E5%86%8C%E5%88%B0eventloopgroup">ServerSocketChannel注册到EventLoopGroup</a></li>
+<li><a href="#nioeventloop%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8Cregister0%E6%96%B9%E6%B3%95">NioEventLoop异步执行register0方法</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8Cnio-register%E6%96%B9%E6%B3%95">执行NIO register方法</a></li>
+</ul>
+</li>
+<li><a href="#dobind0">doBind0</a>
+<ul>
+<li><a href="#nioeventloop%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8Cbind">NioEventLoop异步执行bind</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8Cabstractchannel%E7%9A%84bind%E6%96%B9%E6%B3%95">执行AbstractChannel的bind方法</a></li>
+<li><a href="#native-bind0">Native bind0</a></li>
+<li><a href="#native-listen">Native listen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="netty-server-构建和启动">Netty Server 构建和启动</h1>
+<p>构建一个基本的Netty Server的核心代码</p>
+<pre><code class="language-java">        NioEventLoopGroup core = new NioEventLoopGroup();
+        NioEventLoopGroup worker = new NioEventLoopGroup();
+        ServerBootstrap server = new ServerBootstrap().group(core, worker)
+                .channel(NioServerSocketChannel.class)
+                .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {
+                    @Override
+                    protected void initChannel(SocketChannel ch) throws Exception {
+                        ChannelPipeline pipeline = ch.pipeline();
+                        pipeline.addLast(&quot;handler&quot;, new SimpleChannelInboundHandler&lt;Object&gt;() {
+                            @Override
+                            protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+                                ByteBuf buf = (ByteBuf) msg;
+                                int capacity = buf.readableBytes();
+                                byte[] bytes = new byte[capacity];
+                                buf.readBytes(bytes);
+                                System.out.println(new String(bytes));
+                                ctx.writeAndFlush(Unpooled.copiedBuffer(&quot;ack&quot;.getBytes(StandardCharsets.UTF_8)));
+                            }
+                        });
+                    }
+                });
+        try {
+            ChannelFuture future = server.bind(8001).sync();
+            future.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            core.shutdownGracefully();
+            worker.shutdownGracefully();
+        }
+</code></pre>
+<h2 id="netty-线程模型">Netty 线程模型</h2>
+<p>我个人感觉Netty是没有线程模型这一概念，只有Reactor这一概念；</p>
+<ul>
+<li>只有一个线程数为1的group被称之为单线程Reactor模型，是一种很蠢的叫法；不过是只有一个线程或者NioEventLoop做所有的事情；当然用netty的人也不会这么做；</li>
+<li>boss group线程数为1，worker group为多个，这种被称为多Reactor模型，是第二蠢的叫法；boss group一个线程负责accept，多个worker nioeventloop负责处理读写等事件；</li>
+<li>boss group为多个，worker group为多个，这种被称为主从多线程Reactor，稍微正常点的叫法；</li>
+</ul>
+<pre><code class="language-java">public ServerBootstrap group(EventLoopGroup group) {
+    return group(group, group);
+}
+public ServerBootstrap group(EventLoopGroup parentGroup, EventLoopGroup childGroup) {
+    super.group(parentGroup);
+    if (this.childGroup != null) {
+        throw new IllegalStateException(&quot;childGroup set already&quot;);
+    }
+    this.childGroup = ObjectUtil.checkNotNull(childGroup, &quot;childGroup&quot;);
+    return this;
+}
+
+</code></pre>
+<h2 id="server-属性装配">Server 属性装配</h2>
+<ul>
+<li>channel();实例化Channel工厂</li>
+<li>childHandler();处理SocketChannel的核心<br>
+Netty实现中有大量的异步操作，future的使用，但都是有迹可循的。</li>
+</ul>
+<h1 id="serverbootstrap-bind">ServerBootStrap bind()</h1>
+<p>bind才是Server启动的真正入口</p>
+<ul>
+<li>1.初始化NioServerSocketChannel并注册到时间循环组</li>
+<li>2.在1完成后执行绑定</li>
+</ul>
+<pre><code class="language-java">private ChannelFuture doBind(final SocketAddress localAddress) {
+    final ChannelFuture regFuture = initAndRegister();//
+    final Channel channel = regFuture.channel();
+    if (regFuture.cause() != null) {
+        return regFuture;
+    }
+
+    if (regFuture.isDone()) {
+        // At this point we know that the registration was complete and successful.
+        ChannelPromise promise = channel.newPromise();
+        doBind0(regFuture, channel, localAddress, promise);
+        return promise;
+    } else {
+        // Registration future is almost always fulfilled already, but just in case it's not.
+        final PendingRegistrationPromise promise = new PendingRegistrationPromise(channel);
+        regFuture.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                Throwable cause = future.cause();
+                if (cause != null) {
+                    // Registration on the EventLoop failed so fail the ChannelPromise directly to not cause an
+                    // IllegalStateException once we try to access the EventLoop of the Channel.
+                    promise.setFailure(cause);
+                } else {
+                    // Registration was successful, so set the correct executor to use.
+                    // See https://github.com/netty/netty/issues/2586
+                    promise.registered();
+
+                    doBind0(regFuture, channel, localAddress, promise);
+                }
+            }
+        });
+        return promise;
+    }
+}
+
+</code></pre>
+<h2 id="initandregister">initAndRegister()</h2>
+<p>用于初始化NioServerSocketChannel</p>
+<pre><code class="language-java">final ChannelFuture initAndRegister() {
+    Channel channel = null;
+    try {
+        channel = channelFactory.newChannel();//工厂创建Channel
+        init(channel);//调用Channel的init方法初始化
+    } 
+    ChannelFuture regFuture = config().group().register(channel);//将channel注册到时间循环组中
+    if (regFuture.cause() != null) {
+        if (channel.isRegistered()) {
+            channel.close();
+        } else {
+            channel.unsafe().closeForcibly();
+        }
+    }
+    return regFuture;
+}
+
+</code></pre>
+<h3 id="nioserversocketchannel-实例化">NioServerSocketChannel 实例化</h3>
+<p>反射创建</p>
+<pre><code class="language-java">public T newChannel() {
+    try {
+        return constructor.newInstance();
+    } catch (Throwable t) {
+        throw new ChannelException(&quot;Unable to create Channel from class &quot; + constructor.getDeclaringClass(), t);
+    }
+}
+
+</code></pre>
+<h3 id="serverbootstrap初始化">ServerBootStrap初始化</h3>
+<ul>
+<li>1.设置Channel的属性</li>
+<li>2.给channel的pipline添加了一个ChannelHandler，其中实现了initChannel方法，当ServerSocketChannel就绪时，在其pipline上添加一个特定的Acceptor</li>
+</ul>
+<pre><code class="language-java">void init(Channel channel) {
+    setChannelOptions(channel, newOptionsArray(), logger);
+    setAttributes(channel, attrs0().entrySet().toArray(EMPTY_ATTRIBUTE_ARRAY));
+
+    ChannelPipeline p = channel.pipeline();
+
+    final EventLoopGroup currentChildGroup = childGroup;
+    final ChannelHandler currentChildHandler = childHandler;
+    final Entry&lt;ChannelOption&lt;?&gt;, Object&gt;[] currentChildOptions;
+    synchronized (childOptions) {
+        currentChildOptions = childOptions.entrySet().toArray(EMPTY_OPTION_ARRAY);
+    }
+    final Entry&lt;AttributeKey&lt;?&gt;, Object&gt;[] currentChildAttrs = childAttrs.entrySet().toArray(EMPTY_ATTRIBUTE_ARRAY);
+
+    p.addLast(new ChannelInitializer&lt;Channel&gt;() {
+        @Override
+        public void initChannel(final Channel ch) {
+            final ChannelPipeline pipeline = ch.pipeline();
+            ChannelHandler handler = config.handler();
+            if (handler != null) {
+                pipeline.addLast(handler);
+            }
+
+            ch.eventLoop().execute(new Runnable() {
+                @Override
+                public void run() {
+                    pipeline.addLast(new ServerBootstrapAcceptor(
+                            ch, currentChildGroup, currentChildHandler, currentChildOptions, currentChildAttrs));
+                }
+            });
+        }
+    });
+}
+
+</code></pre>
+<h3 id="serversocketchannel注册到eventloopgroup">ServerSocketChannel注册到EventLoopGroup</h3>
+<ul>
+<li>1.从group的chooser中选一个eventloop</li>
+<li>2.channel绑定到eventloop</li>
+<li>3.eventloop去执行register0</li>
+</ul>
+<pre><code class="language-java">ChannelFuture regFuture = config().group().register(channel);
+</code></pre>
+<pre><code class="language-java">public ChannelFuture register(Channel channel) {
+    return next().register(channel);
+}
+</code></pre>
+<pre><code class="language-java">public ChannelFuture register(Channel channel) {
+    return register(new DefaultChannelPromise(channel, this));
+}
+</code></pre>
+<pre><code class="language-java">public ChannelFuture register(final ChannelPromise promise) {
+    ObjectUtil.checkNotNull(promise, &quot;promise&quot;);
+    promise.channel().unsafe().register(this, promise);
+    return promise;
+}
+
+</code></pre>
+<pre><code class="language-java">public final void register(EventLoop eventLoop, final ChannelPromise promise) {
+    ObjectUtil.checkNotNull(eventLoop, &quot;eventLoop&quot;);
+    if (isRegistered()) {
+        promise.setFailure(new IllegalStateException(&quot;registered to an event loop already&quot;));
+        return;
+    }
+    if (!isCompatible(eventLoop)) {
+        promise.setFailure(
+                new IllegalStateException(&quot;incompatible event loop type: &quot; + eventLoop.getClass().getName()));
+        return;
+    }
+
+    AbstractChannel.this.eventLoop = eventLoop;
+
+    if (eventLoop.inEventLoop()) {
+        register0(promise);
+    } else {
+        try {
+            eventLoop.execute(new Runnable() {
+                @Override
+                public void run() {
+                    register0(promise);
+                }
+            });
+        } catch (Throwable t) {
+            logger.warn(
+                    &quot;Force-closing a channel whose registration task was not accepted by an event loop: {}&quot;,
+                    AbstractChannel.this, t);
+            closeForcibly();
+            closeFuture.setClosed();
+            safeSetFailure(promise, t);
+        }
+    }
+}
+
+</code></pre>
+<h3 id="nioeventloop异步执行register0方法">NioEventLoop异步执行register0方法</h3>
+<ul>
+<li>1.执行doRegister</li>
+<li>2.执行pipline的handlerAdded</li>
+<li>3.返回promise true</li>
+<li>4.执行fireChannelRegister</li>
+<li>5.执行fireChannelActive</li>
+</ul>
+<pre><code class="language-java">private void register0(ChannelPromise promise) {
+    try {
+        doRegister();
+        neverRegistered = false;
+        registered = true;
+        pipeline.invokeHandlerAddedIfNeeded();
+
+        safeSetSuccess(promise);
+        pipeline.fireChannelRegistered();
+        // Only fire a channelActive if the channel has never been registered. This prevents firing
+        // multiple channel actives if the channel is deregistered and re-registered.
+        if (isActive()) {
+            if (firstRegistration) {
+                pipeline.fireChannelActive();
+            } else if (config().isAutoRead()) {
+                // This channel was registered before and autoRead() is set. This means we need to begin read
+                // again so that we process inbound data.
+                //
+                // See https://github.com/netty/netty/issues/4805
+                beginRead();
+            }
+        }
+    } 
+}
+
+</code></pre>
+<h3 id="执行nio-register方法">执行NIO register方法</h3>
+<p>本质上上执行了nio的ServerSocketChannel.register(selector,ops,att) 注册兴趣ops，把自己放到att里</p>
+<pre><code class="language-java">protected void doRegister() throws Exception {
+    boolean selected = false;
+    for (;;) {
+        try {
+            selectionKey = javaChannel().register(eventLoop().unwrappedSelector(), 0, this);
+            return;
+        } 
+}
+
+</code></pre>
+<pre><code class="language-java">public final SelectionKey register(Selector sel, int ops,
+                                   Object att)
+    throws ClosedChannelException
+{
+    synchronized (regLock) {
+        SelectionKey k = findKey(sel);
+        if (k != null) {
+            k.interestOps(ops);
+            k.attach(att);
+        }
+        if (k == null) {
+            // New registration
+            synchronized (keyLock) {
+                if (!isOpen())
+                    throw new ClosedChannelException();
+                k = ((AbstractSelector)sel).register(this, ops, att);
+                addKey(k);
+            }
+        }
+        return k;
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">protected final SelectionKey register(AbstractSelectableChannel var1, int var2, Object var3) {
+    if (!(var1 instanceof SelChImpl)) {
+        throw new IllegalSelectorException();
+    } else {
+        SelectionKeyImpl var4 = new SelectionKeyImpl((SelChImpl)var1, this);
+        var4.attach(var3);
+        synchronized(this.publicKeys) {
+            this.implRegister(var4);
+        }
+
+        var4.interestOps(var2);
+        return var4;
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">protected void implRegister(SelectionKeyImpl var1) {
+    if (this.closed) {
+        throw new ClosedSelectorException();
+    } else {
+        int var2 = IOUtil.fdVal(var1.channel.getFD());
+        this.fdMap.put(var2, new MapEntry(var1));
+        ++this.totalChannels;
+        this.keys.add(var1);
+    }
+}
+
+</code></pre>
+<p>以上的初始化和注册操作完成后，会在listener中加一个操作完成的响应时间，执行doBind0</p>
+<h2 id="dobind0">doBind0</h2>
+<h3 id="nioeventloop异步执行bind">NioEventLoop异步执行bind</h3>
+<p>channel的eventloop去执行bind操作，此时channel和eventloop已经注册完毕</p>
+<pre><code class="language-java">private static void doBind0(
+        final ChannelFuture regFuture, final Channel channel,
+        final SocketAddress localAddress, final ChannelPromise promise) {
+
+    // This method is invoked before channelRegistered() is triggered.  Give user handlers a chance to set up
+    // the pipeline in its channelRegistered() implementation.
+    channel.eventLoop().execute(new Runnable() {
+        @Override
+        public void run() {
+            if (regFuture.isSuccess()) {
+                channel.bind(localAddress, promise).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+            } else {
+                promise.setFailure(regFuture.cause());
+            }
+        }
+    });
+}
+
+</code></pre>
+<pre><code class="language-java">public ChannelFuture bind(SocketAddress localAddress, ChannelPromise promise) {
+    return pipeline.bind(localAddress, promise);
+}
+public final ChannelFuture bind(SocketAddress localAddress, ChannelPromise promise) {
+    return tail.bind(localAddress, promise);
+}
+public ChannelFuture bind(final SocketAddress localAddress, final ChannelPromise promise) {
+    ObjectUtil.checkNotNull(localAddress, &quot;localAddress&quot;);
+    if (isNotValidPromise(promise, false)) {
+        // cancelled
+        return promise;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(MASK_BIND);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        next.invokeBind(localAddress, promise);
+    } else {
+        safeExecute(executor, new Runnable() {
+            @Override
+            public void run() {
+                next.invokeBind(localAddress, promise);
+            }
+        }, promise, null, false);
+    }
+    return promise;
+}
+public void bind(
+        ChannelHandlerContext ctx, SocketAddress localAddress, ChannelPromise promise) {
+    unsafe.bind(localAddress, promise);
+}
+</code></pre>
+<h3 id="执行abstractchannel的bind方法">执行AbstractChannel的bind方法</h3>
+<ul>
+<li>1.执行doBind，本质上是执行nio的ServerSocketChannel.bind()</li>
+<li>2.执行fireChannelActive</li>
+<li>3.promise设置true</li>
+</ul>
+<pre><code class="language-java">public final void bind(final SocketAddress localAddress, final ChannelPromise promise) {
+    assertEventLoop();
+    boolean wasActive = isActive();
+    try {
+        doBind(localAddress);
+    } catch (Throwable t) {
+        safeSetFailure(promise, t);
+        closeIfClosed();
+        return;
+    }
+
+    if (!wasActive &amp;&amp; isActive()) {
+        invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                pipeline.fireChannelActive();
+            }
+        });
+    }
+
+    safeSetSuccess(promise);
+}
+</code></pre>
+<pre><code class="language-java">public ServerSocketChannel bind(SocketAddress var1, int var2) throws IOException {
+   InetSocketAddress var4 = var1 == null ? new InetSocketAddress(0) : Net.checkAddress(var1);
+            SecurityManager var5 = System.getSecurityManager();
+            if (var5 != null) {
+                var5.checkListen(var4.getPort());
+            }
+
+            NetHooks.beforeTcpBind(this.fd, var4.getAddress(), var4.getPort());
+            Net.bind(this.fd, var4.getAddress(), var4.getPort());
+            Net.listen(this.fd, var2 &lt; 1 ? 50 : var2);
+            synchronized(this.stateLock) {
+                this.localAddress = Net.localAddress(this.fd);
+            }
+}
+</code></pre>
+<h3 id="native-bind0">Native bind0</h3>
+<pre><code class="language-cpp"> rv = bind(fd, him, len);
+</code></pre>
+<p>最终调用socket.h#bind</p>
+<pre><code class="language-cpp">int     bind(int, const struct sockaddr *, socklen_t) __DARWIN_ALIAS(bind);
+</code></pre>
+<h3 id="native-listen">Native listen</h3>
+<p>最终调用socket.h#listen</p>
+<pre><code class="language-cpp">int     listen(int, int) __DARWIN_ALIAS(listen);
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Netty Core NioEventLoopGroup]]></title>
+        <id>https://wjkcoder.github.io/post/netty-nioeventloopgroup/</id>
+        <link href="https://wjkcoder.github.io/post/netty-nioeventloopgroup/">
+        </link>
+        <updated>2020-02-04T09:34:20.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="#nioeventloopgroup-%E5%AE%9E%E4%BE%8B%E5%8C%96">NioEventLoopGroup 实例化</a>
+<ul>
+<li><a href="#nioeventloop%E5%AE%9E%E4%BE%8B%E5%8C%96">NioEventLoop实例化</a>
+<ul>
+<li><a href="#selector-%E5%AE%9E%E4%BE%8B%E5%8C%96">Selector 实例化</a>
+<ul>
+<li><a href="#kqueueselectorprovider-%E5%AE%9E%E4%BE%8B%E5%8C%96">KQueueSelectorProvider 实例化</a></li>
+<li><a href="#kqueueselectorimpl-%E5%AE%9E%E4%BE%8B%E5%8C%96">KqueueSelectorImpl 实例化</a></li>
+<li><a href="#kqueuearraywrapper-%E5%AE%9E%E4%BE%8B%E5%8C%96">KQueueArrayWrapper 实例化</a>
+<ul>
+<li><a href="#1%E8%AE%BF%E9%97%AE%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98">1.访问直接内存</a></li>
+<li><a href="#2%E5%88%9B%E5%BB%BA%E7%B3%BB%E7%BB%9Fkqueue">2.创建系统kqueue</a></li>
+</ul>
+</li>
+<li><a href="#kqueuearraywrapper%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6">KQueueArrayWrapper注册事件</a>
+<ul>
+<li><a href="#jni%E4%B8%AD%E7%9A%84register">JNI中的register</a></li>
+<li><a href="#kevent%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0">kevent系统函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="nioeventloopgroup-实例化">NioEventLoopGroup 实例化</h1>
+<ul>
+<li>本质上是一个线程数组，除此之外加入了事件驱动的机制。</li>
+<li>传入线程个数时，会生成指定个数的数组；无参数会根据当前的CPU核心数*2创建；</li>
+</ul>
+<pre><code class="language-java">NioEventLoopGroup core = new NioEventLoopGroup();
+</code></pre>
+<pre><code class="language-java">public NioEventLoopGroup(int nThreads, Executor executor, final SelectorProvider selectorProvider,
+                         final SelectStrategyFactory selectStrategyFactory) {
+    super(nThreads, executor, selectorProvider, selectStrategyFactory, RejectedExecutionHandlers.reject());
+}
+
+</code></pre>
+<pre><code class="language-java">protected MultithreadEventLoopGroup(int nThreads, Executor executor, Object... args) {
+    super(nThreads == 0 ? DEFAULT_EVENT_LOOP_THREADS : nThreads, executor, args);
+}
+private static final int DEFAULT_EVENT_LOOP_THREADS;
+
+static {
+    DEFAULT_EVENT_LOOP_THREADS = Math.max(1, SystemPropertyUtil.getInt(
+            &quot;io.netty.eventLoopThreads&quot;, NettyRuntime.availableProcessors() * 2));
+
+    if (logger.isDebugEnabled()) {
+        logger.debug(&quot;-Dio.netty.eventLoopThreads: {}&quot;, DEFAULT_EVENT_LOOP_THREADS);
+    }
+}
+</code></pre>
+<p>遍历数组，初始化每一个child，即eventloop，这里是调用NioEventLoopGroup的newChild方法；</p>
+<pre><code class="language-java">protected MultithreadEventExecutorGroup(int nThreads, Executor executor,
+                                        EventExecutorChooserFactory chooserFactory, Object... args) {
+//核心代码
+    children = new EventExecutor[nThreads];
+
+    for (int i = 0; i &lt; nThreads; i ++) {
+        boolean success = false;
+        try {
+            children[i] = newChild(executor, args);
+            success = true;
+        } catch (Exception e) {
+            // TODO: Think about if this is a good exception type
+            throw new IllegalStateException(&quot;failed to create a child event loop&quot;, e);
+        } finally {
+            //一个失败，全部回收
+            if (!success) {
+                for (int j = 0; j &lt; i; j ++) {
+                    children[j].shutdownGracefully();
+                }
+
+                for (int j = 0; j &lt; i; j ++) {
+                    EventExecutor e = children[j];
+                    try {
+                        while (!e.isTerminated()) {
+                            e.awaitTermination(Integer.MAX_VALUE, TimeUnit.SECONDS);
+                        }
+                    } catch (InterruptedException interrupted) {
+                        // Let the caller handle the interruption.
+                        Thread.currentThread().interrupt();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    chooser = chooserFactory.newChooser(children);//创建一个线程选择调度器用于分配线程
+}
+
+</code></pre>
+<h2 id="nioeventloop实例化">NioEventLoop实例化</h2>
+<p>通过spi的方式拿到selectorProvider，macos下是KQueueSelectorProvider实现；<br>
+在openSelector中创建selector实例；</p>
+<pre><code class="language-java">NioEventLoop(NioEventLoopGroup parent, Executor executor, SelectorProvider selectorProvider,
+             SelectStrategy strategy, RejectedExecutionHandler rejectedExecutionHandler,
+             EventLoopTaskQueueFactory queueFactory) {
+    super(parent, executor, false, newTaskQueue(queueFactory), newTaskQueue(queueFactory),
+            rejectedExecutionHandler);
+    this.provider = ObjectUtil.checkNotNull(selectorProvider, &quot;selectorProvider&quot;);
+    this.selectStrategy = ObjectUtil.checkNotNull(strategy, &quot;selectStrategy&quot;);
+    final SelectorTuple selectorTuple = openSelector();
+    this.selector = selectorTuple.selector;//这个是包装了一层的selector
+    this.unwrappedSelector = selectorTuple.unwrappedSelector;//这个是原生的selector
+}
+
+</code></pre>
+<h3 id="selector-实例化">Selector 实例化</h3>
+<pre><code class="language-java">private SelectorTuple openSelector() {
+    final Selector unwrappedSelector;
+    try {
+        unwrappedSelector = provider.openSelector();
+    } catch (IOException e) {
+        throw new ChannelException(&quot;failed to open a new selector&quot;, e);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">SelectedSelectionKeySetSelector(Selector delegate, SelectedSelectionKeySet selectionKeys) {
+    this.delegate = delegate;
+    this.selectionKeys = selectionKeys;
+}
+
+</code></pre>
+<h4 id="kqueueselectorprovider-实例化">KQueueSelectorProvider 实例化</h4>
+<pre><code class="language-java">public class KQueueSelectorProvider extends SelectorProviderImpl {
+    public KQueueSelectorProvider() {
+    }
+
+    public AbstractSelector openSelector() throws IOException {
+        return new KQueueSelectorImpl(this);
+    }
+}
+
+</code></pre>
+<h4 id="kqueueselectorimpl-实例化">KqueueSelectorImpl 实例化</h4>
+<pre><code class="language-java">KQueueSelectorImpl(SelectorProvider var1) {
+    super(var1);
+    long var2 = IOUtil.makePipe(false);
+    this.fd0 = (int)(var2 &gt;&gt;&gt; 32);
+    this.fd1 = (int)var2;
+
+    try {
+        this.kqueueWrapper = new KQueueArrayWrapper();
+        this.kqueueWrapper.initInterrupt(this.fd0, this.fd1);
+        this.fdMap = new HashMap();
+        this.totalChannels = 1;
+    }
+}
+</code></pre>
+<p>创建KQueueArrayWrapper实例化之后，注册兴趣事件；</p>
+<h4 id="kqueuearraywrapper-实例化">KQueueArrayWrapper 实例化</h4>
+<p>KAW是与系统调用联结的核心，通过jni调用kevent.h定义的事件函数来完成事件驱动；</p>
+<pre><code class="language-java">KQueueArrayWrapper() {
+    int var1 = SIZEOF_KEVENT * 128;//计算总的内存长度
+    this.keventArray = new AllocatedNativeObject(var1, true);//分配内存返回首字节的地址
+    this.keventArrayAddress = this.keventArray.address();
+    this.kq = this.init();//调用kqueue创建fd
+}
+
+</code></pre>
+<p>核心点有几个：</p>
+<h5 id="1访问直接内存">1.访问直接内存</h5>
+<p>方便之后通过偏移量直接访问内存数据(fd,filter)<br>
+SIZEOF_KEVENT=32;//一个kevent struct的大小<br>
+FD_OFFSE=0;<br>
+FILTER_OFFSET=8;</p>
+<pre><code class="language-java">//初始化静态块
+static {
+    IOUtil.load();
+    initStructSizes();
+    String var0 = (String)AccessController.doPrivileged(new GetPropertyAction(&quot;sun.arch.data.model&quot;));
+    is64bit = var0.equals(&quot;64&quot;);
+}
+
+</code></pre>
+<p>JNI初始化值</p>
+<pre><code class="language-cpp">field = (*env)-&gt;GetStaticFieldID(env, clazz, &quot;SIZEOF_KEVENT&quot;, &quot;S&quot;);
+    CHECK_ERROR_AND_EXCEPTION(field);
+    (*env)-&gt;SetStaticShortField(env, clazz, field, (short) sizeof(struct kevent));
+    CHECK_EXCEPTION();
+
+    field = (*env)-&gt;GetStaticFieldID(env, clazz, &quot;FD_OFFSET&quot;, &quot;S&quot;);
+    CHECK_ERROR_AND_EXCEPTION(field);
+    (*env)-&gt;SetStaticShortField(env, clazz, field, (short) offsetof(struct kevent, ident));
+    CHECK_EXCEPTION();
+
+    field = (*env)-&gt;GetStaticFieldID(env, clazz, &quot;FILTER_OFFSET&quot;, &quot;S&quot;);
+    CHECK_ERROR_AND_EXCEPTION(field);
+    (*env)-&gt;SetStaticShortField(env, clazz, field, (short) offsetof(struct kevent, filter));
+
+</code></pre>
+<p>系统调用中kevent数据结构</p>
+<pre><code class="language-cpp">struct kevent {
+    uintptr_t       ident;  /* identifier for this event */
+    int16_t         filter; /* filter for event */
+    uint16_t        flags;  /* general flags */
+    uint32_t        fflags; /* filter-specific flags */
+    intptr_t        data;   /* filter-specific data */
+    void            *udata; /* opaque user data identifier */
+};
+
+</code></pre>
+<h5 id="2创建系统kqueue">2.创建系统kqueue</h5>
+<pre><code class="language-java">this.kq = this.init();
+private native int init();
+</code></pre>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_KQueueArrayWrapper_init(JNIEnv *env, jobject this)
+{
+    int kq = kqueue();
+    if (kq &lt; 0) {
+        JNU_ThrowIOExceptionWithLastError(env, &quot;KQueueArrayWrapper: kqueue() failed&quot;);
+    }
+    return kq;
+}
+
+</code></pre>
+<h4 id="kqueuearraywrapper注册事件">KQueueArrayWrapper注册事件</h4>
+<p>jni调用kevent()编辑/修改兴趣事件<br>
+这里的实际效果是添加一个read，删除一个write</p>
+<pre><code class="language-java">this.kqueueWrapper.initInterrupt(this.fd0, this.fd1);
+void initInterrupt(int var1, int var2) {
+    this.outgoingInterruptFD = var2;
+    this.incomingInterruptFD = var1;
+    this.register0(this.kq, var1, 1, 0);
+}
+private native void register0(int var1, int var2, int var3, int var4);
+</code></pre>
+<h5 id="jni中的register">JNI中的register</h5>
+<pre><code class="language-cpp">JNIEXPORT void JNICALL
+Java_sun_nio_ch_KQueueArrayWrapper_register0(JNIEnv *env, jobject this,
+                                             jint kq, jint fd, jint r, jint w)
+{
+    struct kevent changes[2];
+    struct kevent errors[2];
+    struct timespec dontBlock = {0, 0};
+
+    // if (r) then { register for read } else { unregister for read }
+    // if (w) then { register for write } else { unregister for write }
+    // Ignore errors - they're probably complaints about deleting non-
+    //   added filters - but provide an error array anyway because
+    //   kqueue behaves erratically if some of its registrations fail.
+    EV_SET(&amp;changes[0], fd, EVFILT_READ,  r ? EV_ADD : EV_DELETE, 0, 0, 0);
+    EV_SET(&amp;changes[1], fd, EVFILT_WRITE, w ? EV_ADD : EV_DELETE, 0, 0, 0);
+    kevent(kq, changes, 2, errors, 2, &amp;dontBlock);
+}
+
+</code></pre>
+<h5 id="kevent系统函数">kevent系统函数</h5>
+<p>展开解释下kevent系统函数<br>
+kq是kqueue的identifier<br>
+changelist表示对fd的修改列表，nchanges表示数量；<br>
+eventlist表示系统产生的事件列表，用于存放系统产生的事件，nevents表示数量；<br>
+timeout表示最大等待时长；</p>
+<pre><code class="language-cpp">int  kevent(int kq,
+    const struct kevent *changelist, int nchanges,
+    struct kevent *eventlist, int nevents,
+    const struct timespec *timeout);
+
+</code></pre>
+<p>到此事件循环组的初始化的核心过程已经完成；</p>
+]]></content>
+    </entry>
+</feed>

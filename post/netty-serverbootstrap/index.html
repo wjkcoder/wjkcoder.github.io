@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Jikun WANG
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="Jikun WANG">
+<meta name="description" content="Keep Track and Record ">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://wjkcoder.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://wjkcoder.github.io">
+                    Jikun WANG
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        Catalog
+                    </a>
+                    
+                    <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                        Groups
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <!-- <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form> -->
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://wjkcoder.github.io">
+                            Jikun WANG
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            Catalog
+                        </a>
+                        
+                        <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                            Groups
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Netty Core ServerBootStrap
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Jikun WANG
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2020-03-16</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">9.2
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">1690</a></span>
+                                    
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">Source Code Analysis</a>
+                                
+                                <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">Netty</a>
+                                
+                            </span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://wjkcoder.github.io/post-images/netty-serverbootstrap.jpeg" alt="">
+                          
+                        <div class="post-content">
+                            <!-- more -->
+<ul>
+<li><a href="#netty-server-%E6%9E%84%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8">Netty Server 构建和启动</a>
+<ul>
+<li><a href="#netty-%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B">Netty 线程模型</a></li>
+<li><a href="#server-%E5%B1%9E%E6%80%A7%E8%A3%85%E9%85%8D">Server 属性装配</a></li>
+</ul>
+</li>
+<li><a href="#serverbootstrap-bind">ServerBootStrap bind()</a>
+<ul>
+<li><a href="#initandregister">initAndRegister()</a>
+<ul>
+<li><a href="#nioserversocketchannel%E5%AE%9E%E4%BE%8B">NioServerSocketChannel实例</a></li>
+<li><a href="#serverbootstrap%E5%88%9D%E5%A7%8B%E5%8C%96">ServerBootStrap初始化</a></li>
+<li><a href="#serversocketchannel%E6%B3%A8%E5%86%8C%E5%88%B0eventloopgroup">ServerSocketChannel注册到EventLoopGroup</a></li>
+<li><a href="#nioeventloop%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8Cregister0%E6%96%B9%E6%B3%95">NioEventLoop异步执行register0方法</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8Cnio-register%E6%96%B9%E6%B3%95">执行NIO register方法</a></li>
+</ul>
+</li>
+<li><a href="#dobind0">doBind0</a>
+<ul>
+<li><a href="#nioeventloop%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8Cbind">NioEventLoop异步执行bind</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8Cabstractchannel%E7%9A%84bind%E6%96%B9%E6%B3%95">执行AbstractChannel的bind方法</a></li>
+<li><a href="#native-bind0">Native bind0</a></li>
+<li><a href="#native-listen">Native listen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="netty-server-构建和启动">Netty Server 构建和启动</h1>
+<p>构建一个基本的Netty Server的核心代码</p>
+<pre><code class="language-java">        NioEventLoopGroup core = new NioEventLoopGroup();
+        NioEventLoopGroup worker = new NioEventLoopGroup();
+        ServerBootstrap server = new ServerBootstrap().group(core, worker)
+                .channel(NioServerSocketChannel.class)
+                .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {
+                    @Override
+                    protected void initChannel(SocketChannel ch) throws Exception {
+                        ChannelPipeline pipeline = ch.pipeline();
+                        pipeline.addLast(&quot;handler&quot;, new SimpleChannelInboundHandler&lt;Object&gt;() {
+                            @Override
+                            protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+                                ByteBuf buf = (ByteBuf) msg;
+                                int capacity = buf.readableBytes();
+                                byte[] bytes = new byte[capacity];
+                                buf.readBytes(bytes);
+                                System.out.println(new String(bytes));
+                                ctx.writeAndFlush(Unpooled.copiedBuffer(&quot;ack&quot;.getBytes(StandardCharsets.UTF_8)));
+                            }
+                        });
+                    }
+                });
+        try {
+            ChannelFuture future = server.bind(8001).sync();
+            future.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            core.shutdownGracefully();
+            worker.shutdownGracefully();
+        }
+</code></pre>
+<h2 id="netty-线程模型">Netty 线程模型</h2>
+<p>我个人感觉Netty是没有线程模型这一概念，只有Reactor这一概念；</p>
+<ul>
+<li>只有一个线程数为1的group被称之为单线程Reactor模型，是一种很蠢的叫法；不过是只有一个线程或者NioEventLoop做所有的事情；当然用netty的人也不会这么做；</li>
+<li>boss group线程数为1，worker group为多个，这种被称为多Reactor模型，是第二蠢的叫法；boss group一个线程负责accept，多个worker nioeventloop负责处理读写等事件；</li>
+<li>boss group为多个，worker group为多个，这种被称为主从多线程Reactor，稍微正常点的叫法；</li>
+</ul>
+<pre><code class="language-java">public ServerBootstrap group(EventLoopGroup group) {
+    return group(group, group);
+}
+public ServerBootstrap group(EventLoopGroup parentGroup, EventLoopGroup childGroup) {
+    super.group(parentGroup);
+    if (this.childGroup != null) {
+        throw new IllegalStateException(&quot;childGroup set already&quot;);
+    }
+    this.childGroup = ObjectUtil.checkNotNull(childGroup, &quot;childGroup&quot;);
+    return this;
+}
+
+</code></pre>
+<h2 id="server-属性装配">Server 属性装配</h2>
+<ul>
+<li>channel();实例化Channel工厂</li>
+<li>childHandler();处理SocketChannel的核心<br>
+Netty实现中有大量的异步操作，future的使用，但都是有迹可循的。</li>
+</ul>
+<h1 id="serverbootstrap-bind">ServerBootStrap bind()</h1>
+<p>bind才是Server启动的真正入口</p>
+<ul>
+<li>1.初始化NioServerSocketChannel并注册到时间循环组</li>
+<li>2.在1完成后执行绑定</li>
+</ul>
+<pre><code class="language-java">private ChannelFuture doBind(final SocketAddress localAddress) {
+    final ChannelFuture regFuture = initAndRegister();//
+    final Channel channel = regFuture.channel();
+    if (regFuture.cause() != null) {
+        return regFuture;
+    }
+
+    if (regFuture.isDone()) {
+        // At this point we know that the registration was complete and successful.
+        ChannelPromise promise = channel.newPromise();
+        doBind0(regFuture, channel, localAddress, promise);
+        return promise;
+    } else {
+        // Registration future is almost always fulfilled already, but just in case it's not.
+        final PendingRegistrationPromise promise = new PendingRegistrationPromise(channel);
+        regFuture.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                Throwable cause = future.cause();
+                if (cause != null) {
+                    // Registration on the EventLoop failed so fail the ChannelPromise directly to not cause an
+                    // IllegalStateException once we try to access the EventLoop of the Channel.
+                    promise.setFailure(cause);
+                } else {
+                    // Registration was successful, so set the correct executor to use.
+                    // See https://github.com/netty/netty/issues/2586
+                    promise.registered();
+
+                    doBind0(regFuture, channel, localAddress, promise);
+                }
+            }
+        });
+        return promise;
+    }
+}
+
+</code></pre>
+<h2 id="initandregister">initAndRegister()</h2>
+<p>用于初始化NioServerSocketChannel</p>
+<pre><code class="language-java">final ChannelFuture initAndRegister() {
+    Channel channel = null;
+    try {
+        channel = channelFactory.newChannel();//工厂创建Channel
+        init(channel);//调用Channel的init方法初始化
+    } 
+    ChannelFuture regFuture = config().group().register(channel);//将channel注册到时间循环组中
+    if (regFuture.cause() != null) {
+        if (channel.isRegistered()) {
+            channel.close();
+        } else {
+            channel.unsafe().closeForcibly();
+        }
+    }
+    return regFuture;
+}
+
+</code></pre>
+<h3 id="nioserversocketchannel-实例化">NioServerSocketChannel 实例化</h3>
+<p>反射创建</p>
+<pre><code class="language-java">public T newChannel() {
+    try {
+        return constructor.newInstance();
+    } catch (Throwable t) {
+        throw new ChannelException(&quot;Unable to create Channel from class &quot; + constructor.getDeclaringClass(), t);
+    }
+}
+
+</code></pre>
+<h3 id="serverbootstrap初始化">ServerBootStrap初始化</h3>
+<ul>
+<li>1.设置Channel的属性</li>
+<li>2.给channel的pipline添加了一个ChannelHandler，其中实现了initChannel方法，当ServerSocketChannel就绪时，在其pipline上添加一个特定的Acceptor</li>
+</ul>
+<pre><code class="language-java">void init(Channel channel) {
+    setChannelOptions(channel, newOptionsArray(), logger);
+    setAttributes(channel, attrs0().entrySet().toArray(EMPTY_ATTRIBUTE_ARRAY));
+
+    ChannelPipeline p = channel.pipeline();
+
+    final EventLoopGroup currentChildGroup = childGroup;
+    final ChannelHandler currentChildHandler = childHandler;
+    final Entry&lt;ChannelOption&lt;?&gt;, Object&gt;[] currentChildOptions;
+    synchronized (childOptions) {
+        currentChildOptions = childOptions.entrySet().toArray(EMPTY_OPTION_ARRAY);
+    }
+    final Entry&lt;AttributeKey&lt;?&gt;, Object&gt;[] currentChildAttrs = childAttrs.entrySet().toArray(EMPTY_ATTRIBUTE_ARRAY);
+
+    p.addLast(new ChannelInitializer&lt;Channel&gt;() {
+        @Override
+        public void initChannel(final Channel ch) {
+            final ChannelPipeline pipeline = ch.pipeline();
+            ChannelHandler handler = config.handler();
+            if (handler != null) {
+                pipeline.addLast(handler);
+            }
+
+            ch.eventLoop().execute(new Runnable() {
+                @Override
+                public void run() {
+                    pipeline.addLast(new ServerBootstrapAcceptor(
+                            ch, currentChildGroup, currentChildHandler, currentChildOptions, currentChildAttrs));
+                }
+            });
+        }
+    });
+}
+
+</code></pre>
+<h3 id="serversocketchannel注册到eventloopgroup">ServerSocketChannel注册到EventLoopGroup</h3>
+<ul>
+<li>1.从group的chooser中选一个eventloop</li>
+<li>2.channel绑定到eventloop</li>
+<li>3.eventloop去执行register0</li>
+</ul>
+<pre><code class="language-java">ChannelFuture regFuture = config().group().register(channel);
+</code></pre>
+<pre><code class="language-java">public ChannelFuture register(Channel channel) {
+    return next().register(channel);
+}
+</code></pre>
+<pre><code class="language-java">public ChannelFuture register(Channel channel) {
+    return register(new DefaultChannelPromise(channel, this));
+}
+</code></pre>
+<pre><code class="language-java">public ChannelFuture register(final ChannelPromise promise) {
+    ObjectUtil.checkNotNull(promise, &quot;promise&quot;);
+    promise.channel().unsafe().register(this, promise);
+    return promise;
+}
+
+</code></pre>
+<pre><code class="language-java">public final void register(EventLoop eventLoop, final ChannelPromise promise) {
+    ObjectUtil.checkNotNull(eventLoop, &quot;eventLoop&quot;);
+    if (isRegistered()) {
+        promise.setFailure(new IllegalStateException(&quot;registered to an event loop already&quot;));
+        return;
+    }
+    if (!isCompatible(eventLoop)) {
+        promise.setFailure(
+                new IllegalStateException(&quot;incompatible event loop type: &quot; + eventLoop.getClass().getName()));
+        return;
+    }
+
+    AbstractChannel.this.eventLoop = eventLoop;
+
+    if (eventLoop.inEventLoop()) {
+        register0(promise);
+    } else {
+        try {
+            eventLoop.execute(new Runnable() {
+                @Override
+                public void run() {
+                    register0(promise);
+                }
+            });
+        } catch (Throwable t) {
+            logger.warn(
+                    &quot;Force-closing a channel whose registration task was not accepted by an event loop: {}&quot;,
+                    AbstractChannel.this, t);
+            closeForcibly();
+            closeFuture.setClosed();
+            safeSetFailure(promise, t);
+        }
+    }
+}
+
+</code></pre>
+<h3 id="nioeventloop异步执行register0方法">NioEventLoop异步执行register0方法</h3>
+<ul>
+<li>1.执行doRegister</li>
+<li>2.执行pipline的handlerAdded</li>
+<li>3.返回promise true</li>
+<li>4.执行fireChannelRegister</li>
+<li>5.执行fireChannelActive</li>
+</ul>
+<pre><code class="language-java">private void register0(ChannelPromise promise) {
+    try {
+        doRegister();
+        neverRegistered = false;
+        registered = true;
+        pipeline.invokeHandlerAddedIfNeeded();
+
+        safeSetSuccess(promise);
+        pipeline.fireChannelRegistered();
+        // Only fire a channelActive if the channel has never been registered. This prevents firing
+        // multiple channel actives if the channel is deregistered and re-registered.
+        if (isActive()) {
+            if (firstRegistration) {
+                pipeline.fireChannelActive();
+            } else if (config().isAutoRead()) {
+                // This channel was registered before and autoRead() is set. This means we need to begin read
+                // again so that we process inbound data.
+                //
+                // See https://github.com/netty/netty/issues/4805
+                beginRead();
+            }
+        }
+    } 
+}
+
+</code></pre>
+<h3 id="执行nio-register方法">执行NIO register方法</h3>
+<p>本质上上执行了nio的ServerSocketChannel.register(selector,ops,att) 注册兴趣ops，把自己放到att里</p>
+<pre><code class="language-java">protected void doRegister() throws Exception {
+    boolean selected = false;
+    for (;;) {
+        try {
+            selectionKey = javaChannel().register(eventLoop().unwrappedSelector(), 0, this);
+            return;
+        } 
+}
+
+</code></pre>
+<pre><code class="language-java">public final SelectionKey register(Selector sel, int ops,
+                                   Object att)
+    throws ClosedChannelException
+{
+    synchronized (regLock) {
+        SelectionKey k = findKey(sel);
+        if (k != null) {
+            k.interestOps(ops);
+            k.attach(att);
+        }
+        if (k == null) {
+            // New registration
+            synchronized (keyLock) {
+                if (!isOpen())
+                    throw new ClosedChannelException();
+                k = ((AbstractSelector)sel).register(this, ops, att);
+                addKey(k);
+            }
+        }
+        return k;
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">protected final SelectionKey register(AbstractSelectableChannel var1, int var2, Object var3) {
+    if (!(var1 instanceof SelChImpl)) {
+        throw new IllegalSelectorException();
+    } else {
+        SelectionKeyImpl var4 = new SelectionKeyImpl((SelChImpl)var1, this);
+        var4.attach(var3);
+        synchronized(this.publicKeys) {
+            this.implRegister(var4);
+        }
+
+        var4.interestOps(var2);
+        return var4;
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">protected void implRegister(SelectionKeyImpl var1) {
+    if (this.closed) {
+        throw new ClosedSelectorException();
+    } else {
+        int var2 = IOUtil.fdVal(var1.channel.getFD());
+        this.fdMap.put(var2, new MapEntry(var1));
+        ++this.totalChannels;
+        this.keys.add(var1);
+    }
+}
+
+</code></pre>
+<p>以上的初始化和注册操作完成后，会在listener中加一个操作完成的响应时间，执行doBind0</p>
+<h2 id="dobind0">doBind0</h2>
+<h3 id="nioeventloop异步执行bind">NioEventLoop异步执行bind</h3>
+<p>channel的eventloop去执行bind操作，此时channel和eventloop已经注册完毕</p>
+<pre><code class="language-java">private static void doBind0(
+        final ChannelFuture regFuture, final Channel channel,
+        final SocketAddress localAddress, final ChannelPromise promise) {
+
+    // This method is invoked before channelRegistered() is triggered.  Give user handlers a chance to set up
+    // the pipeline in its channelRegistered() implementation.
+    channel.eventLoop().execute(new Runnable() {
+        @Override
+        public void run() {
+            if (regFuture.isSuccess()) {
+                channel.bind(localAddress, promise).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+            } else {
+                promise.setFailure(regFuture.cause());
+            }
+        }
+    });
+}
+
+</code></pre>
+<pre><code class="language-java">public ChannelFuture bind(SocketAddress localAddress, ChannelPromise promise) {
+    return pipeline.bind(localAddress, promise);
+}
+public final ChannelFuture bind(SocketAddress localAddress, ChannelPromise promise) {
+    return tail.bind(localAddress, promise);
+}
+public ChannelFuture bind(final SocketAddress localAddress, final ChannelPromise promise) {
+    ObjectUtil.checkNotNull(localAddress, &quot;localAddress&quot;);
+    if (isNotValidPromise(promise, false)) {
+        // cancelled
+        return promise;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(MASK_BIND);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        next.invokeBind(localAddress, promise);
+    } else {
+        safeExecute(executor, new Runnable() {
+            @Override
+            public void run() {
+                next.invokeBind(localAddress, promise);
+            }
+        }, promise, null, false);
+    }
+    return promise;
+}
+public void bind(
+        ChannelHandlerContext ctx, SocketAddress localAddress, ChannelPromise promise) {
+    unsafe.bind(localAddress, promise);
+}
+</code></pre>
+<h3 id="执行abstractchannel的bind方法">执行AbstractChannel的bind方法</h3>
+<ul>
+<li>1.执行doBind，本质上是执行nio的ServerSocketChannel.bind()</li>
+<li>2.执行fireChannelActive</li>
+<li>3.promise设置true</li>
+</ul>
+<pre><code class="language-java">public final void bind(final SocketAddress localAddress, final ChannelPromise promise) {
+    assertEventLoop();
+    boolean wasActive = isActive();
+    try {
+        doBind(localAddress);
+    } catch (Throwable t) {
+        safeSetFailure(promise, t);
+        closeIfClosed();
+        return;
+    }
+
+    if (!wasActive &amp;&amp; isActive()) {
+        invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                pipeline.fireChannelActive();
+            }
+        });
+    }
+
+    safeSetSuccess(promise);
+}
+</code></pre>
+<pre><code class="language-java">public ServerSocketChannel bind(SocketAddress var1, int var2) throws IOException {
+   InetSocketAddress var4 = var1 == null ? new InetSocketAddress(0) : Net.checkAddress(var1);
+            SecurityManager var5 = System.getSecurityManager();
+            if (var5 != null) {
+                var5.checkListen(var4.getPort());
+            }
+
+            NetHooks.beforeTcpBind(this.fd, var4.getAddress(), var4.getPort());
+            Net.bind(this.fd, var4.getAddress(), var4.getPort());
+            Net.listen(this.fd, var2 &lt; 1 ? 50 : var2);
+            synchronized(this.stateLock) {
+                this.localAddress = Net.localAddress(this.fd);
+            }
+}
+</code></pre>
+<h3 id="native-bind0">Native bind0</h3>
+<pre><code class="language-cpp"> rv = bind(fd, him, len);
+</code></pre>
+<p>最终调用socket.h#bind</p>
+<pre><code class="language-cpp">int     bind(int, const struct sockaddr *, socklen_t) __DARWIN_ALIAS(bind);
+</code></pre>
+<h3 id="native-listen">Native listen</h3>
+<p>最终调用socket.h#listen</p>
+<pre><code class="language-cpp">int     listen(int, int) __DARWIN_ALIAS(listen);
+</code></pre>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#netty-server-%E6%9E%84%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8">Netty Server 构建和启动</a>
+<ul>
+<li><a href="#netty-%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B">Netty 线程模型</a></li>
+<li><a href="#server-%E5%B1%9E%E6%80%A7%E8%A3%85%E9%85%8D">Server 属性装配</a></li>
+</ul>
+</li>
+<li><a href="#serverbootstrap-bind">ServerBootStrap bind()</a>
+<ul>
+<li><a href="#initandregister">initAndRegister()</a>
+<ul>
+<li><a href="#nioserversocketchannel-%E5%AE%9E%E4%BE%8B%E5%8C%96">NioServerSocketChannel 实例化</a></li>
+<li><a href="#serverbootstrap%E5%88%9D%E5%A7%8B%E5%8C%96">ServerBootStrap初始化</a></li>
+<li><a href="#serversocketchannel%E6%B3%A8%E5%86%8C%E5%88%B0eventloopgroup">ServerSocketChannel注册到EventLoopGroup</a></li>
+<li><a href="#nioeventloop%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8Cregister0%E6%96%B9%E6%B3%95">NioEventLoop异步执行register0方法</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8Cnio-register%E6%96%B9%E6%B3%95">执行NIO register方法</a></li>
+</ul>
+</li>
+<li><a href="#dobind0">doBind0</a>
+<ul>
+<li><a href="#nioeventloop%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8Cbind">NioEventLoop异步执行bind</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8Cabstractchannel%E7%9A%84bind%E6%96%B9%E6%B3%95">执行AbstractChannel的bind方法</a></li>
+<li><a href="#native-bind0">Native bind0</a></li>
+<li><a href="#native-listen">Native listen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wjkcoder.github.io/post/netty-serverbootstrap/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wjkcoder.github.io/post/netty-serverbootstrap/&sharesource=qzone&title=Netty Core ServerBootStrap&pics=https://wjkcoder.github.io/images/avatar.png?v=1679390455973&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://wjkcoder.github.io/post/netty-serverbootstrap/&sharesource=weibo&title=Netty Core ServerBootStrap + " - " + &pic="https://wjkcoder.github.io/images/avatar.png?v=1679390455973 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                        
+                        <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">#
+                                                Source Code Analysis
+                                                    </a>
+                                                    
+                        <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">#
+                                                Netty
+                                                    </a>
+                                                    
+                                                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://wjkcoder.github.io/post/netty-nioeventloop-core/">
+                                                                                            Netty Core NioEventLoop
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://wjkcoder.github.io/post/netty-nioeventloopgroup/">
+                                                                                                    Netty Core NioEventLoopGroup
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Jikun WANG &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1679390455973);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

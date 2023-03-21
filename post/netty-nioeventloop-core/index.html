@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Jikun WANG
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="Jikun WANG">
+<meta name="description" content="Keep Track and Record ">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://wjkcoder.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://wjkcoder.github.io">
+                    Jikun WANG
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        Catalog
+                    </a>
+                    
+                    <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                        Groups
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <!-- <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form> -->
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://wjkcoder.github.io">
+                            Jikun WANG
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            Catalog
+                        </a>
+                        
+                        <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                            Groups
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Netty Core NioEventLoop
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Jikun WANG
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2020-03-17</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">16.4
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">2939</a></span>
+                                    
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">Source Code Analysis</a>
+                                
+                                <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">Netty</a>
+                                
+                            </span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://wjkcoder.github.io/post-images/netty-nioeventloop-core.jpeg" alt="">
+                          
+                        <div class="post-content">
+                            <ul>
+<li><a href="#nioeventloop-%E5%90%AF%E5%8A%A8">NioEventLoop 启动</a>
+<ul>
+<li><a href="#nioeventloop-register">NioEventLoop register</a></li>
+<li><a href="#nioeventloop-execute">NioEventLoop execute</a>
+<ul>
+<li><a href="#singlethreadeventexecutor-dostartthread">SingleThreadEventExecutor #doStartThread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#nioeventloop-run%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6%E5%92%8C%E4%BB%BB%E5%8A%A1">NioEventLoop #run()处理事件和任务</a>
+<ul>
+<li><a href="#select%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0">Select()机制实现</a>
+<ul>
+<li><a href="#nioeventloop-select">NioEventLoop select</a></li>
+<li><a href="#nioeventloop%E4%B8%ADwrappedselector">NioEventLoop中wrappedSelector</a></li>
+<li><a href="#selectorimplselect">SelectorImpl#select</a></li>
+<li><a href="#kqueueselectorimpldoselect">KQueueSelectorImpl#doSelect</a>
+<ul>
+<li><a href="#kqueuewrapper-poll">KqueueWrapper #poll</a></li>
+<li><a href="#jni-kevent">JNI kevent</a></li>
+<li><a href="#keventh">kevent.h</a></li>
+</ul>
+</li>
+<li><a href="#kqueueselectorimplupdateselectedkeys">KQueueSelectorImpl#updateSelectedKeys</a>
+<ul>
+<li><a href="#kqueuearraywrappergetdescriptor">KQueueArrayWrapper.getDescriptor</a></li>
+<li><a href="#thiskqueuewrappergetreventopsvar4">this.kqueueWrapper.getReventOps(var4)</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0selectedkeys">更新SelectedKeys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#processselectedkeys-%E5%A4%84%E7%90%86%E5%93%8D%E5%BA%94%E4%BA%8B%E4%BB%B6">processSelectedKeys 处理响应事件</a>
+<ul>
+<li><a href="#nioeventloopprocessselectedkeys">NioEventLoop#processSelectedKeys</a></li>
+<li><a href="#nioeventloopprocessselectedkeysoptimized">NioEventLoop#processSelectedKeysOptimized</a></li>
+<li><a href="#nioeventloopprocessselectedkeys-1">NioEventLoop#processSelectedKeys</a></li>
+<li><a href="#channelunsaferead">channel.unsafe().read()</a>
+<ul>
+<li><a href="#nioserversocketchannel%E4%B8%ADunsafe%E5%AE%9E%E4%BE%8Bread">NioServerSocketChannel中unsafe实例#read</a>
+<ul>
+<li><a href="#nioserversocketchanneldoreadmessages">NioServerSocketChannel#doReadMessages</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchannel%E4%B8%ADunsafe%E5%AE%9E%E4%BE%8Bread">NioSocketChannel中unsafe实例#read</a></li>
+</ul>
+</li>
+<li><a href="#piplinefirechannelread">pipline.fireChannelRead</a>
+<ul>
+<li><a href="#nioserversocketchannel-firechannelread">NioServerSocketChannel #fireChannelRead</a></li>
+<li><a href="#niosocketchannel-firechannelread">NioSocketChannel #fireChannelRead</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="nioeventloop-启动">NioEventLoop 启动</h1>
+<h2 id="nioeventloop-register">NioEventLoop register</h2>
+<p>NioEventLoop的实例化发生在NioEventLoopGroup的创建，但线程并没有开启，线程的开启是在register时发生的</p>
+<ul>
+<li>1.将channel注册到eventloop上</li>
+<li>2.判断eventloop是否是当前线程，非当前线程时，使用eventloop 执行task</li>
+</ul>
+<pre><code class="language-java">public final void register(EventLoop eventLoop, final ChannelPromise promise) {
+    AbstractChannel.this.eventLoop = eventLoop;
+    if (eventLoop.inEventLoop()) {
+        register0(promise);
+    } else {
+        try {
+            eventLoop.execute(new Runnable() {
+                @Override
+                public void run() {
+                    register0(promise);
+                }
+            });
+        } 
+    }
+}
+
+</code></pre>
+<h2 id="nioeventloop-execute">NioEventLoop execute</h2>
+<p>1.将task添加任务队列<br>
+2.判断eventloop是否开启，若未开启则执行startThread</p>
+<pre><code class="language-java">public void execute(Runnable task) {
+    ObjectUtil.checkNotNull(task, &quot;task&quot;);
+    execute(task, !(task instanceof LazyRunnable) &amp;&amp; wakesUpForTask(task));
+}
+
+</code></pre>
+<pre><code class="language-java">private void execute(Runnable task, boolean immediate) {
+    boolean inEventLoop = inEventLoop();
+    addTask(task);
+    if (!inEventLoop) {
+        startThread();
+    }
+
+    if (!addTaskWakesUp &amp;&amp; immediate) {
+        wakeup(inEventLoop);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">private void startThread() {
+    if (state == ST_NOT_STARTED) {
+        if (STATE_UPDATER.compareAndSet(this, ST_NOT_STARTED, ST_STARTED)) {
+            boolean success = false;
+            try {
+                doStartThread();
+                success = true;
+            } finally {
+                if (!success) {
+                    STATE_UPDATER.compareAndSet(this, ST_STARTED, ST_NOT_STARTED);
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="singlethreadeventexecutor-dostartthread">SingleThreadEventExecutor #doStartThread</h3>
+<ul>
+<li>1.执行包装好的runnable，thread赋值为当前线程也就是executor所在的线程</li>
+<li>2.执行NioEventLoop的run，就是处理SelectedKeys的for循环</li>
+<li>3.在外部加上shutdown和相关处理</li>
+</ul>
+<pre><code class="language-java">private void doStartThread() {
+    assert thread == null;
+    executor.execute(new Runnable() {
+        @Override
+        public void run() {
+            thread = Thread.currentThread();
+            if (interrupted) {
+                thread.interrupt();
+            }
+
+            boolean success = false;
+            updateLastExecutionTime();
+            try {
+                SingleThreadEventExecutor.this.run();
+                success = true;
+            } catch (Throwable t) {
+                logger.warn(&quot;Unexpected exception from an event executor: &quot;, t);
+            } finally {
+                for (;;) {
+                    int oldState = state;
+                    if (oldState &gt;= ST_SHUTTING_DOWN || STATE_UPDATER.compareAndSet(
+                            SingleThreadEventExecutor.this, oldState, ST_SHUTTING_DOWN)) {
+                        break;
+                    }
+                }
+
+                // Check if confirmShutdown() was called at the end of the loop.
+                if (success &amp;&amp; gracefulShutdownStartTime == 0) {
+                    if (logger.isErrorEnabled()) {
+                        logger.error(&quot;Buggy &quot; + EventExecutor.class.getSimpleName() + &quot; implementation; &quot; +
+                                SingleThreadEventExecutor.class.getSimpleName() + &quot;.confirmShutdown() must &quot; +
+                                &quot;be called before run() implementation terminates.&quot;);
+                    }
+                }
+
+                try {
+                    // Run all remaining tasks and shutdown hooks. At this point the event loop
+                    // is in ST_SHUTTING_DOWN state still accepting tasks which is needed for
+                    // graceful shutdown with quietPeriod.
+                    for (;;) {
+                        if (confirmShutdown()) {
+                            break;
+                        }
+                    }
+
+                    // Now we want to make sure no more tasks can be added from this point. This is
+                    // achieved by switching the state. Any new tasks beyond this point will be rejected.
+                    for (;;) {
+                        int oldState = state;
+                        if (oldState &gt;= ST_SHUTDOWN || STATE_UPDATER.compareAndSet(
+                                SingleThreadEventExecutor.this, oldState, ST_SHUTDOWN)) {
+                            break;
+                        }
+                    }
+
+                    // We have the final set of tasks in the queue now, no more can be added, run all remaining.
+                    // No need to loop here, this is the final pass.
+                    confirmShutdown();
+                } finally {
+                    try {
+                        cleanup();
+                    } finally {
+                        // Lets remove all FastThreadLocals for the Thread as we are about to terminate and notify
+                        // the future. The user may block on the future and once it unblocks the JVM may terminate
+                        // and start unloading classes.
+                        // See https://github.com/netty/netty/issues/6596.
+                        FastThreadLocal.removeAll();
+
+                        STATE_UPDATER.set(SingleThreadEventExecutor.this, ST_TERMINATED);
+                        threadLock.countDown();
+                        int numUserTasks = drainTasks();
+                        if (numUserTasks &gt; 0 &amp;&amp; logger.isWarnEnabled()) {
+                            logger.warn(&quot;An event executor terminated with &quot; +
+                                    &quot;non-empty task queue (&quot; + numUserTasks + ')');
+                        }
+                        terminationFuture.setSuccess(null);
+                    }
+                }
+            }
+        }
+    });
+}
+
+</code></pre>
+<h1 id="nioeventloop-run处理事件和任务">NioEventLoop #run()处理事件和任务</h1>
+<p>事件处理的核心</p>
+<ul>
+<li>1.根据当前是否有task计算选择策略，tasks为空时，默认是SELECT</li>
+<li>2.计算timeout，执行select()，这里若没有事件产生，阻塞当前线程</li>
+<li>3.事件产生或超时，线程唤醒；根据事件数量判定是否执行processKeys</li>
+<li>4.finally中处理tasks队列中的task</li>
+</ul>
+<pre><code class="language-java">protected void run() {
+    int selectCnt = 0;
+    for (;;) {
+        try {
+            int strategy;
+            try {
+                strategy = selectStrategy.calculateStrategy(selectNowSupplier, hasTasks());
+                switch (strategy) {
+                case SelectStrategy.CONTINUE:
+                    continue;
+
+                case SelectStrategy.BUSY_WAIT:
+                    // fall-through to SELECT since the busy-wait is not supported with NIO
+
+                case SelectStrategy.SELECT:
+                    long curDeadlineNanos = nextScheduledTaskDeadlineNanos();
+                    if (curDeadlineNanos == -1L) {
+                        curDeadlineNanos = NONE; // nothing on the calendar
+                    }
+                    nextWakeupNanos.set(curDeadlineNanos);
+                    try {
+                        if (!hasTasks()) {
+                            strategy = select(curDeadlineNanos);
+                        }
+                    } finally {
+                        // This update is just to help block unnecessary selector wakeups
+                        // so use of lazySet is ok (no race condition)
+                        nextWakeupNanos.lazySet(AWAKE);
+                    }
+                    // fall through
+                default:
+                }
+            } catch (IOException e) {
+                // If we receive an IOException here its because the Selector is messed up. Let's rebuild
+                // the selector and retry. https://github.com/netty/netty/issues/8566
+                rebuildSelector0();
+                selectCnt = 0;
+                handleLoopException(e);
+                continue;
+            }
+
+            selectCnt++;
+            cancelledKeys = 0;
+            needsToSelectAgain = false;
+            final int ioRatio = this.ioRatio;
+            boolean ranTasks;
+            if (ioRatio == 100) {
+                try {
+                    if (strategy &gt; 0) {
+                        processSelectedKeys();
+                    }
+                } finally {
+                    // Ensure we always run tasks.
+                    ranTasks = runAllTasks();
+                }
+            } else if (strategy &gt; 0) {
+                final long ioStartTime = System.nanoTime();
+                try {
+                    processSelectedKeys();
+                } finally {
+                    // Ensure we always run tasks.
+                    final long ioTime = System.nanoTime() - ioStartTime;
+                    ranTasks = runAllTasks(ioTime * (100 - ioRatio) / ioRatio);
+                }
+            } else {
+                ranTasks = runAllTasks(0); // This will run the minimum number of tasks
+            }
+
+            if (ranTasks || strategy &gt; 0) {
+                if (selectCnt &gt; MIN_PREMATURE_SELECTOR_RETURNS &amp;&amp; logger.isDebugEnabled()) {
+                    logger.debug(&quot;Selector.select() returned prematurely {} times in a row for Selector {}.&quot;,
+                            selectCnt - 1, selector);
+                }
+                selectCnt = 0;
+            } else if (unexpectedSelectorWakeup(selectCnt)) { // Unexpected wakeup (unusual case)
+                selectCnt = 0;
+            }
+        } catch (CancelledKeyException e) {
+            // Harmless exception - log anyway
+            if (logger.isDebugEnabled()) {
+                logger.debug(CancelledKeyException.class.getSimpleName() + &quot; raised by a Selector {} - JDK bug?&quot;,
+                        selector, e);
+            }
+        } catch (Error e) {
+            throw (Error) e;
+        } catch (Throwable t) {
+            handleLoopException(t);
+        } finally {
+            // Always handle shutdown even if the loop processing threw an exception.
+            try {
+                if (isShuttingDown()) {
+                    closeAll();
+                    if (confirmShutdown()) {
+                        return;
+                    }
+                }
+            } catch (Error e) {
+                throw (Error) e;
+            } catch (Throwable t) {
+                handleLoopException(t);
+            }
+        }
+    }
+}
+
+</code></pre>
+<h2 id="select机制实现">Select()机制实现</h2>
+<h3 id="nioeventloop-select">NioEventLoop select</h3>
+<pre><code class="language-java">strategy = select(curDeadlineNanos);
+
+</code></pre>
+<pre><code class="language-java">private int select(long deadlineNanos) throws IOException {
+    if (deadlineNanos == NONE) {
+        return selector.select();
+    }
+    // Timeout will only be 0 if deadline is within 5 microsecs
+    long timeoutMillis = deadlineToDelayNanos(deadlineNanos + 995000L) / 1000000L;
+    return timeoutMillis &lt;= 0 ? selector.selectNow() : selector.select(timeoutMillis);
+}
+
+</code></pre>
+<h3 id="nioeventloop中wrappedselector">NioEventLoop中wrappedSelector</h3>
+<ul>
+<li>1.重置selectKeys 如果是用jdk的nio去做，也需要自己手动去重置selectKeys，否则会有错误的keys</li>
+<li>2.执行unwrapped selector的select</li>
+</ul>
+<pre><code class="language-java">public int select() throws IOException {
+    selectionKeys.reset();
+    return delegate.select();
+}
+
+</code></pre>
+<h3 id="selectorimplselect">SelectorImpl#select</h3>
+<pre><code class="language-java">public int select() throws IOException {
+    return this.select(0L);
+}
+
+</code></pre>
+<pre><code class="language-java">public int select(long var1) throws IOException {
+    if (var1 &lt; 0L) {
+        throw new IllegalArgumentException(&quot;Negative timeout&quot;);
+    } else {
+        return this.lockAndDoSelect(var1 == 0L ? -1L : var1);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">private int lockAndDoSelect(long var1) throws IOException {
+    synchronized(this) {
+        if (!this.isOpen()) {
+            throw new ClosedSelectorException();
+        } else {
+            int var10000;
+            synchronized(this.publicKeys) {
+                synchronized(this.publicSelectedKeys) {
+                    var10000 = this.doSelect(var1);
+                }
+            }
+
+            return var10000;
+        }
+    }
+}
+
+</code></pre>
+<h3 id="kqueueselectorimpldoselect">KQueueSelectorImpl#doSelect</h3>
+<p>核心两件事情：</p>
+<ul>
+<li>1.返回产生的事件数量</li>
+<li>2.根据事件数量更新selectedKeys</li>
+</ul>
+<pre><code class="language-java">protected int doSelect(long var1) throws IOException {
+    boolean var3 = false;
+    if (this.closed) {
+        throw new ClosedSelectorException();
+    } else {
+        this.processDeregisterQueue();
+
+        int var7;
+        try {
+            this.begin();
+            var7 = this.kqueueWrapper.poll(var1);
+        } finally {
+            this.end();
+        }
+
+        this.processDeregisterQueue();
+        return this.updateSelectedKeys(var7);
+    }
+}
+
+</code></pre>
+<h4 id="kqueuewrapper-poll">KqueueWrapper #poll</h4>
+<pre><code class="language-java">int poll(long var1) {
+    this.updateRegistrations();
+    int var3 = this.kevent0(this.kq, this.keventArrayAddress, 128, var1);
+    return var3;
+}
+
+</code></pre>
+<h4 id="jni-kevent">JNI kevent</h4>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_KQueueArrayWrapper_kevent0(JNIEnv *env, jobject this, jint kq,
+                                           jlong kevAddr, jint kevCount,
+                                           jlong timeout)
+{
+    struct kevent *kevs = (struct kevent *)jlong_to_ptr(kevAddr);
+    struct timespec ts;
+    struct timespec *tsp;
+    int result;
+
+    // Java timeout is in milliseconds. Convert to struct timespec.
+    // Java timeout == -1 : wait forever : timespec timeout of NULL
+    // Java timeout == 0  : return immediately : timespec timeout of zero
+    if (timeout &gt;= 0) {
+        ts.tv_sec = timeout / 1000;
+        ts.tv_nsec = (timeout % 1000) * 1000000; //nanosec = 1 million millisec
+        tsp = &amp;ts;
+    } else {
+        tsp = NULL;
+    }
+
+    result = kevent(kq, NULL, 0, kevs, kevCount, tsp);
+
+    if (result &lt; 0) {
+        if (errno == EINTR) {
+            // ignore EINTR, pretend nothing was selected
+            result = 0;
+        } else {
+            JNU_ThrowIOExceptionWithLastError(env, &quot;KQueueArrayWrapper: kqueue failed&quot;);
+        }
+    }
+
+    return result;
+}
+
+</code></pre>
+<h4 id="keventh">kevent.h</h4>
+<p>返回timeout内产生的事件个数，产生的event会记录在eventlist的连续地址内；</p>
+<pre><code class="language-cpp">int     kevent(int kq,
+    const struct kevent *changelist, int nchanges,
+    struct kevent *eventlist, int nevents,
+    const struct timespec *timeout);
+
+</code></pre>
+<h3 id="kqueueselectorimplupdateselectedkeys">KQueueSelectorImpl#updateSelectedKeys</h3>
+<p>1.循环事件个数，以此为偏移量计算fd的identifier</p>
+<h4 id="kqueuearraywrappergetdescriptor">KQueueArrayWrapper.getDescriptor</h4>
+<p>eventlist是连续的内存，一个kevent是32字节，fd identifier long 是在第一个，偏移量是0</p>
+<pre><code class="language-java">int getDescriptor(int var1) {
+    int var2 = SIZEOF_KEVENT * var1 + FD_OFFSET;
+    if (is64bit) {
+        long var3 = this.keventArray.getLong(var2);
+
+        assert var3 &lt;= 2147483647L;
+
+        return (int)var3;
+    } else {
+        return this.keventArray.getInt(var2);
+    }
+}
+
+</code></pre>
+<p>2.根据偏移量访问直接内存，获取事件类型</p>
+<h4 id="thiskqueuewrappergetreventopsvar4">this.kqueueWrapper.getReventOps(var4)</h4>
+<p>同样的，也是根据偏移量拿到index处的kevent，8字节(64bit)后是filter，getshort拿到filter</p>
+<pre><code class="language-java">int getReventOps(int var1) {
+    int var2 = 0;
+    int var3 = SIZEOF_KEVENT * var1 + FILTER_OFFSET;
+    short var4 = this.keventArray.getShort(var3);
+    if (var4 == EVFILT_READ) {
+        var2 |= Net.POLLIN;
+    } else if (var4 == EVFILT_WRITE) {
+        var2 |= Net.POLLOUT;
+    }
+
+    return var2;
+}
+
+</code></pre>
+<h4 id="更新selectedkeys">更新SelectedKeys</h4>
+<p>这里的selectedkeys就是之后unwrapped selector中的keys</p>
+<pre><code class="language-java">private int updateSelectedKeys(int var1) throws IOException {
+    int var2 = 0;
+    boolean var3 = false;
+    ++this.updateCount;
+
+    for(int var4 = 0; var4 &lt; var1; ++var4) {
+        int var5 = this.kqueueWrapper.getDescriptor(var4);
+        if (var5 == this.fd0) {
+            var3 = true;
+        } else {
+            MapEntry var6 = (MapEntry)this.fdMap.get(var5);
+            if (var6 != null) {
+                int var7 = this.kqueueWrapper.getReventOps(var4);
+                SelectionKeyImpl var8 = var6.ski;
+                if (this.selectedKeys.contains(var8)) {
+                    if (var6.updateCount != this.updateCount) {
+                        if (var8.channel.translateAndSetReadyOps(var7, var8)) {
+                            ++var2;
+                            var6.updateCount = this.updateCount;
+                        }
+                    } else {
+                        var8.channel.translateAndUpdateReadyOps(var7, var8);
+                    }
+                } else {
+                    var8.channel.translateAndSetReadyOps(var7, var8);
+                    if ((var8.nioReadyOps() &amp; var8.nioInterestOps()) != 0) {
+                        this.selectedKeys.add(var8);
+                        ++var2;
+                        var6.updateCount = this.updateCount;
+                    }
+                }
+            }
+        }
+    }
+
+    if (var3) {
+        synchronized(this.interruptLock) {
+            IOUtil.drain(this.fd0);
+            this.interruptTriggered = false;
+        }
+    }
+
+    return var2;
+}
+
+</code></pre>
+<h2 id="processselectedkeys-处理响应事件">processSelectedKeys 处理响应事件</h2>
+<h3 id="nioeventloopprocessselectedkeys">NioEventLoop#processSelectedKeys</h3>
+<pre><code class="language-java">private void processSelectedKeys() {
+    if (selectedKeys != null) {
+        processSelectedKeysOptimized();
+    } else {
+        processSelectedKeysPlain(selector.selectedKeys());
+    }
+}
+
+</code></pre>
+<h3 id="nioeventloopprocessselectedkeysoptimized">NioEventLoop#processSelectedKeysOptimized</h3>
+<p>从key的attach上拿到channel，执行处理key</p>
+<pre><code class="language-java">private void processSelectedKeysOptimized() {
+    for (int i = 0; i &lt; selectedKeys.size; ++i) {
+        final SelectionKey k = selectedKeys.keys[i];
+        // null out entry in the array to allow to have it GC'ed once the Channel close
+        // See https://github.com/netty/netty/issues/2363
+        selectedKeys.keys[i] = null;
+
+        final Object a = k.attachment();
+
+        if (a instanceof AbstractNioChannel) {
+            processSelectedKey(k, (AbstractNioChannel) a);
+        } else {
+            @SuppressWarnings(&quot;unchecked&quot;)
+            NioTask&lt;SelectableChannel&gt; task = (NioTask&lt;SelectableChannel&gt;) a;
+            processSelectedKey(k, task);
+        }
+    }
+}
+
+</code></pre>
+<h3 id="nioeventloopprocessselectedkeys-2">NioEventLoop#processSelectedKeys</h3>
+<ul>
+<li>1.拿到channel的unsafe实例</li>
+<li>2.判断k的事件类型，依次处理 OP_CONNECT &gt; OP_WRITE &gt; OP_READ | OP_ACCEPT,这里read和accept是放在一起处理的，原因是ServerChannel的accept操作也是在channelRead方法里执行的；</li>
+<li>3.需要注意的是NioServerSocketChannel和NioSocketChannel的unsafe实例是不同的<br>
+前者对应AbstractNioMessageChannel的实现，用于处理连接；<br>
+后者对应AbstractNioByteChannel的实现，用于处理字节流读写；</li>
+</ul>
+<pre><code class="language-java">private void processSelectedKey(SelectionKey k, AbstractNioChannel ch) {
+    final AbstractNioChannel.NioUnsafe unsafe = ch.unsafe();
+    try {
+        int readyOps = k.readyOps();
+        // We first need to call finishConnect() before try to trigger a read(...) or write(...) as otherwise
+        // the NIO JDK channel implementation may throw a NotYetConnectedException.
+        if ((readyOps &amp; SelectionKey.OP_CONNECT) != 0) {
+            // remove OP_CONNECT as otherwise Selector.select(..) will always return without blocking
+            // See https://github.com/netty/netty/issues/924
+            int ops = k.interestOps();
+            ops &amp;= ~SelectionKey.OP_CONNECT;
+            k.interestOps(ops);
+    
+            unsafe.finishConnect();
+        }
+    
+        // Process OP_WRITE first as we may be able to write some queued buffers and so free memory.
+        if ((readyOps &amp; SelectionKey.OP_WRITE) != 0) {
+            // Call forceFlush which will also take care of clear the OP_WRITE once there is nothing left to write
+            ch.unsafe().forceFlush();
+        }
+    
+        // Also check for readOps of 0 to workaround possible JDK bug which may otherwise lead
+        // to a spin loop
+        if ((readyOps &amp; (SelectionKey.OP_READ | SelectionKey.OP_ACCEPT)) != 0 || readyOps == 0) {
+            unsafe.read();
+        }
+    } catch (CancelledKeyException ignored) {
+        unsafe.close(unsafe.voidPromise());
+    }
+}  
+
+</code></pre>
+<h3 id="channelunsaferead">channel.unsafe().read()</h3>
+<h4 id="nioserversocketchannel中unsafe实例read">NioServerSocketChannel中unsafe实例#read</h4>
+<ul>
+<li>1.调用NioServerSocketChannel的doReadMessages处理accept，把nio SocketChannel包装成NioSocketChannel放在readBuf列表中</li>
+<li>2.执行pipline的channelRead方法，这里的实现是固定的，用于配置childHandler</li>
+<li>3.执行pipline的channelReadComplete</li>
+<li>4.处理异常(若有)</li>
+</ul>
+<pre><code class="language-java">private final class NioMessageUnsafe extends AbstractNioUnsafe {
+
+    private final List&lt;Object&gt; readBuf = new ArrayList&lt;Object&gt;();
+
+    @Override
+    public void read() {
+        assert eventLoop().inEventLoop();
+        final ChannelConfig config = config();
+        final ChannelPipeline pipeline = pipeline();
+        final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        boolean closed = false;
+        Throwable exception = null;
+        try {
+            try {
+                do {
+                    int localRead = doReadMessages(readBuf);
+                    if (localRead == 0) {
+                        break;
+                    }
+                    if (localRead &lt; 0) {
+                        closed = true;
+                        break;
+                    }
+
+                    allocHandle.incMessagesRead(localRead);
+                } while (allocHandle.continueReading());
+            } catch (Throwable t) {
+                exception = t;
+            }
+
+            int size = readBuf.size();
+            for (int i = 0; i &lt; size; i ++) {
+                readPending = false;
+                pipeline.fireChannelRead(readBuf.get(i));
+            }
+            readBuf.clear();
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+
+            if (exception != null) {
+                closed = closeOnReadError(exception);
+
+                pipeline.fireExceptionCaught(exception);
+            }
+
+            if (closed) {
+                inputShutdown = true;
+                if (isOpen()) {
+                    close(voidPromise());
+                }
+            }
+        } finally {
+            // Check if there is a readPending which was not processed yet.
+            // This could be for two reasons:
+            // * The user called Channel.read() or ChannelHandlerContext.read() in channelRead(...) method
+            // * The user called Channel.read() or ChannelHandlerContext.read() in channelReadComplete(...) method
+            //
+            // See https://github.com/netty/netty/issues/2254
+            if (!readPending &amp;&amp; !config.isAutoRead()) {
+                removeReadOp();
+            }
+        }
+    }
+}
+
+</code></pre>
+<h5 id="nioserversocketchanneldoreadmessages">NioServerSocketChannel#doReadMessages</h5>
+<p>利用nio的api accept创建SocketChannel，包装成为NioSocketChannel</p>
+<pre><code class="language-java">protected int doReadMessages(List&lt;Object&gt; buf) throws Exception {
+    SocketChannel ch = SocketUtils.accept(javaChannel());
+
+    try {
+        if (ch != null) {
+            buf.add(new NioSocketChannel(this, ch));
+            return 1;
+        }
+    } catch (Throwable t) {
+        logger.warn(&quot;Failed to create a new channel from an accepted socket.&quot;, t);
+
+        try {
+            ch.close();
+        } catch (Throwable t2) {
+            logger.warn(&quot;Failed to close a socket.&quot;, t2);
+        }
+    }
+
+    return 0;
+}
+
+</code></pre>
+<h4 id="niosocketchannel中unsafe实例read">NioSocketChannel中unsafe实例#read</h4>
+<ul>
+<li>1.创建DirectBuffer，从channel中读取数据到buffer，作为参数执行pipline的fireChannelRead，netty的网络io层面的read操作已经完成了，handler中的操作属于是应用层自定义操作；</li>
+<li>2.read完之后，执行pipline的fireChannelReadComplete</li>
+</ul>
+<pre><code class="language-java">public final void read() {
+    final ChannelConfig config = config();
+    if (shouldBreakReadReady(config)) {
+        clearReadPending();
+        return;
+    }
+    final ChannelPipeline pipeline = pipeline();
+    final ByteBufAllocator allocator = config.getAllocator();
+    final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+    allocHandle.reset(config);
+
+    ByteBuf byteBuf = null;
+    boolean close = false;
+    try {
+        do {
+            byteBuf = allocHandle.allocate(allocator);
+            allocHandle.lastBytesRead(doReadBytes(byteBuf));
+            if (allocHandle.lastBytesRead() &lt;= 0) {
+                // nothing was read. release the buffer.
+                byteBuf.release();
+                byteBuf = null;
+                close = allocHandle.lastBytesRead() &lt; 0;
+                if (close) {
+                    // There is nothing left to read as we received an EOF.
+                    readPending = false;
+                }
+                break;
+            }
+
+            allocHandle.incMessagesRead(1);
+            readPending = false;
+            pipeline.fireChannelRead(byteBuf);
+            byteBuf = null;
+        } while (allocHandle.continueReading());
+
+        allocHandle.readComplete();
+        pipeline.fireChannelReadComplete();
+
+        if (close) {
+            closeOnRead(pipeline);
+        }
+    } catch (Throwable t) {
+        handleReadException(pipeline, byteBuf, t, close, allocHandle);
+    } finally {
+        // Check if there is a readPending which was not processed yet.
+        // This could be for two reasons:
+        // * The user called Channel.read() or ChannelHandlerContext.read() in channelRead(...) method
+        // * The user called Channel.read() or ChannelHandlerContext.read() in channelReadComplete(...) method
+        //
+        // See https://github.com/netty/netty/issues/2254
+        if (!readPending &amp;&amp; !config.isAutoRead()) {
+            removeReadOp();
+        }
+    }
+}
+
+</code></pre>
+<h3 id="piplinefirechannelread">pipline.fireChannelRead</h3>
+<p>NioServerSocketChannel和NioSocketChannel的实现也是不同的，一个关注对于新accept的NioSocketChannel的初始化；另一个则关注具体的read处理</p>
+<h4 id="nioserversocketchannel-firechannelread">NioServerSocketChannel #fireChannelRead</h4>
+<p>NSSC中添加了唯一一个handler用于处理child，设置child属性，用child的eventloopGroup异步register<br>
+ServerBootStrapAcceptor#channelRead</p>
+<pre><code class="language-java">ServerBootstrapAcceptor(
+        final Channel channel, EventLoopGroup childGroup, ChannelHandler childHandler,
+        Entry&lt;ChannelOption&lt;?&gt;, Object&gt;[] childOptions, Entry&lt;AttributeKey&lt;?&gt;, Object&gt;[] childAttrs) {
+    this.childGroup = childGroup;
+    this.childHandler = childHandler;
+    this.childOptions = childOptions;
+    this.childAttrs = childAttrs;
+
+    // Task which is scheduled to re-enable auto-read.
+    // It's important to create this Runnable before we try to submit it as otherwise the URLClassLoader may
+    // not be able to load the class because of the file limit it already reached.
+    //
+    // See https://github.com/netty/netty/issues/1328
+    enableAutoReadTask = new Runnable() {
+        @Override
+        public void run() {
+            channel.config().setAutoRead(true);
+        }
+    };
+}
+
+@Override
+@SuppressWarnings(&quot;unchecked&quot;)
+public void channelRead(ChannelHandlerContext ctx, Object msg) {
+    final Channel child = (Channel) msg;
+
+    child.pipeline().addLast(childHandler);
+
+    setChannelOptions(child, childOptions, logger);
+    setAttributes(child, childAttrs);
+
+    try {
+        childGroup.register(child).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) throws Exception {
+                if (!future.isSuccess()) {
+                    forceClose(child, future.cause());
+                }
+            }
+        });
+    } catch (Throwable t) {
+        forceClose(child, t);
+    }
+}
+
+</code></pre>
+<h4 id="niosocketchannel-firechannelread">NioSocketChannel #fireChannelRead</h4>
+<p>NioSocketChannel的read会根据pipline中添加的handler，从head开始以此去执行channelRead，参数的起点就是ByteBuf<br>
+自定义handler中的channelRead</p>
+<pre><code class="language-java">protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    ByteBuf buf = (ByteBuf) msg;
+    int capacity = buf.readableBytes();
+    byte[] bytes = new byte[capacity];
+    buf.readBytes(bytes);
+    System.out.println(new String(bytes));
+    ctx.writeAndFlush(Unpooled.copiedBuffer(&quot;ack&quot;.getBytes(StandardCharsets.UTF_8)));
+}
+
+</code></pre>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#nioeventloop-%E5%90%AF%E5%8A%A8">NioEventLoop 启动</a>
+<ul>
+<li><a href="#nioeventloop-register">NioEventLoop register</a></li>
+<li><a href="#nioeventloop-execute">NioEventLoop execute</a>
+<ul>
+<li><a href="#singlethreadeventexecutor-dostartthread">SingleThreadEventExecutor #doStartThread</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#nioeventloop-run%E5%A4%84%E7%90%86%E4%BA%8B%E4%BB%B6%E5%92%8C%E4%BB%BB%E5%8A%A1">NioEventLoop #run()处理事件和任务</a>
+<ul>
+<li><a href="#select%E6%9C%BA%E5%88%B6%E5%AE%9E%E7%8E%B0">Select()机制实现</a>
+<ul>
+<li><a href="#nioeventloop-select">NioEventLoop select</a></li>
+<li><a href="#nioeventloop%E4%B8%ADwrappedselector">NioEventLoop中wrappedSelector</a></li>
+<li><a href="#selectorimplselect">SelectorImpl#select</a></li>
+<li><a href="#kqueueselectorimpldoselect">KQueueSelectorImpl#doSelect</a>
+<ul>
+<li><a href="#kqueuewrapper-poll">KqueueWrapper #poll</a></li>
+<li><a href="#jni-kevent">JNI kevent</a></li>
+<li><a href="#keventh">kevent.h</a></li>
+</ul>
+</li>
+<li><a href="#kqueueselectorimplupdateselectedkeys">KQueueSelectorImpl#updateSelectedKeys</a>
+<ul>
+<li><a href="#kqueuearraywrappergetdescriptor">KQueueArrayWrapper.getDescriptor</a></li>
+<li><a href="#thiskqueuewrappergetreventopsvar4">this.kqueueWrapper.getReventOps(var4)</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0selectedkeys">更新SelectedKeys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#processselectedkeys-%E5%A4%84%E7%90%86%E5%93%8D%E5%BA%94%E4%BA%8B%E4%BB%B6">processSelectedKeys 处理响应事件</a>
+<ul>
+<li><a href="#nioeventloopprocessselectedkeys">NioEventLoop#processSelectedKeys</a></li>
+<li><a href="#nioeventloopprocessselectedkeysoptimized">NioEventLoop#processSelectedKeysOptimized</a></li>
+<li><a href="#nioeventloopprocessselectedkeys-2">NioEventLoop#processSelectedKeys</a></li>
+<li><a href="#channelunsaferead">channel.unsafe().read()</a>
+<ul>
+<li><a href="#nioserversocketchannel%E4%B8%ADunsafe%E5%AE%9E%E4%BE%8Bread">NioServerSocketChannel中unsafe实例#read</a>
+<ul>
+<li><a href="#nioserversocketchanneldoreadmessages">NioServerSocketChannel#doReadMessages</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchannel%E4%B8%ADunsafe%E5%AE%9E%E4%BE%8Bread">NioSocketChannel中unsafe实例#read</a></li>
+</ul>
+</li>
+<li><a href="#piplinefirechannelread">pipline.fireChannelRead</a>
+<ul>
+<li><a href="#nioserversocketchannel-firechannelread">NioServerSocketChannel #fireChannelRead</a></li>
+<li><a href="#niosocketchannel-firechannelread">NioSocketChannel #fireChannelRead</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wjkcoder.github.io/post/netty-nioeventloop-core/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wjkcoder.github.io/post/netty-nioeventloop-core/&sharesource=qzone&title=Netty Core NioEventLoop&pics=https://wjkcoder.github.io/images/avatar.png?v=1679390455973&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://wjkcoder.github.io/post/netty-nioeventloop-core/&sharesource=weibo&title=Netty Core NioEventLoop + " - " + &pic="https://wjkcoder.github.io/images/avatar.png?v=1679390455973 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                        
+                        <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">#
+                                                Source Code Analysis
+                                                    </a>
+                                                    
+                        <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">#
+                                                Netty
+                                                    </a>
+                                                    
+                                                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://wjkcoder.github.io/post/netty-core-channel-readandwrite/">
+                                                                                            Netty Core Channel Read&amp;Write
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://wjkcoder.github.io/post/netty-serverbootstrap/">
+                                                                                                    Netty Core ServerBootStrap
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Jikun WANG &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1679390455973);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

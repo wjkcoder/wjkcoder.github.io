@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Jikun WANG
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="Jikun WANG">
+<meta name="description" content="Keep Track and Record ">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://wjkcoder.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://wjkcoder.github.io">
+                    Jikun WANG
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        Catalog
+                    </a>
+                    
+                    <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                        Groups
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <!-- <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form> -->
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://wjkcoder.github.io">
+                            Jikun WANG
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            Catalog
+                        </a>
+                        
+                        <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                            Groups
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Netty Core Channel Read&amp;Write
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Jikun WANG
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2020-03-26</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">13.1
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">2355</a></span>
+                                    
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">Source Code Analysis</a>
+                                
+                                <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">Netty</a>
+                                
+                            </span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://wjkcoder.github.io/post-images/netty-core-channel-readandwrite.jpeg" alt="">
+                          
+                        <div class="post-content">
+                            <ul>
+<li><a href="#niosocketchannel-read%E5%AE%9E%E7%8E%B0">NioSocketChannel read实现</a>
+<ul>
+<li><a href="#abstractniobytechannelread">AbstractNioByteChannel#read</a></li>
+<li><a href="#niobyteunsaferead">NioByteUnsafe#read</a></li>
+<li><a href="#niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</a>
+<ul>
+<li><a href="#abstractbytebufwritebytes">AbstractByteBuf#writeBytes</a></li>
+<li><a href="#pooledbytebufsetbytes">PooledByteBuf#setBytes</a></li>
+</ul>
+</li>
+<li><a href="#jdk-socketchannelimplread">JDK SocketChannelImpl#read</a>
+<ul>
+<li><a href="#ioutilread">IOUtil#read</a></li>
+<li><a href="#ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</a></li>
+<li><a href="#socketdispatcherread">SocketDispatcher#read</a>
+<ul>
+<li><a href="#filedispatcherimplread0">FileDispatcherImpl#read0</a></li>
+<li><a href="#jni-read0">JNI read0</a></li>
+<li><a href="#ioh--read">io.h  #read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#niosocketchannel-write%E5%AE%9E%E7%8E%B0">NioSocketChannel Write实现</a>
+<ul>
+<li><a href="#abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</a></li>
+<li><a href="#invokewrite0">invokeWrite0</a>
+<ul>
+<li><a href="#unsafewrite">unsafe#write</a></li>
+</ul>
+</li>
+<li><a href="#invokeflush0">invokeFlush0</a>
+<ul>
+<li><a href="#unsafeflush">unsafe#flush</a></li>
+<li><a href="#flush0">flush0</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchanneldowrite">NioSocketChannel#doWrite</a></li>
+<li><a href="#jdk-socketchannelwirte">JDK SocketChannel#wirte</a>
+<ul>
+<li><a href="#ioutilwrite">IOUtil#write</a></li>
+<li><a href="#ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</a></li>
+<li><a href="#socketdispatcherwrite">SocketDispatcher#write</a>
+<ul>
+<li><a href="#filedispatcherwrite0">FileDispatcher#write0</a></li>
+<li><a href="#jni-write0">JNI write0</a></li>
+<li><a href="#ioh-write">io.h #write</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>零拷贝是Netty自身实现的吗？<br>
+至少在读/写操作时，零拷贝并不是Netty去实现的，而是jdk的NIO本身提供的api</p>
+<h2 id="niosocketchannel-read实现">NioSocketChannel read实现</h2>
+<p>起点在NioEventLoop的run中的processSelectedKeys，调用unsafe的read</p>
+<h3 id="abstractniobytechannelread">AbstractNioByteChannel#read</h3>
+<p>这里和NSSC的AbstractNioMessageChannel区分开，这里的byte是专门处理字节流的, 具体参与处理的其内部实现类NioByteUnsafe</p>
+<h3 id="niobyteunsaferead">NioByteUnsafe#read</h3>
+<ul>
+<li>1.分配一块ByteBuffer</li>
+<li>2.把channel的字节流读到buffer</li>
+<li>3.处理完之后的buffer作为参数处理之后的pipline.fireChannelRead这里跟io读写相关的只发生在2，fireChannelRead可以看作是业务层面的处理，因为底层的字节流已经拿到了。下面只讨论2</li>
+</ul>
+<pre><code class="language-java">protected class NioByteUnsafe extends AbstractNioUnsafe {
+
+    @Override
+    public final void read() {
+        final ChannelConfig config = config();
+        if (shouldBreakReadReady(config)) {
+            clearReadPending();
+            return;
+        }
+        final ChannelPipeline pipeline = pipeline();
+        final ByteBufAllocator allocator = config.getAllocator();
+        final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        ByteBuf byteBuf = null;
+        boolean close = false;
+        try {
+            do {
+                byteBuf = allocHandle.allocate(allocator);
+                allocHandle.lastBytesRead(doReadBytes(byteBuf));
+                if (allocHandle.lastBytesRead() &lt;= 0) {
+                    // nothing was read. release the buffer.
+                    byteBuf.release();
+                    byteBuf = null;
+                    close = allocHandle.lastBytesRead() &lt; 0;
+                    if (close) {
+                        // There is nothing left to read as we received an EOF.
+                        readPending = false;
+                    }
+                    break;
+                }
+
+                allocHandle.incMessagesRead(1);
+                readPending = false;
+                pipeline.fireChannelRead(byteBuf);
+                byteBuf = null;
+            } while (allocHandle.continueReading());
+
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+    }
+}
+
+</code></pre>
+<h3 id="niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</h3>
+<pre><code class="language-java">protected int doReadBytes(ByteBuf byteBuf) throws Exception {
+    final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+    allocHandle.attemptedBytesRead(byteBuf.writableBytes());
+    return byteBuf.writeBytes(javaChannel(), allocHandle.attemptedBytesRead());
+}
+
+</code></pre>
+<h4 id="abstractbytebufwritebytes">AbstractByteBuf#writeBytes</h4>
+<pre><code class="language-java">public int writeBytes(ScatteringByteChannel in, int length) throws IOException {
+    ensureWritable(length);
+    int writtenBytes = setBytes(writerIndex, in, length);
+    if (writtenBytes &gt; 0) {
+        writerIndex += writtenBytes;
+    }
+    return writtenBytes;
+}
+
+</code></pre>
+<h4 id="pooledbytebufsetbytes">PooledByteBuf#setBytes</h4>
+<pre><code class="language-java">public final int setBytes(int index, ScatteringByteChannel in, int length) throws IOException {
+    try {
+        return in.read(internalNioBuffer(index, length));
+    } catch (ClosedChannelException ignored) {
+        return -1;
+    }
+}
+
+</code></pre>
+<h3 id="jdk-socketchannelimplread">JDK SocketChannelImpl#read</h3>
+<p>核心部分</p>
+<ul>
+<li>1.或者read同步锁</li>
+<li>2.while执行IOUtil read，从fd读字节流到buffer</li>
+</ul>
+<pre><code class="language-java">public int read(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.readLock) {
+            if (!this.ensureReadOpen()) {
+                return -1;
+            } else {
+                int var3 = 0;
+                boolean var20 = false;
+
+                byte var10000;
+                byte var5;
+                label360: {
+                    int var4;
+                    try {
+                        var20 = true;
+                        this.begin();
+                        synchronized(this.stateLock) {
+                            if (!this.isOpen()) {
+                                var5 = 0;
+                                var20 = false;
+                                break label360;
+                            }
+
+                            this.readerThread = NativeThread.current();
+                        }
+
+                        while(true) {
+                            var3 = IOUtil.read(this.fd, var1, -1L, nd);
+                            if (var3 != -3 || !this.isOpen()) {
+                                var4 = IOStatus.normalize(var3);
+                                var20 = false;
+                                break;
+                            }
+            }
+        }
+    }
+}
+
+</code></pre>
+<h4 id="ioutilread">IOUtil#read</h4>
+<ul>
+<li>1.区分buffer的类型，是否是直接内存/堆外内存</li>
+<li>2.若是直接内存，直接执行堆外内存的逻辑；</li>
+<li>3.若是heap，需要先将heap转化为堆外内存，再执行2的逻辑</li>
+</ul>
+<p>之所以认为不是Netty在读写时实现了零拷贝技术，是因为jdk本身就提供了堆内存和直接内存的实现，Netty只是在此基础上默认使用了DirectBuffer实例而已，<br>
+若自己用NIO的api来写read操作，在指定buffer的时候使用堆外内存也可以达到相同的效果；</p>
+<pre><code class="language-java">static int read(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1.isReadOnly()) {
+        throw new IllegalArgumentException(&quot;Read-only buffer&quot;);
+    } else if (var1 instanceof DirectBuffer) {
+        return readIntoNativeBuffer(var0, var1, var2, var4);
+    } else {
+        //这里要去分配一块直接内存
+        ByteBuffer var5 = Util.getTemporaryDirectBuffer(var1.remaining());
+
+        int var7;
+        try {
+            int var6 = readIntoNativeBuffer(var0, var5, var2, var4);
+            var5.flip();
+            if (var6 &gt; 0) {
+                var1.put(var5);
+            }
+
+            var7 = var6;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var5);
+        }
+
+        return var7;
+    }
+}
+
+</code></pre>
+<h4 id="ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</h4>
+<p>计算剩余要读的字节，使用dispatcher去读取</p>
+<pre><code class="language-java">private static int readIntoNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &lt;= var6;
+
+    int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        boolean var8 = false;
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pread(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.read(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+</code></pre>
+<h4 id="socketdispatcherread">SocketDispatcher#read</h4>
+<h5 id="filedispatcherimplread0">FileDispatcherImpl#read0</h5>
+<pre><code class="language-java">FileDispatcherImpl#read0
+</code></pre>
+<h5 id="jni-read0">JNI read0</h5>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_read0(JNIEnv *env, jclass clazz,
+                             jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, read(fd, buf, len), JNI_TRUE);
+}
+
+</code></pre>
+<h5 id="ioh-read">io.h  #read</h5>
+<p>从fd文件描述符所在文件，读size个字节到buf所在的内存地址</p>
+<pre><code class="language-cpp">static inline int read(int fd, void* buf, unsigned int size) { return _read(fd, buf, size); }
+</code></pre>
+<h2 id="niosocketchannel-write实现">NioSocketChannel Write实现</h2>
+<p>写的起点是ctx.writeAndFlush</p>
+<h3 id="abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</h3>
+<pre><code class="language-java">public ChannelFuture writeAndFlush(Object msg) {
+    return writeAndFlush(msg, newPromise());
+}
+public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
+    write(msg, true, promise);
+    return promise;
+}
+private void write(Object msg, boolean flush, ChannelPromise promise) {
+    ObjectUtil.checkNotNull(msg, &quot;msg&quot;);
+    try {
+        if (isNotValidPromise(promise, true)) {
+            ReferenceCountUtil.release(msg);
+            // cancelled
+            return;
+        }
+    } catch (RuntimeException e) {
+        ReferenceCountUtil.release(msg);
+        throw e;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(flush ?
+            (MASK_WRITE | MASK_FLUSH) : MASK_WRITE);
+    final Object m = pipeline.touch(msg, next);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        if (flush) {
+            next.invokeWriteAndFlush(m, promise);
+        } else {
+            next.invokeWrite(m, promise);
+        }
+    } else {
+        final WriteTask task = WriteTask.newInstance(next, m, promise, flush);
+        if (!safeExecute(executor, task, promise, m, !flush)) {
+            // We failed to submit the WriteTask. We need to cancel it so we decrement the pending bytes
+            // and put it back in the Recycler for re-use later.
+            //
+            // See https://github.com/netty/netty/issues/8343.
+            task.cancel();
+        }
+    }
+}
+void invokeWriteAndFlush(Object msg, ChannelPromise promise) {
+    if (invokeHandler()) {
+        invokeWrite0(msg, promise);
+        invokeFlush0();
+    } else {
+        writeAndFlush(msg, promise);
+    }
+}
+
+</code></pre>
+<p><strong>channel的字节流不是立刻发送的，分成了两个动作，一个缓存和组合message，另一个flush才是真正的发送；</strong></p>
+<h3 id="invokewrite0">invokeWrite0</h3>
+<h4 id="unsafewrite">unsafe#write</h4>
+<ul>
+<li>1.有一个outboundBuffer，代表最后真正要发送的字节</li>
+<li>2.过滤msg，通过之后的msg才会被加入到out中</li>
+<li>3.添加msg</li>
+</ul>
+<pre><code class="language-java">public final void write(Object msg, ChannelPromise promise) {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        try {
+            // release message now to prevent resource-leak
+            ReferenceCountUtil.release(msg);
+        } finally {
+            // If the outboundBuffer is null we know the channel was closed and so
+            // need to fail the future right away. If it is not null the handling of the rest
+            // will be done in flush0()
+            // See https://github.com/netty/netty/issues/2362
+            safeSetFailure(promise,
+                    newClosedChannelException(initialCloseCause, &quot;write(Object, ChannelPromise)&quot;));
+        }
+        return;
+    }
+
+    int size;
+    try {
+        msg = filterOutboundMessage(msg);
+        size = pipeline.estimatorHandle().size(msg);
+        if (size &lt; 0) {
+            size = 0;
+        }
+    } catch (Throwable t) {
+        try {
+            ReferenceCountUtil.release(msg);
+        } finally {
+            safeSetFailure(promise, t);
+        }
+        return;
+    }
+
+    outboundBuffer.addMessage(msg, size, promise);
+}
+
+</code></pre>
+<h3 id="invokeflush0">invokeFlush0</h3>
+<h4 id="unsafeflush">unsafe#flush</h4>
+<ul>
+<li>1.拿到write之后的outboundBuffer</li>
+<li>2.确认每一个promise</li>
+<li>3.执行flush0</li>
+</ul>
+<pre><code class="language-java">public final void flush() {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        return;
+    }
+
+    outboundBuffer.addFlush();
+    flush0();
+}
+public void addFlush() {
+    // There is no need to process all entries if there was already a flush before and no new messages
+    // where added in the meantime.
+    //
+    // See https://github.com/netty/netty/issues/2577
+    Entry entry = unflushedEntry;
+    if (entry != null) {
+        if (flushedEntry == null) {
+            // there is no flushedEntry yet, so start with the entry
+            flushedEntry = entry;
+        }
+        do {
+            flushed ++;
+            if (!entry.promise.setUncancellable()) {
+                // Was cancelled so make sure we free up memory and notify about the freed bytes
+                int pending = entry.cancel();
+                decrementPendingOutboundBytes(pending, false, true);
+            }
+            entry = entry.next;
+        } while (entry != null);
+
+        // All flushed so reset unflushedEntry
+        unflushedEntry = null;
+    }
+}
+
+</code></pre>
+<h4 id="flush0">flush0</h4>
+<pre><code class="language-java">protected void flush0() {
+    if (inFlush0) {
+        // Avoid re-entrance
+        return;
+    }
+
+    final ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null || outboundBuffer.isEmpty()) {
+        return;
+    }
+
+    inFlush0 = true;
+
+    // Mark all pending write requests as failure if the channel is inactive.
+    if (!isActive()) {
+        try {
+            // Check if we need to generate the exception at all.
+            if (!outboundBuffer.isEmpty()) {
+                if (isOpen()) {
+                    outboundBuffer.failFlushed(new NotYetConnectedException(), true);
+                } else {
+                    // Do not trigger channelWritabilityChanged because the channel is closed already.
+                    outboundBuffer.failFlushed(newClosedChannelException(initialCloseCause, &quot;flush0()&quot;), false);
+                }
+            }
+        } finally {
+            inFlush0 = false;
+        }
+        return;
+    }
+
+    try {
+        doWrite(outboundBuffer);
+    } catch (Throwable t) {
+        handleWriteError(t);
+    } finally {
+        inFlush0 = false;
+    }
+}
+
+</code></pre>
+<h3 id="niosocketchanneldowrite">NioSocketChannel#doWrite</h3>
+<ul>
+<li>1.获取nio的channel</li>
+<li>2.获取要处理的buffer数组</li>
+<li>3.执行channel.write</li>
+</ul>
+<pre><code class="language-java">protected void doWrite(ChannelOutboundBuffer in) throws Exception {
+    SocketChannel ch = javaChannel();
+    int writeSpinCount = config().getWriteSpinCount();
+    do {
+        if (in.isEmpty()) {
+            // All written so clear OP_WRITE
+            clearOpWrite();
+            // Directly return here so incompleteWrite(...) is not called.
+            return;
+        }
+
+        // Ensure the pending writes are made of ByteBufs only.
+        int maxBytesPerGatheringWrite = ((NioSocketChannelConfig) config).getMaxBytesPerGatheringWrite();
+        ByteBuffer[] nioBuffers = in.nioBuffers(1024, maxBytesPerGatheringWrite);
+        int nioBufferCnt = in.nioBufferCount();
+
+        // Always use nioBuffers() to workaround data-corruption.
+        // See https://github.com/netty/netty/issues/2761
+        switch (nioBufferCnt) {
+            case 0:
+                // We have something else beside ByteBuffers to write so fallback to normal writes.
+                writeSpinCount -= doWrite0(in);
+                break;
+            case 1: {
+                // Only one ByteBuf so use non-gathering write
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                ByteBuffer buffer = nioBuffers[0];
+                int attemptedBytes = buffer.remaining();
+                final int localWrittenBytes = ch.write(buffer);
+                if (localWrittenBytes &lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                adjustMaxBytesPerGatheringWrite(attemptedBytes, localWrittenBytes, maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+            default: {
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                // We limit the max amount to int above so cast is safe
+                long attemptedBytes = in.nioBufferSize();
+                final long localWrittenBytes = ch.write(nioBuffers, 0, nioBufferCnt);
+                if (localWrittenBytes &lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                // Casting to int is safe because we limit the total amount of data in the nioBuffers to int above.
+                adjustMaxBytesPerGatheringWrite((int) attemptedBytes, (int) localWrittenBytes,
+                        maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+        }
+    } while (writeSpinCount &gt; 0);
+
+    incompleteWrite(writeSpinCount &lt; 0);
+}
+
+</code></pre>
+<h3 id="jdk-socketchannelwirte">JDK SocketChannel#wirte</h3>
+<ul>
+<li>1.获取wirte同步锁</li>
+<li>2.执行IOUtil write</li>
+</ul>
+<pre><code class="language-java">public int write(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.writeLock) {
+            this.ensureWriteOpen();
+            int var3 = 0;
+            boolean var20 = false;
+
+            byte var5;
+            label310: {
+                int var4;
+                try {
+                    var20 = true;
+                    this.begin();
+                    synchronized(this.stateLock) {
+                        if (!this.isOpen()) {
+                            var5 = 0;
+                            var20 = false;
+                            break label310;
+                        }
+
+                        this.writerThread = NativeThread.current();
+                    }
+
+                    do {
+                        var3 = IOUtil.write(this.fd, var1, -1L, nd);
+                    } while(var3 == -3 &amp;&amp; this.isOpen());
+
+                    var4 = IOStatus.normalize(var3);
+                    var20 = false;
+                } finally {
+                    if (var20) {
+                        this.writerCleanup();
+                        this.end(var3 &gt; 0 || var3 == -2);
+                        synchronized(this.stateLock) {
+                            if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                                throw new AsynchronousCloseException();
+                            }
+                        }
+
+                        assert IOStatus.check(var3);
+
+                    }
+                }
+
+                this.writerCleanup();
+                this.end(var3 &gt; 0 || var3 == -2);
+                synchronized(this.stateLock) {
+                    if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                        throw new AsynchronousCloseException();
+                    }
+                }
+
+                assert IOStatus.check(var3);
+
+                return var4;
+            }
+
+            this.writerCleanup();
+            this.end(var3 &gt; 0 || var3 == -2);
+            synchronized(this.stateLock) {
+                if (var3 &lt;= 0 &amp;&amp; !this.isOutputOpen) {
+                    throw new AsynchronousCloseException();
+                }
+            }
+
+            assert IOStatus.check(var3);
+
+            return var5;
+        }
+    }
+}
+
+</code></pre>
+<h4 id="ioutilwrite">IOUtil#write</h4>
+<ul>
+<li>1.判断是否是堆外内存</li>
+<li>2.若是堆外内存，直接执行内外内存处理逻辑；</li>
+<li>3.不是堆外内存，创建一块堆外内存，把heapbuffer拷贝到堆外内存，再执行2的逻辑</li>
+</ul>
+<pre><code class="language-java">static int write(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1 instanceof DirectBuffer) {
+        return writeFromNativeBuffer(var0, var1, var2, var4);
+    } else {
+        int var5 = var1.position();
+        int var6 = var1.limit();
+
+        assert var5 &lt;= var6;
+
+        int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+        ByteBuffer var8 = Util.getTemporaryDirectBuffer(var7);
+
+        int var10;
+        try {
+            var8.put(var1);//heap拷贝到direct
+            var8.flip();//切换读写模式
+            var1.position(var5);
+            int var9 = writeFromNativeBuffer(var0, var8, var2, var4);
+            if (var9 &gt; 0) {
+                var1.position(var5 + var9);
+            }
+
+            var10 = var9;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var8);
+        }
+
+        return var10;
+    }
+}
+
+</code></pre>
+<h4 id="ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</h4>
+<ul>
+<li>1.确认要写的边界</li>
+<li>2.执行dispatcher的write</li>
+</ul>
+<pre><code class="language-java">private static int writeFromNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &lt;= var6;
+
+    int var7 = var5 &lt;= var6 ? var6 - var5 : 0;
+    boolean var8 = false;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pwrite(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.write(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+</code></pre>
+<h4 id="socketdispatcherwrite">SocketDispatcher#write</h4>
+<pre><code class="language-java">int write(FileDescriptor var1, long var2, int var4) throws IOException {
+    return FileDispatcherImpl.write0(var1, var2, var4);
+}
+
+</code></pre>
+<h5 id="filedispatcherwrite0">FileDispatcher#write0</h5>
+<pre><code class="language-java">static native int write0(FileDescriptor var0, long var1, int var3) throws IOException;
+
+</code></pre>
+<h5 id="jni-write0">JNI write0</h5>
+<ul>
+<li>1.获取文件描述符fd</li>
+<li>2.获取要写入的buffer地址</li>
+</ul>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_write0(JNIEnv *env, jclass clazz,
+                              jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, write(fd, buf, len), JNI_FALSE);
+}
+
+</code></pre>
+<h5 id="ioh-write">io.h #write</h5>
+<p>从buf往fd文件描述符打开的文件写入size个字节</p>
+<pre><code class="language-cpp">static inline int write(int fd, const void* buf, unsigned int size) { return _write(fd, buf, size); }
+
+</code></pre>
+<!-- more -->
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#niosocketchannel-read%E5%AE%9E%E7%8E%B0">NioSocketChannel read实现</a>
+<ul>
+<li><a href="#abstractniobytechannelread">AbstractNioByteChannel#read</a></li>
+<li><a href="#niobyteunsaferead">NioByteUnsafe#read</a></li>
+<li><a href="#niosocketchanneldoreadbytes">NioSocketChannel#doReadBytes</a>
+<ul>
+<li><a href="#abstractbytebufwritebytes">AbstractByteBuf#writeBytes</a></li>
+<li><a href="#pooledbytebufsetbytes">PooledByteBuf#setBytes</a></li>
+</ul>
+</li>
+<li><a href="#jdk-socketchannelimplread">JDK SocketChannelImpl#read</a>
+<ul>
+<li><a href="#ioutilread">IOUtil#read</a></li>
+<li><a href="#ioutilreadintonativebuffer">IOUtil#readIntoNativeBuffer</a></li>
+<li><a href="#socketdispatcherread">SocketDispatcher#read</a>
+<ul>
+<li><a href="#filedispatcherimplread0">FileDispatcherImpl#read0</a></li>
+<li><a href="#jni-read0">JNI read0</a></li>
+<li><a href="#ioh-read">io.h  #read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#niosocketchannel-write%E5%AE%9E%E7%8E%B0">NioSocketChannel Write实现</a>
+<ul>
+<li><a href="#abstractchannelhandlercontextwriteandflush">AbstractChannelHandlerContext#writeAndFlush</a></li>
+<li><a href="#invokewrite0">invokeWrite0</a>
+<ul>
+<li><a href="#unsafewrite">unsafe#write</a></li>
+</ul>
+</li>
+<li><a href="#invokeflush0">invokeFlush0</a>
+<ul>
+<li><a href="#unsafeflush">unsafe#flush</a></li>
+<li><a href="#flush0">flush0</a></li>
+</ul>
+</li>
+<li><a href="#niosocketchanneldowrite">NioSocketChannel#doWrite</a></li>
+<li><a href="#jdk-socketchannelwirte">JDK SocketChannel#wirte</a>
+<ul>
+<li><a href="#ioutilwrite">IOUtil#write</a></li>
+<li><a href="#ioutilwritefromnativebuffer">IOUtil#writeFromNativeBuffer</a></li>
+<li><a href="#socketdispatcherwrite">SocketDispatcher#write</a>
+<ul>
+<li><a href="#filedispatcherwrite0">FileDispatcher#write0</a></li>
+<li><a href="#jni-write0">JNI write0</a></li>
+<li><a href="#ioh-write">io.h #write</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wjkcoder.github.io/post/netty-core-channel-readandwrite/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wjkcoder.github.io/post/netty-core-channel-readandwrite/&sharesource=qzone&title=Netty Core Channel Read&amp;Write&pics=https://wjkcoder.github.io/images/avatar.png?v=1679390455973&summary=&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchannel-read%E5%AE%9E%E7%8E%B0&#34;&gt;NioSocketChannel read实现&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstractniobytechannelread&#34;&gt;AbstractNioByteChannel#read&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niobyteunsaferead&#34;&gt;NioByteUnsafe#read&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchanneldoreadbytes&#34;&gt;NioSocketChannel#doReadBytes&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstractbytebufwritebytes&#34;&gt;AbstractByteBuf#writeBytes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pooledbytebufsetbytes&#34;&gt;PooledByteBuf#setBytes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jdk-socketchannelimplread&#34;&gt;JDK SocketChannelImpl#read&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilread&#34;&gt;IOUtil#read&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilreadintonativebuffer&#34;&gt;IOUtil#readIntoNativeBuffer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#socketdispatcherread&#34;&gt;SocketDispatcher#read&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#filedispatcherimplread0&#34;&gt;FileDispatcherImpl#read0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jni-read0&#34;&gt;JNI read0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioh--read&#34;&gt;io.h  #read&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchannel-write%E5%AE%9E%E7%8E%B0&#34;&gt;NioSocketChannel Write实现&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstractchannelhandlercontextwriteandflush&#34;&gt;AbstractChannelHandlerContext#writeAndFlush&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#invokewrite0&#34;&gt;invokeWrite0&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#unsafewrite&#34;&gt;unsafe#write&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#invokeflush0&#34;&gt;invokeFlush0&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#unsafeflush&#34;&gt;unsafe#flush&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#flush0&#34;&gt;flush0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchanneldowrite&#34;&gt;NioSocketChannel#doWrite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jdk-socketchannelwirte&#34;&gt;JDK SocketChannel#wirte&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilwrite&#34;&gt;IOUtil#write&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilwritefromnativebuffer&#34;&gt;IOUtil#writeFromNativeBuffer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#socketdispatcherwrite&#34;&gt;SocketDispatcher#write&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#filedispatcherwrite0&#34;&gt;FileDispatcher#write0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jni-write0&#34;&gt;JNI write0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioh-write&#34;&gt;io.h #write&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;零拷贝是Netty自身实现的吗？&lt;br&gt;
+至少在读/写操作时，零拷贝并不是Netty去实现的，而是jdk的NIO本身提供的api&lt;/p&gt;
+&lt;h2 id=&#34;niosocketchannel-read实现&#34;&gt;NioSocketChannel read实现&lt;/h2&gt;
+&lt;p&gt;起点在NioEventLoop的run中的processSelectedKeys，调用unsafe的read&lt;/p&gt;
+&lt;h3 id=&#34;abstractniobytechannelread&#34;&gt;AbstractNioByteChannel#read&lt;/h3&gt;
+&lt;p&gt;这里和NSSC的AbstractNioMessageChannel区分开，这里的byte是专门处理字节流的, 具体参与处理的其内部实现类NioByteUnsafe&lt;/p&gt;
+&lt;h3 id=&#34;niobyteunsaferead&#34;&gt;NioByteUnsafe#read&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.分配一块ByteBuffer&lt;/li&gt;
+&lt;li&gt;2.把channel的字节流读到buffer&lt;/li&gt;
+&lt;li&gt;3.处理完之后的buffer作为参数处理之后的pipline.fireChannelRead这里跟io读写相关的只发生在2，fireChannelRead可以看作是业务层面的处理，因为底层的字节流已经拿到了。下面只讨论2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected class NioByteUnsafe extends AbstractNioUnsafe {
+
+    @Override
+    public final void read() {
+        final ChannelConfig config = config();
+        if (shouldBreakReadReady(config)) {
+            clearReadPending();
+            return;
+        }
+        final ChannelPipeline pipeline = pipeline();
+        final ByteBufAllocator allocator = config.getAllocator();
+        final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        ByteBuf byteBuf = null;
+        boolean close = false;
+        try {
+            do {
+                byteBuf = allocHandle.allocate(allocator);
+                allocHandle.lastBytesRead(doReadBytes(byteBuf));
+                if (allocHandle.lastBytesRead() &amp;lt;= 0) {
+                    // nothing was read. release the buffer.
+                    byteBuf.release();
+                    byteBuf = null;
+                    close = allocHandle.lastBytesRead() &amp;lt; 0;
+                    if (close) {
+                        // There is nothing left to read as we received an EOF.
+                        readPending = false;
+                    }
+                    break;
+                }
+
+                allocHandle.incMessagesRead(1);
+                readPending = false;
+                pipeline.fireChannelRead(byteBuf);
+                byteBuf = null;
+            } while (allocHandle.continueReading());
+
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;niosocketchanneldoreadbytes&#34;&gt;NioSocketChannel#doReadBytes&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected int doReadBytes(ByteBuf byteBuf) throws Exception {
+    final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+    allocHandle.attemptedBytesRead(byteBuf.writableBytes());
+    return byteBuf.writeBytes(javaChannel(), allocHandle.attemptedBytesRead());
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;abstractbytebufwritebytes&#34;&gt;AbstractByteBuf#writeBytes&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int writeBytes(ScatteringByteChannel in, int length) throws IOException {
+    ensureWritable(length);
+    int writtenBytes = setBytes(writerIndex, in, length);
+    if (writtenBytes &amp;gt; 0) {
+        writerIndex += writtenBytes;
+    }
+    return writtenBytes;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;pooledbytebufsetbytes&#34;&gt;PooledByteBuf#setBytes&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final int setBytes(int index, ScatteringByteChannel in, int length) throws IOException {
+    try {
+        return in.read(internalNioBuffer(index, length));
+    } catch (ClosedChannelException ignored) {
+        return -1;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;jdk-socketchannelimplread&#34;&gt;JDK SocketChannelImpl#read&lt;/h3&gt;
+&lt;p&gt;核心部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.或者read同步锁&lt;/li&gt;
+&lt;li&gt;2.while执行IOUtil read，从fd读字节流到buffer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int read(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.readLock) {
+            if (!this.ensureReadOpen()) {
+                return -1;
+            } else {
+                int var3 = 0;
+                boolean var20 = false;
+
+                byte var10000;
+                byte var5;
+                label360: {
+                    int var4;
+                    try {
+                        var20 = true;
+                        this.begin();
+                        synchronized(this.stateLock) {
+                            if (!this.isOpen()) {
+                                var5 = 0;
+                                var20 = false;
+                                break label360;
+                            }
+
+                            this.readerThread = NativeThread.current();
+                        }
+
+                        while(true) {
+                            var3 = IOUtil.read(this.fd, var1, -1L, nd);
+                            if (var3 != -3 || !this.isOpen()) {
+                                var4 = IOStatus.normalize(var3);
+                                var20 = false;
+                                break;
+                            }
+            }
+        }
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilread&#34;&gt;IOUtil#read&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.区分buffer的类型，是否是直接内存/堆外内存&lt;/li&gt;
+&lt;li&gt;2.若是直接内存，直接执行堆外内存的逻辑；&lt;/li&gt;
+&lt;li&gt;3.若是heap，需要先将heap转化为堆外内存，再执行2的逻辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之所以认为不是Netty在读写时实现了零拷贝技术，是因为jdk本身就提供了堆内存和直接内存的实现，Netty只是在此基础上默认使用了DirectBuffer实例而已，&lt;br&gt;
+若自己用NIO的api来写read操作，在指定buffer的时候使用堆外内存也可以达到相同的效果；&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;static int read(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1.isReadOnly()) {
+        throw new IllegalArgumentException(&amp;quot;Read-only buffer&amp;quot;);
+    } else if (var1 instanceof DirectBuffer) {
+        return readIntoNativeBuffer(var0, var1, var2, var4);
+    } else {
+        //这里要去分配一块直接内存
+        ByteBuffer var5 = Util.getTemporaryDirectBuffer(var1.remaining());
+
+        int var7;
+        try {
+            int var6 = readIntoNativeBuffer(var0, var5, var2, var4);
+            var5.flip();
+            if (var6 &amp;gt; 0) {
+                var1.put(var5);
+            }
+
+            var7 = var6;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var5);
+        }
+
+        return var7;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilreadintonativebuffer&#34;&gt;IOUtil#readIntoNativeBuffer&lt;/h4&gt;
+&lt;p&gt;计算剩余要读的字节，使用dispatcher去读取&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private static int readIntoNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &amp;lt;= var6;
+
+    int var7 = var5 &amp;lt;= var6 ? var6 - var5 : 0;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        boolean var8 = false;
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pread(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.read(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &amp;gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;socketdispatcherread&#34;&gt;SocketDispatcher#read&lt;/h4&gt;
+&lt;h5 id=&#34;filedispatcherimplread0&#34;&gt;FileDispatcherImpl#read0&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;FileDispatcherImpl#read0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;jni-read0&#34;&gt;JNI read0&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_read0(JNIEnv *env, jclass clazz,
+                             jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, read(fd, buf, len), JNI_TRUE);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;ioh-read&#34;&gt;io.h  #read&lt;/h5&gt;
+&lt;p&gt;从fd文件描述符所在文件，读size个字节到buf所在的内存地址&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;static inline int read(int fd, void* buf, unsigned int size) { return _read(fd, buf, size); }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;niosocketchannel-write实现&#34;&gt;NioSocketChannel Write实现&lt;/h2&gt;
+&lt;p&gt;写的起点是ctx.writeAndFlush&lt;/p&gt;
+&lt;h3 id=&#34;abstractchannelhandlercontextwriteandflush&#34;&gt;AbstractChannelHandlerContext#writeAndFlush&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public ChannelFuture writeAndFlush(Object msg) {
+    return writeAndFlush(msg, newPromise());
+}
+public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
+    write(msg, true, promise);
+    return promise;
+}
+private void write(Object msg, boolean flush, ChannelPromise promise) {
+    ObjectUtil.checkNotNull(msg, &amp;quot;msg&amp;quot;);
+    try {
+        if (isNotValidPromise(promise, true)) {
+            ReferenceCountUtil.release(msg);
+            // cancelled
+            return;
+        }
+    } catch (RuntimeException e) {
+        ReferenceCountUtil.release(msg);
+        throw e;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(flush ?
+            (MASK_WRITE | MASK_FLUSH) : MASK_WRITE);
+    final Object m = pipeline.touch(msg, next);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        if (flush) {
+            next.invokeWriteAndFlush(m, promise);
+        } else {
+            next.invokeWrite(m, promise);
+        }
+    } else {
+        final WriteTask task = WriteTask.newInstance(next, m, promise, flush);
+        if (!safeExecute(executor, task, promise, m, !flush)) {
+            // We failed to submit the WriteTask. We need to cancel it so we decrement the pending bytes
+            // and put it back in the Recycler for re-use later.
+            //
+            // See https://github.com/netty/netty/issues/8343.
+            task.cancel();
+        }
+    }
+}
+void invokeWriteAndFlush(Object msg, ChannelPromise promise) {
+    if (invokeHandler()) {
+        invokeWrite0(msg, promise);
+        invokeFlush0();
+    } else {
+        writeAndFlush(msg, promise);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;channel的字节流不是立刻发送的，分成了两个动作，一个缓存和组合message，另一个flush才是真正的发送；&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;invokewrite0&#34;&gt;invokeWrite0&lt;/h3&gt;
+&lt;h4 id=&#34;unsafewrite&#34;&gt;unsafe#write&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.有一个outboundBuffer，代表最后真正要发送的字节&lt;/li&gt;
+&lt;li&gt;2.过滤msg，通过之后的msg才会被加入到out中&lt;/li&gt;
+&lt;li&gt;3.添加msg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final void write(Object msg, ChannelPromise promise) {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        try {
+            // release message now to prevent resource-leak
+            ReferenceCountUtil.release(msg);
+        } finally {
+            // If the outboundBuffer is null we know the channel was closed and so
+            // need to fail the future right away. If it is not null the handling of the rest
+            // will be done in flush0()
+            // See https://github.com/netty/netty/issues/2362
+            safeSetFailure(promise,
+                    newClosedChannelException(initialCloseCause, &amp;quot;write(Object, ChannelPromise)&amp;quot;));
+        }
+        return;
+    }
+
+    int size;
+    try {
+        msg = filterOutboundMessage(msg);
+        size = pipeline.estimatorHandle().size(msg);
+        if (size &amp;lt; 0) {
+            size = 0;
+        }
+    } catch (Throwable t) {
+        try {
+            ReferenceCountUtil.release(msg);
+        } finally {
+            safeSetFailure(promise, t);
+        }
+        return;
+    }
+
+    outboundBuffer.addMessage(msg, size, promise);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;invokeflush0&#34;&gt;invokeFlush0&lt;/h3&gt;
+&lt;h4 id=&#34;unsafeflush&#34;&gt;unsafe#flush&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.拿到write之后的outboundBuffer&lt;/li&gt;
+&lt;li&gt;2.确认每一个promise&lt;/li&gt;
+&lt;li&gt;3.执行flush0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final void flush() {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        return;
+    }
+
+    outboundBuffer.addFlush();
+    flush0();
+}
+public void addFlush() {
+    // There is no need to process all entries if there was already a flush before and no new messages
+    // where added in the meantime.
+    //
+    // See https://github.com/netty/netty/issues/2577
+    Entry entry = unflushedEntry;
+    if (entry != null) {
+        if (flushedEntry == null) {
+            // there is no flushedEntry yet, so start with the entry
+            flushedEntry = entry;
+        }
+        do {
+            flushed ++;
+            if (!entry.promise.setUncancellable()) {
+                // Was cancelled so make sure we free up memory and notify about the freed bytes
+                int pending = entry.cancel();
+                decrementPendingOutboundBytes(pending, false, true);
+            }
+            entry = entry.next;
+        } while (entry != null);
+
+        // All flushed so reset unflushedEntry
+        unflushedEntry = null;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;flush0&#34;&gt;flush0&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected void flush0() {
+    if (inFlush0) {
+        // Avoid re-entrance
+        return;
+    }
+
+    final ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null || outboundBuffer.isEmpty()) {
+        return;
+    }
+
+    inFlush0 = true;
+
+    // Mark all pending write requests as failure if the channel is inactive.
+    if (!isActive()) {
+        try {
+            // Check if we need to generate the exception at all.
+            if (!outboundBuffer.isEmpty()) {
+                if (isOpen()) {
+                    outboundBuffer.failFlushed(new NotYetConnectedException(), true);
+                } else {
+                    // Do not trigger channelWritabilityChanged because the channel is closed already.
+                    outboundBuffer.failFlushed(newClosedChannelException(initialCloseCause, &amp;quot;flush0()&amp;quot;), false);
+                }
+            }
+        } finally {
+            inFlush0 = false;
+        }
+        return;
+    }
+
+    try {
+        doWrite(outboundBuffer);
+    } catch (Throwable t) {
+        handleWriteError(t);
+    } finally {
+        inFlush0 = false;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;niosocketchanneldowrite&#34;&gt;NioSocketChannel#doWrite&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.获取nio的channel&lt;/li&gt;
+&lt;li&gt;2.获取要处理的buffer数组&lt;/li&gt;
+&lt;li&gt;3.执行channel.write&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected void doWrite(ChannelOutboundBuffer in) throws Exception {
+    SocketChannel ch = javaChannel();
+    int writeSpinCount = config().getWriteSpinCount();
+    do {
+        if (in.isEmpty()) {
+            // All written so clear OP_WRITE
+            clearOpWrite();
+            // Directly return here so incompleteWrite(...) is not called.
+            return;
+        }
+
+        // Ensure the pending writes are made of ByteBufs only.
+        int maxBytesPerGatheringWrite = ((NioSocketChannelConfig) config).getMaxBytesPerGatheringWrite();
+        ByteBuffer[] nioBuffers = in.nioBuffers(1024, maxBytesPerGatheringWrite);
+        int nioBufferCnt = in.nioBufferCount();
+
+        // Always use nioBuffers() to workaround data-corruption.
+        // See https://github.com/netty/netty/issues/2761
+        switch (nioBufferCnt) {
+            case 0:
+                // We have something else beside ByteBuffers to write so fallback to normal writes.
+                writeSpinCount -= doWrite0(in);
+                break;
+            case 1: {
+                // Only one ByteBuf so use non-gathering write
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                ByteBuffer buffer = nioBuffers[0];
+                int attemptedBytes = buffer.remaining();
+                final int localWrittenBytes = ch.write(buffer);
+                if (localWrittenBytes &amp;lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                adjustMaxBytesPerGatheringWrite(attemptedBytes, localWrittenBytes, maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+            default: {
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                // We limit the max amount to int above so cast is safe
+                long attemptedBytes = in.nioBufferSize();
+                final long localWrittenBytes = ch.write(nioBuffers, 0, nioBufferCnt);
+                if (localWrittenBytes &amp;lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                // Casting to int is safe because we limit the total amount of data in the nioBuffers to int above.
+                adjustMaxBytesPerGatheringWrite((int) attemptedBytes, (int) localWrittenBytes,
+                        maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+        }
+    } while (writeSpinCount &amp;gt; 0);
+
+    incompleteWrite(writeSpinCount &amp;lt; 0);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;jdk-socketchannelwirte&#34;&gt;JDK SocketChannel#wirte&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.获取wirte同步锁&lt;/li&gt;
+&lt;li&gt;2.执行IOUtil write&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int write(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.writeLock) {
+            this.ensureWriteOpen();
+            int var3 = 0;
+            boolean var20 = false;
+
+            byte var5;
+            label310: {
+                int var4;
+                try {
+                    var20 = true;
+                    this.begin();
+                    synchronized(this.stateLock) {
+                        if (!this.isOpen()) {
+                            var5 = 0;
+                            var20 = false;
+                            break label310;
+                        }
+
+                        this.writerThread = NativeThread.current();
+                    }
+
+                    do {
+                        var3 = IOUtil.write(this.fd, var1, -1L, nd);
+                    } while(var3 == -3 &amp;amp;&amp;amp; this.isOpen());
+
+                    var4 = IOStatus.normalize(var3);
+                    var20 = false;
+                } finally {
+                    if (var20) {
+                        this.writerCleanup();
+                        this.end(var3 &amp;gt; 0 || var3 == -2);
+                        synchronized(this.stateLock) {
+                            if (var3 &amp;lt;= 0 &amp;amp;&amp;amp; !this.isOutputOpen) {
+                                throw new AsynchronousCloseException();
+                            }
+                        }
+
+                        assert IOStatus.check(var3);
+
+                    }
+                }
+
+                this.writerCleanup();
+                this.end(var3 &amp;gt; 0 || var3 == -2);
+                synchronized(this.stateLock) {
+                    if (var3 &amp;lt;= 0 &amp;amp;&amp;amp; !this.isOutputOpen) {
+                        throw new AsynchronousCloseException();
+                    }
+                }
+
+                assert IOStatus.check(var3);
+
+                return var4;
+            }
+
+            this.writerCleanup();
+            this.end(var3 &amp;gt; 0 || var3 == -2);
+            synchronized(this.stateLock) {
+                if (var3 &amp;lt;= 0 &amp;amp;&amp;amp; !this.isOutputOpen) {
+                    throw new AsynchronousCloseException();
+                }
+            }
+
+            assert IOStatus.check(var3);
+
+            return var5;
+        }
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilwrite&#34;&gt;IOUtil#write&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.判断是否是堆外内存&lt;/li&gt;
+&lt;li&gt;2.若是堆外内存，直接执行内外内存处理逻辑；&lt;/li&gt;
+&lt;li&gt;3.不是堆外内存，创建一块堆外内存，把heapbuffer拷贝到堆外内存，再执行2的逻辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;static int write(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1 instanceof DirectBuffer) {
+        return writeFromNativeBuffer(var0, var1, var2, var4);
+    } else {
+        int var5 = var1.position();
+        int var6 = var1.limit();
+
+        assert var5 &amp;lt;= var6;
+
+        int var7 = var5 &amp;lt;= var6 ? var6 - var5 : 0;
+        ByteBuffer var8 = Util.getTemporaryDirectBuffer(var7);
+
+        int var10;
+        try {
+            var8.put(var1);//heap拷贝到direct
+            var8.flip();//切换读写模式
+            var1.position(var5);
+            int var9 = writeFromNativeBuffer(var0, var8, var2, var4);
+            if (var9 &amp;gt; 0) {
+                var1.position(var5 + var9);
+            }
+
+            var10 = var9;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var8);
+        }
+
+        return var10;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilwritefromnativebuffer&#34;&gt;IOUtil#writeFromNativeBuffer&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.确认要写的边界&lt;/li&gt;
+&lt;li&gt;2.执行dispatcher的write&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private static int writeFromNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &amp;lt;= var6;
+
+    int var7 = var5 &amp;lt;= var6 ? var6 - var5 : 0;
+    boolean var8 = false;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pwrite(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.write(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &amp;gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;socketdispatcherwrite&#34;&gt;SocketDispatcher#write&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int write(FileDescriptor var1, long var2, int var4) throws IOException {
+    return FileDispatcherImpl.write0(var1, var2, var4);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;filedispatcherwrite0&#34;&gt;FileDispatcher#write0&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;static native int write0(FileDescriptor var0, long var1, int var3) throws IOException;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;jni-write0&#34;&gt;JNI write0&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;1.获取文件描述符fd&lt;/li&gt;
+&lt;li&gt;2.获取要写入的buffer地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_write0(JNIEnv *env, jclass clazz,
+                              jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, write(fd, buf, len), JNI_FALSE);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;ioh-write&#34;&gt;io.h #write&lt;/h5&gt;
+&lt;p&gt;从buf往fd文件描述符打开的文件写入size个字节&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;static inline int write(int fd, const void* buf, unsigned int size) { return _write(fd, buf, size); }
+
+&lt;/code&gt;&lt;/pre&gt;
+"><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://wjkcoder.github.io/post/netty-core-channel-readandwrite/&sharesource=weibo&title=Netty Core Channel Read&amp;Write + " - " + &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchannel-read%E5%AE%9E%E7%8E%B0&#34;&gt;NioSocketChannel read实现&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstractniobytechannelread&#34;&gt;AbstractNioByteChannel#read&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niobyteunsaferead&#34;&gt;NioByteUnsafe#read&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchanneldoreadbytes&#34;&gt;NioSocketChannel#doReadBytes&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstractbytebufwritebytes&#34;&gt;AbstractByteBuf#writeBytes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pooledbytebufsetbytes&#34;&gt;PooledByteBuf#setBytes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jdk-socketchannelimplread&#34;&gt;JDK SocketChannelImpl#read&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilread&#34;&gt;IOUtil#read&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilreadintonativebuffer&#34;&gt;IOUtil#readIntoNativeBuffer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#socketdispatcherread&#34;&gt;SocketDispatcher#read&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#filedispatcherimplread0&#34;&gt;FileDispatcherImpl#read0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jni-read0&#34;&gt;JNI read0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioh--read&#34;&gt;io.h  #read&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchannel-write%E5%AE%9E%E7%8E%B0&#34;&gt;NioSocketChannel Write实现&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#abstractchannelhandlercontextwriteandflush&#34;&gt;AbstractChannelHandlerContext#writeAndFlush&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#invokewrite0&#34;&gt;invokeWrite0&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#unsafewrite&#34;&gt;unsafe#write&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#invokeflush0&#34;&gt;invokeFlush0&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#unsafeflush&#34;&gt;unsafe#flush&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#flush0&#34;&gt;flush0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#niosocketchanneldowrite&#34;&gt;NioSocketChannel#doWrite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jdk-socketchannelwirte&#34;&gt;JDK SocketChannel#wirte&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilwrite&#34;&gt;IOUtil#write&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioutilwritefromnativebuffer&#34;&gt;IOUtil#writeFromNativeBuffer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#socketdispatcherwrite&#34;&gt;SocketDispatcher#write&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#filedispatcherwrite0&#34;&gt;FileDispatcher#write0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#jni-write0&#34;&gt;JNI write0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ioh-write&#34;&gt;io.h #write&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;零拷贝是Netty自身实现的吗？&lt;br&gt;
+至少在读/写操作时，零拷贝并不是Netty去实现的，而是jdk的NIO本身提供的api&lt;/p&gt;
+&lt;h2 id=&#34;niosocketchannel-read实现&#34;&gt;NioSocketChannel read实现&lt;/h2&gt;
+&lt;p&gt;起点在NioEventLoop的run中的processSelectedKeys，调用unsafe的read&lt;/p&gt;
+&lt;h3 id=&#34;abstractniobytechannelread&#34;&gt;AbstractNioByteChannel#read&lt;/h3&gt;
+&lt;p&gt;这里和NSSC的AbstractNioMessageChannel区分开，这里的byte是专门处理字节流的, 具体参与处理的其内部实现类NioByteUnsafe&lt;/p&gt;
+&lt;h3 id=&#34;niobyteunsaferead&#34;&gt;NioByteUnsafe#read&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.分配一块ByteBuffer&lt;/li&gt;
+&lt;li&gt;2.把channel的字节流读到buffer&lt;/li&gt;
+&lt;li&gt;3.处理完之后的buffer作为参数处理之后的pipline.fireChannelRead这里跟io读写相关的只发生在2，fireChannelRead可以看作是业务层面的处理，因为底层的字节流已经拿到了。下面只讨论2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected class NioByteUnsafe extends AbstractNioUnsafe {
+
+    @Override
+    public final void read() {
+        final ChannelConfig config = config();
+        if (shouldBreakReadReady(config)) {
+            clearReadPending();
+            return;
+        }
+        final ChannelPipeline pipeline = pipeline();
+        final ByteBufAllocator allocator = config.getAllocator();
+        final RecvByteBufAllocator.Handle allocHandle = recvBufAllocHandle();
+        allocHandle.reset(config);
+
+        ByteBuf byteBuf = null;
+        boolean close = false;
+        try {
+            do {
+                byteBuf = allocHandle.allocate(allocator);
+                allocHandle.lastBytesRead(doReadBytes(byteBuf));
+                if (allocHandle.lastBytesRead() &amp;lt;= 0) {
+                    // nothing was read. release the buffer.
+                    byteBuf.release();
+                    byteBuf = null;
+                    close = allocHandle.lastBytesRead() &amp;lt; 0;
+                    if (close) {
+                        // There is nothing left to read as we received an EOF.
+                        readPending = false;
+                    }
+                    break;
+                }
+
+                allocHandle.incMessagesRead(1);
+                readPending = false;
+                pipeline.fireChannelRead(byteBuf);
+                byteBuf = null;
+            } while (allocHandle.continueReading());
+
+            allocHandle.readComplete();
+            pipeline.fireChannelReadComplete();
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;niosocketchanneldoreadbytes&#34;&gt;NioSocketChannel#doReadBytes&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected int doReadBytes(ByteBuf byteBuf) throws Exception {
+    final RecvByteBufAllocator.Handle allocHandle = unsafe().recvBufAllocHandle();
+    allocHandle.attemptedBytesRead(byteBuf.writableBytes());
+    return byteBuf.writeBytes(javaChannel(), allocHandle.attemptedBytesRead());
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;abstractbytebufwritebytes&#34;&gt;AbstractByteBuf#writeBytes&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int writeBytes(ScatteringByteChannel in, int length) throws IOException {
+    ensureWritable(length);
+    int writtenBytes = setBytes(writerIndex, in, length);
+    if (writtenBytes &amp;gt; 0) {
+        writerIndex += writtenBytes;
+    }
+    return writtenBytes;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;pooledbytebufsetbytes&#34;&gt;PooledByteBuf#setBytes&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final int setBytes(int index, ScatteringByteChannel in, int length) throws IOException {
+    try {
+        return in.read(internalNioBuffer(index, length));
+    } catch (ClosedChannelException ignored) {
+        return -1;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;jdk-socketchannelimplread&#34;&gt;JDK SocketChannelImpl#read&lt;/h3&gt;
+&lt;p&gt;核心部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.或者read同步锁&lt;/li&gt;
+&lt;li&gt;2.while执行IOUtil read，从fd读字节流到buffer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int read(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.readLock) {
+            if (!this.ensureReadOpen()) {
+                return -1;
+            } else {
+                int var3 = 0;
+                boolean var20 = false;
+
+                byte var10000;
+                byte var5;
+                label360: {
+                    int var4;
+                    try {
+                        var20 = true;
+                        this.begin();
+                        synchronized(this.stateLock) {
+                            if (!this.isOpen()) {
+                                var5 = 0;
+                                var20 = false;
+                                break label360;
+                            }
+
+                            this.readerThread = NativeThread.current();
+                        }
+
+                        while(true) {
+                            var3 = IOUtil.read(this.fd, var1, -1L, nd);
+                            if (var3 != -3 || !this.isOpen()) {
+                                var4 = IOStatus.normalize(var3);
+                                var20 = false;
+                                break;
+                            }
+            }
+        }
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilread&#34;&gt;IOUtil#read&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.区分buffer的类型，是否是直接内存/堆外内存&lt;/li&gt;
+&lt;li&gt;2.若是直接内存，直接执行堆外内存的逻辑；&lt;/li&gt;
+&lt;li&gt;3.若是heap，需要先将heap转化为堆外内存，再执行2的逻辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之所以认为不是Netty在读写时实现了零拷贝技术，是因为jdk本身就提供了堆内存和直接内存的实现，Netty只是在此基础上默认使用了DirectBuffer实例而已，&lt;br&gt;
+若自己用NIO的api来写read操作，在指定buffer的时候使用堆外内存也可以达到相同的效果；&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;static int read(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1.isReadOnly()) {
+        throw new IllegalArgumentException(&amp;quot;Read-only buffer&amp;quot;);
+    } else if (var1 instanceof DirectBuffer) {
+        return readIntoNativeBuffer(var0, var1, var2, var4);
+    } else {
+        //这里要去分配一块直接内存
+        ByteBuffer var5 = Util.getTemporaryDirectBuffer(var1.remaining());
+
+        int var7;
+        try {
+            int var6 = readIntoNativeBuffer(var0, var5, var2, var4);
+            var5.flip();
+            if (var6 &amp;gt; 0) {
+                var1.put(var5);
+            }
+
+            var7 = var6;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var5);
+        }
+
+        return var7;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilreadintonativebuffer&#34;&gt;IOUtil#readIntoNativeBuffer&lt;/h4&gt;
+&lt;p&gt;计算剩余要读的字节，使用dispatcher去读取&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private static int readIntoNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &amp;lt;= var6;
+
+    int var7 = var5 &amp;lt;= var6 ? var6 - var5 : 0;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        boolean var8 = false;
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pread(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.read(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &amp;gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;socketdispatcherread&#34;&gt;SocketDispatcher#read&lt;/h4&gt;
+&lt;h5 id=&#34;filedispatcherimplread0&#34;&gt;FileDispatcherImpl#read0&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;FileDispatcherImpl#read0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;jni-read0&#34;&gt;JNI read0&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_read0(JNIEnv *env, jclass clazz,
+                             jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, read(fd, buf, len), JNI_TRUE);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;ioh-read&#34;&gt;io.h  #read&lt;/h5&gt;
+&lt;p&gt;从fd文件描述符所在文件，读size个字节到buf所在的内存地址&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;static inline int read(int fd, void* buf, unsigned int size) { return _read(fd, buf, size); }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;niosocketchannel-write实现&#34;&gt;NioSocketChannel Write实现&lt;/h2&gt;
+&lt;p&gt;写的起点是ctx.writeAndFlush&lt;/p&gt;
+&lt;h3 id=&#34;abstractchannelhandlercontextwriteandflush&#34;&gt;AbstractChannelHandlerContext#writeAndFlush&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public ChannelFuture writeAndFlush(Object msg) {
+    return writeAndFlush(msg, newPromise());
+}
+public ChannelFuture writeAndFlush(Object msg, ChannelPromise promise) {
+    write(msg, true, promise);
+    return promise;
+}
+private void write(Object msg, boolean flush, ChannelPromise promise) {
+    ObjectUtil.checkNotNull(msg, &amp;quot;msg&amp;quot;);
+    try {
+        if (isNotValidPromise(promise, true)) {
+            ReferenceCountUtil.release(msg);
+            // cancelled
+            return;
+        }
+    } catch (RuntimeException e) {
+        ReferenceCountUtil.release(msg);
+        throw e;
+    }
+
+    final AbstractChannelHandlerContext next = findContextOutbound(flush ?
+            (MASK_WRITE | MASK_FLUSH) : MASK_WRITE);
+    final Object m = pipeline.touch(msg, next);
+    EventExecutor executor = next.executor();
+    if (executor.inEventLoop()) {
+        if (flush) {
+            next.invokeWriteAndFlush(m, promise);
+        } else {
+            next.invokeWrite(m, promise);
+        }
+    } else {
+        final WriteTask task = WriteTask.newInstance(next, m, promise, flush);
+        if (!safeExecute(executor, task, promise, m, !flush)) {
+            // We failed to submit the WriteTask. We need to cancel it so we decrement the pending bytes
+            // and put it back in the Recycler for re-use later.
+            //
+            // See https://github.com/netty/netty/issues/8343.
+            task.cancel();
+        }
+    }
+}
+void invokeWriteAndFlush(Object msg, ChannelPromise promise) {
+    if (invokeHandler()) {
+        invokeWrite0(msg, promise);
+        invokeFlush0();
+    } else {
+        writeAndFlush(msg, promise);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;channel的字节流不是立刻发送的，分成了两个动作，一个缓存和组合message，另一个flush才是真正的发送；&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;invokewrite0&#34;&gt;invokeWrite0&lt;/h3&gt;
+&lt;h4 id=&#34;unsafewrite&#34;&gt;unsafe#write&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.有一个outboundBuffer，代表最后真正要发送的字节&lt;/li&gt;
+&lt;li&gt;2.过滤msg，通过之后的msg才会被加入到out中&lt;/li&gt;
+&lt;li&gt;3.添加msg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final void write(Object msg, ChannelPromise promise) {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        try {
+            // release message now to prevent resource-leak
+            ReferenceCountUtil.release(msg);
+        } finally {
+            // If the outboundBuffer is null we know the channel was closed and so
+            // need to fail the future right away. If it is not null the handling of the rest
+            // will be done in flush0()
+            // See https://github.com/netty/netty/issues/2362
+            safeSetFailure(promise,
+                    newClosedChannelException(initialCloseCause, &amp;quot;write(Object, ChannelPromise)&amp;quot;));
+        }
+        return;
+    }
+
+    int size;
+    try {
+        msg = filterOutboundMessage(msg);
+        size = pipeline.estimatorHandle().size(msg);
+        if (size &amp;lt; 0) {
+            size = 0;
+        }
+    } catch (Throwable t) {
+        try {
+            ReferenceCountUtil.release(msg);
+        } finally {
+            safeSetFailure(promise, t);
+        }
+        return;
+    }
+
+    outboundBuffer.addMessage(msg, size, promise);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;invokeflush0&#34;&gt;invokeFlush0&lt;/h3&gt;
+&lt;h4 id=&#34;unsafeflush&#34;&gt;unsafe#flush&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.拿到write之后的outboundBuffer&lt;/li&gt;
+&lt;li&gt;2.确认每一个promise&lt;/li&gt;
+&lt;li&gt;3.执行flush0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final void flush() {
+    assertEventLoop();
+
+    ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null) {
+        return;
+    }
+
+    outboundBuffer.addFlush();
+    flush0();
+}
+public void addFlush() {
+    // There is no need to process all entries if there was already a flush before and no new messages
+    // where added in the meantime.
+    //
+    // See https://github.com/netty/netty/issues/2577
+    Entry entry = unflushedEntry;
+    if (entry != null) {
+        if (flushedEntry == null) {
+            // there is no flushedEntry yet, so start with the entry
+            flushedEntry = entry;
+        }
+        do {
+            flushed ++;
+            if (!entry.promise.setUncancellable()) {
+                // Was cancelled so make sure we free up memory and notify about the freed bytes
+                int pending = entry.cancel();
+                decrementPendingOutboundBytes(pending, false, true);
+            }
+            entry = entry.next;
+        } while (entry != null);
+
+        // All flushed so reset unflushedEntry
+        unflushedEntry = null;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;flush0&#34;&gt;flush0&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected void flush0() {
+    if (inFlush0) {
+        // Avoid re-entrance
+        return;
+    }
+
+    final ChannelOutboundBuffer outboundBuffer = this.outboundBuffer;
+    if (outboundBuffer == null || outboundBuffer.isEmpty()) {
+        return;
+    }
+
+    inFlush0 = true;
+
+    // Mark all pending write requests as failure if the channel is inactive.
+    if (!isActive()) {
+        try {
+            // Check if we need to generate the exception at all.
+            if (!outboundBuffer.isEmpty()) {
+                if (isOpen()) {
+                    outboundBuffer.failFlushed(new NotYetConnectedException(), true);
+                } else {
+                    // Do not trigger channelWritabilityChanged because the channel is closed already.
+                    outboundBuffer.failFlushed(newClosedChannelException(initialCloseCause, &amp;quot;flush0()&amp;quot;), false);
+                }
+            }
+        } finally {
+            inFlush0 = false;
+        }
+        return;
+    }
+
+    try {
+        doWrite(outboundBuffer);
+    } catch (Throwable t) {
+        handleWriteError(t);
+    } finally {
+        inFlush0 = false;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;niosocketchanneldowrite&#34;&gt;NioSocketChannel#doWrite&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.获取nio的channel&lt;/li&gt;
+&lt;li&gt;2.获取要处理的buffer数组&lt;/li&gt;
+&lt;li&gt;3.执行channel.write&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected void doWrite(ChannelOutboundBuffer in) throws Exception {
+    SocketChannel ch = javaChannel();
+    int writeSpinCount = config().getWriteSpinCount();
+    do {
+        if (in.isEmpty()) {
+            // All written so clear OP_WRITE
+            clearOpWrite();
+            // Directly return here so incompleteWrite(...) is not called.
+            return;
+        }
+
+        // Ensure the pending writes are made of ByteBufs only.
+        int maxBytesPerGatheringWrite = ((NioSocketChannelConfig) config).getMaxBytesPerGatheringWrite();
+        ByteBuffer[] nioBuffers = in.nioBuffers(1024, maxBytesPerGatheringWrite);
+        int nioBufferCnt = in.nioBufferCount();
+
+        // Always use nioBuffers() to workaround data-corruption.
+        // See https://github.com/netty/netty/issues/2761
+        switch (nioBufferCnt) {
+            case 0:
+                // We have something else beside ByteBuffers to write so fallback to normal writes.
+                writeSpinCount -= doWrite0(in);
+                break;
+            case 1: {
+                // Only one ByteBuf so use non-gathering write
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                ByteBuffer buffer = nioBuffers[0];
+                int attemptedBytes = buffer.remaining();
+                final int localWrittenBytes = ch.write(buffer);
+                if (localWrittenBytes &amp;lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                adjustMaxBytesPerGatheringWrite(attemptedBytes, localWrittenBytes, maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+            default: {
+                // Zero length buffers are not added to nioBuffers by ChannelOutboundBuffer, so there is no need
+                // to check if the total size of all the buffers is non-zero.
+                // We limit the max amount to int above so cast is safe
+                long attemptedBytes = in.nioBufferSize();
+                final long localWrittenBytes = ch.write(nioBuffers, 0, nioBufferCnt);
+                if (localWrittenBytes &amp;lt;= 0) {
+                    incompleteWrite(true);
+                    return;
+                }
+                // Casting to int is safe because we limit the total amount of data in the nioBuffers to int above.
+                adjustMaxBytesPerGatheringWrite((int) attemptedBytes, (int) localWrittenBytes,
+                        maxBytesPerGatheringWrite);
+                in.removeBytes(localWrittenBytes);
+                --writeSpinCount;
+                break;
+            }
+        }
+    } while (writeSpinCount &amp;gt; 0);
+
+    incompleteWrite(writeSpinCount &amp;lt; 0);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;jdk-socketchannelwirte&#34;&gt;JDK SocketChannel#wirte&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.获取wirte同步锁&lt;/li&gt;
+&lt;li&gt;2.执行IOUtil write&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public int write(ByteBuffer var1) throws IOException {
+    if (var1 == null) {
+        throw new NullPointerException();
+    } else {
+        synchronized(this.writeLock) {
+            this.ensureWriteOpen();
+            int var3 = 0;
+            boolean var20 = false;
+
+            byte var5;
+            label310: {
+                int var4;
+                try {
+                    var20 = true;
+                    this.begin();
+                    synchronized(this.stateLock) {
+                        if (!this.isOpen()) {
+                            var5 = 0;
+                            var20 = false;
+                            break label310;
+                        }
+
+                        this.writerThread = NativeThread.current();
+                    }
+
+                    do {
+                        var3 = IOUtil.write(this.fd, var1, -1L, nd);
+                    } while(var3 == -3 &amp;amp;&amp;amp; this.isOpen());
+
+                    var4 = IOStatus.normalize(var3);
+                    var20 = false;
+                } finally {
+                    if (var20) {
+                        this.writerCleanup();
+                        this.end(var3 &amp;gt; 0 || var3 == -2);
+                        synchronized(this.stateLock) {
+                            if (var3 &amp;lt;= 0 &amp;amp;&amp;amp; !this.isOutputOpen) {
+                                throw new AsynchronousCloseException();
+                            }
+                        }
+
+                        assert IOStatus.check(var3);
+
+                    }
+                }
+
+                this.writerCleanup();
+                this.end(var3 &amp;gt; 0 || var3 == -2);
+                synchronized(this.stateLock) {
+                    if (var3 &amp;lt;= 0 &amp;amp;&amp;amp; !this.isOutputOpen) {
+                        throw new AsynchronousCloseException();
+                    }
+                }
+
+                assert IOStatus.check(var3);
+
+                return var4;
+            }
+
+            this.writerCleanup();
+            this.end(var3 &amp;gt; 0 || var3 == -2);
+            synchronized(this.stateLock) {
+                if (var3 &amp;lt;= 0 &amp;amp;&amp;amp; !this.isOutputOpen) {
+                    throw new AsynchronousCloseException();
+                }
+            }
+
+            assert IOStatus.check(var3);
+
+            return var5;
+        }
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilwrite&#34;&gt;IOUtil#write&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.判断是否是堆外内存&lt;/li&gt;
+&lt;li&gt;2.若是堆外内存，直接执行内外内存处理逻辑；&lt;/li&gt;
+&lt;li&gt;3.不是堆外内存，创建一块堆外内存，把heapbuffer拷贝到堆外内存，再执行2的逻辑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;static int write(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    if (var1 instanceof DirectBuffer) {
+        return writeFromNativeBuffer(var0, var1, var2, var4);
+    } else {
+        int var5 = var1.position();
+        int var6 = var1.limit();
+
+        assert var5 &amp;lt;= var6;
+
+        int var7 = var5 &amp;lt;= var6 ? var6 - var5 : 0;
+        ByteBuffer var8 = Util.getTemporaryDirectBuffer(var7);
+
+        int var10;
+        try {
+            var8.put(var1);//heap拷贝到direct
+            var8.flip();//切换读写模式
+            var1.position(var5);
+            int var9 = writeFromNativeBuffer(var0, var8, var2, var4);
+            if (var9 &amp;gt; 0) {
+                var1.position(var5 + var9);
+            }
+
+            var10 = var9;
+        } finally {
+            Util.offerFirstTemporaryDirectBuffer(var8);
+        }
+
+        return var10;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;ioutilwritefromnativebuffer&#34;&gt;IOUtil#writeFromNativeBuffer&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1.确认要写的边界&lt;/li&gt;
+&lt;li&gt;2.执行dispatcher的write&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;private static int writeFromNativeBuffer(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
+    int var5 = var1.position();
+    int var6 = var1.limit();
+
+    assert var5 &amp;lt;= var6;
+
+    int var7 = var5 &amp;lt;= var6 ? var6 - var5 : 0;
+    boolean var8 = false;
+    if (var7 == 0) {
+        return 0;
+    } else {
+        int var9;
+        if (var2 != -1L) {
+            var9 = var4.pwrite(var0, ((DirectBuffer)var1).address() + (long)var5, var7, var2);
+        } else {
+            var9 = var4.write(var0, ((DirectBuffer)var1).address() + (long)var5, var7);
+        }
+
+        if (var9 &amp;gt; 0) {
+            var1.position(var5 + var9);
+        }
+
+        return var9;
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;socketdispatcherwrite&#34;&gt;SocketDispatcher#write&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;int write(FileDescriptor var1, long var2, int var4) throws IOException {
+    return FileDispatcherImpl.write0(var1, var2, var4);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;filedispatcherwrite0&#34;&gt;FileDispatcher#write0&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;static native int write0(FileDescriptor var0, long var1, int var3) throws IOException;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;jni-write0&#34;&gt;JNI write0&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;1.获取文件描述符fd&lt;/li&gt;
+&lt;li&gt;2.获取要写入的buffer地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;JNIEXPORT jint JNICALL
+Java_sun_nio_ch_FileDispatcherImpl_write0(JNIEnv *env, jclass clazz,
+                              jobject fdo, jlong address, jint len)
+{
+    jint fd = fdval(env, fdo);
+    void *buf = (void *)jlong_to_ptr(address);
+
+    return convertReturnVal(env, write(fd, buf, len), JNI_FALSE);
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;ioh-write&#34;&gt;io.h #write&lt;/h5&gt;
+&lt;p&gt;从buf往fd文件描述符打开的文件写入size个字节&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;static inline int write(int fd, const void* buf, unsigned int size) { return _write(fd, buf, size); }
+
+&lt;/code&gt;&lt;/pre&gt;
+&pic="https://wjkcoder.github.io/images/avatar.png?v=1679390455973 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                        
+                        <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">#
+                                                Source Code Analysis
+                                                    </a>
+                                                    
+                        <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">#
+                                                Netty
+                                                    </a>
+                                                    
+                                                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://wjkcoder.github.io/post/springboot-run/">
+                                                                                            SpringBoot Run
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://wjkcoder.github.io/post/netty-nioeventloop-core/">
+                                                                                                    Netty Core NioEventLoop
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Jikun WANG &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1679390455973);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

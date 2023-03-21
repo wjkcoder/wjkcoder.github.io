@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Jikun WANG
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="Jikun WANG">
+<meta name="description" content="Keep Track and Record ">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://wjkcoder.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://wjkcoder.github.io">
+                    Jikun WANG
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        Catalog
+                    </a>
+                    
+                    <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                        Groups
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <!-- <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form> -->
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://wjkcoder.github.io">
+                            Jikun WANG
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            Catalog
+                        </a>
+                        
+                        <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                            Groups
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Netty Core NioEventLoopGroup
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Jikun WANG
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2020-02-04</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">6.0
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">1161</a></span>
+                                    
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">Source Code Analysis</a>
+                                
+                                <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">Netty</a>
+                                
+                            </span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://wjkcoder.github.io/post-images/netty-nioeventloopgroup.png" alt="">
+                          
+                        <div class="post-content">
+                            <ul>
+<li><a href="#nioeventloopgroup-%E5%AE%9E%E4%BE%8B%E5%8C%96">NioEventLoopGroup 实例化</a>
+<ul>
+<li><a href="#nioeventloop%E5%AE%9E%E4%BE%8B%E5%8C%96">NioEventLoop实例化</a>
+<ul>
+<li><a href="#selector-%E5%AE%9E%E4%BE%8B%E5%8C%96">Selector 实例化</a>
+<ul>
+<li><a href="#kqueueselectorprovider-%E5%AE%9E%E4%BE%8B%E5%8C%96">KQueueSelectorProvider 实例化</a></li>
+<li><a href="#kqueueselectorimpl-%E5%AE%9E%E4%BE%8B%E5%8C%96">KqueueSelectorImpl 实例化</a></li>
+<li><a href="#kqueuearraywrapper-%E5%AE%9E%E4%BE%8B%E5%8C%96">KQueueArrayWrapper 实例化</a>
+<ul>
+<li><a href="#1%E8%AE%BF%E9%97%AE%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98">1.访问直接内存</a></li>
+<li><a href="#2%E5%88%9B%E5%BB%BA%E7%B3%BB%E7%BB%9Fkqueue">2.创建系统kqueue</a></li>
+</ul>
+</li>
+<li><a href="#kqueuearraywrapper%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6">KQueueArrayWrapper注册事件</a>
+<ul>
+<li><a href="#jni%E4%B8%AD%E7%9A%84register">JNI中的register</a></li>
+<li><a href="#kevent%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0">kevent系统函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="nioeventloopgroup-实例化">NioEventLoopGroup 实例化</h1>
+<ul>
+<li>本质上是一个线程数组，除此之外加入了事件驱动的机制。</li>
+<li>传入线程个数时，会生成指定个数的数组；无参数会根据当前的CPU核心数*2创建；</li>
+</ul>
+<pre><code class="language-java">NioEventLoopGroup core = new NioEventLoopGroup();
+</code></pre>
+<pre><code class="language-java">public NioEventLoopGroup(int nThreads, Executor executor, final SelectorProvider selectorProvider,
+                         final SelectStrategyFactory selectStrategyFactory) {
+    super(nThreads, executor, selectorProvider, selectStrategyFactory, RejectedExecutionHandlers.reject());
+}
+
+</code></pre>
+<pre><code class="language-java">protected MultithreadEventLoopGroup(int nThreads, Executor executor, Object... args) {
+    super(nThreads == 0 ? DEFAULT_EVENT_LOOP_THREADS : nThreads, executor, args);
+}
+private static final int DEFAULT_EVENT_LOOP_THREADS;
+
+static {
+    DEFAULT_EVENT_LOOP_THREADS = Math.max(1, SystemPropertyUtil.getInt(
+            &quot;io.netty.eventLoopThreads&quot;, NettyRuntime.availableProcessors() * 2));
+
+    if (logger.isDebugEnabled()) {
+        logger.debug(&quot;-Dio.netty.eventLoopThreads: {}&quot;, DEFAULT_EVENT_LOOP_THREADS);
+    }
+}
+</code></pre>
+<p>遍历数组，初始化每一个child，即eventloop，这里是调用NioEventLoopGroup的newChild方法；</p>
+<pre><code class="language-java">protected MultithreadEventExecutorGroup(int nThreads, Executor executor,
+                                        EventExecutorChooserFactory chooserFactory, Object... args) {
+//核心代码
+    children = new EventExecutor[nThreads];
+
+    for (int i = 0; i &lt; nThreads; i ++) {
+        boolean success = false;
+        try {
+            children[i] = newChild(executor, args);
+            success = true;
+        } catch (Exception e) {
+            // TODO: Think about if this is a good exception type
+            throw new IllegalStateException(&quot;failed to create a child event loop&quot;, e);
+        } finally {
+            //一个失败，全部回收
+            if (!success) {
+                for (int j = 0; j &lt; i; j ++) {
+                    children[j].shutdownGracefully();
+                }
+
+                for (int j = 0; j &lt; i; j ++) {
+                    EventExecutor e = children[j];
+                    try {
+                        while (!e.isTerminated()) {
+                            e.awaitTermination(Integer.MAX_VALUE, TimeUnit.SECONDS);
+                        }
+                    } catch (InterruptedException interrupted) {
+                        // Let the caller handle the interruption.
+                        Thread.currentThread().interrupt();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    chooser = chooserFactory.newChooser(children);//创建一个线程选择调度器用于分配线程
+}
+
+</code></pre>
+<h2 id="nioeventloop实例化">NioEventLoop实例化</h2>
+<p>通过spi的方式拿到selectorProvider，macos下是KQueueSelectorProvider实现；<br>
+在openSelector中创建selector实例；</p>
+<pre><code class="language-java">NioEventLoop(NioEventLoopGroup parent, Executor executor, SelectorProvider selectorProvider,
+             SelectStrategy strategy, RejectedExecutionHandler rejectedExecutionHandler,
+             EventLoopTaskQueueFactory queueFactory) {
+    super(parent, executor, false, newTaskQueue(queueFactory), newTaskQueue(queueFactory),
+            rejectedExecutionHandler);
+    this.provider = ObjectUtil.checkNotNull(selectorProvider, &quot;selectorProvider&quot;);
+    this.selectStrategy = ObjectUtil.checkNotNull(strategy, &quot;selectStrategy&quot;);
+    final SelectorTuple selectorTuple = openSelector();
+    this.selector = selectorTuple.selector;//这个是包装了一层的selector
+    this.unwrappedSelector = selectorTuple.unwrappedSelector;//这个是原生的selector
+}
+
+</code></pre>
+<h3 id="selector-实例化">Selector 实例化</h3>
+<pre><code class="language-java">private SelectorTuple openSelector() {
+    final Selector unwrappedSelector;
+    try {
+        unwrappedSelector = provider.openSelector();
+    } catch (IOException e) {
+        throw new ChannelException(&quot;failed to open a new selector&quot;, e);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">SelectedSelectionKeySetSelector(Selector delegate, SelectedSelectionKeySet selectionKeys) {
+    this.delegate = delegate;
+    this.selectionKeys = selectionKeys;
+}
+
+</code></pre>
+<h4 id="kqueueselectorprovider-实例化">KQueueSelectorProvider 实例化</h4>
+<pre><code class="language-java">public class KQueueSelectorProvider extends SelectorProviderImpl {
+    public KQueueSelectorProvider() {
+    }
+
+    public AbstractSelector openSelector() throws IOException {
+        return new KQueueSelectorImpl(this);
+    }
+}
+
+</code></pre>
+<h4 id="kqueueselectorimpl-实例化">KqueueSelectorImpl 实例化</h4>
+<pre><code class="language-java">KQueueSelectorImpl(SelectorProvider var1) {
+    super(var1);
+    long var2 = IOUtil.makePipe(false);
+    this.fd0 = (int)(var2 &gt;&gt;&gt; 32);
+    this.fd1 = (int)var2;
+
+    try {
+        this.kqueueWrapper = new KQueueArrayWrapper();
+        this.kqueueWrapper.initInterrupt(this.fd0, this.fd1);
+        this.fdMap = new HashMap();
+        this.totalChannels = 1;
+    }
+}
+</code></pre>
+<p>创建KQueueArrayWrapper实例化之后，注册兴趣事件；</p>
+<h4 id="kqueuearraywrapper-实例化">KQueueArrayWrapper 实例化</h4>
+<p>KAW是与系统调用联结的核心，通过jni调用kevent.h定义的事件函数来完成事件驱动；</p>
+<pre><code class="language-java">KQueueArrayWrapper() {
+    int var1 = SIZEOF_KEVENT * 128;//计算总的内存长度
+    this.keventArray = new AllocatedNativeObject(var1, true);//分配内存返回首字节的地址
+    this.keventArrayAddress = this.keventArray.address();
+    this.kq = this.init();//调用kqueue创建fd
+}
+
+</code></pre>
+<p>核心点有几个：</p>
+<h5 id="1访问直接内存">1.访问直接内存</h5>
+<p>方便之后通过偏移量直接访问内存数据(fd,filter)<br>
+SIZEOF_KEVENT=32;//一个kevent struct的大小<br>
+FD_OFFSE=0;<br>
+FILTER_OFFSET=8;</p>
+<pre><code class="language-java">//初始化静态块
+static {
+    IOUtil.load();
+    initStructSizes();
+    String var0 = (String)AccessController.doPrivileged(new GetPropertyAction(&quot;sun.arch.data.model&quot;));
+    is64bit = var0.equals(&quot;64&quot;);
+}
+
+</code></pre>
+<p>JNI初始化值</p>
+<pre><code class="language-cpp">field = (*env)-&gt;GetStaticFieldID(env, clazz, &quot;SIZEOF_KEVENT&quot;, &quot;S&quot;);
+    CHECK_ERROR_AND_EXCEPTION(field);
+    (*env)-&gt;SetStaticShortField(env, clazz, field, (short) sizeof(struct kevent));
+    CHECK_EXCEPTION();
+
+    field = (*env)-&gt;GetStaticFieldID(env, clazz, &quot;FD_OFFSET&quot;, &quot;S&quot;);
+    CHECK_ERROR_AND_EXCEPTION(field);
+    (*env)-&gt;SetStaticShortField(env, clazz, field, (short) offsetof(struct kevent, ident));
+    CHECK_EXCEPTION();
+
+    field = (*env)-&gt;GetStaticFieldID(env, clazz, &quot;FILTER_OFFSET&quot;, &quot;S&quot;);
+    CHECK_ERROR_AND_EXCEPTION(field);
+    (*env)-&gt;SetStaticShortField(env, clazz, field, (short) offsetof(struct kevent, filter));
+
+</code></pre>
+<p>系统调用中kevent数据结构</p>
+<pre><code class="language-cpp">struct kevent {
+    uintptr_t       ident;  /* identifier for this event */
+    int16_t         filter; /* filter for event */
+    uint16_t        flags;  /* general flags */
+    uint32_t        fflags; /* filter-specific flags */
+    intptr_t        data;   /* filter-specific data */
+    void            *udata; /* opaque user data identifier */
+};
+
+</code></pre>
+<h5 id="2创建系统kqueue">2.创建系统kqueue</h5>
+<pre><code class="language-java">this.kq = this.init();
+private native int init();
+</code></pre>
+<pre><code class="language-cpp">JNIEXPORT jint JNICALL
+Java_sun_nio_ch_KQueueArrayWrapper_init(JNIEnv *env, jobject this)
+{
+    int kq = kqueue();
+    if (kq &lt; 0) {
+        JNU_ThrowIOExceptionWithLastError(env, &quot;KQueueArrayWrapper: kqueue() failed&quot;);
+    }
+    return kq;
+}
+
+</code></pre>
+<h4 id="kqueuearraywrapper注册事件">KQueueArrayWrapper注册事件</h4>
+<p>jni调用kevent()编辑/修改兴趣事件<br>
+这里的实际效果是添加一个read，删除一个write</p>
+<pre><code class="language-java">this.kqueueWrapper.initInterrupt(this.fd0, this.fd1);
+void initInterrupt(int var1, int var2) {
+    this.outgoingInterruptFD = var2;
+    this.incomingInterruptFD = var1;
+    this.register0(this.kq, var1, 1, 0);
+}
+private native void register0(int var1, int var2, int var3, int var4);
+</code></pre>
+<h5 id="jni中的register">JNI中的register</h5>
+<pre><code class="language-cpp">JNIEXPORT void JNICALL
+Java_sun_nio_ch_KQueueArrayWrapper_register0(JNIEnv *env, jobject this,
+                                             jint kq, jint fd, jint r, jint w)
+{
+    struct kevent changes[2];
+    struct kevent errors[2];
+    struct timespec dontBlock = {0, 0};
+
+    // if (r) then { register for read } else { unregister for read }
+    // if (w) then { register for write } else { unregister for write }
+    // Ignore errors - they're probably complaints about deleting non-
+    //   added filters - but provide an error array anyway because
+    //   kqueue behaves erratically if some of its registrations fail.
+    EV_SET(&amp;changes[0], fd, EVFILT_READ,  r ? EV_ADD : EV_DELETE, 0, 0, 0);
+    EV_SET(&amp;changes[1], fd, EVFILT_WRITE, w ? EV_ADD : EV_DELETE, 0, 0, 0);
+    kevent(kq, changes, 2, errors, 2, &amp;dontBlock);
+}
+
+</code></pre>
+<h5 id="kevent系统函数">kevent系统函数</h5>
+<p>展开解释下kevent系统函数<br>
+kq是kqueue的identifier<br>
+changelist表示对fd的修改列表，nchanges表示数量；<br>
+eventlist表示系统产生的事件列表，用于存放系统产生的事件，nevents表示数量；<br>
+timeout表示最大等待时长；</p>
+<pre><code class="language-cpp">int  kevent(int kq,
+    const struct kevent *changelist, int nchanges,
+    struct kevent *eventlist, int nevents,
+    const struct timespec *timeout);
+
+</code></pre>
+<p>到此事件循环组的初始化的核心过程已经完成；</p>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#nioeventloopgroup-%E5%AE%9E%E4%BE%8B%E5%8C%96">NioEventLoopGroup 实例化</a>
+<ul>
+<li><a href="#nioeventloop%E5%AE%9E%E4%BE%8B%E5%8C%96">NioEventLoop实例化</a>
+<ul>
+<li><a href="#selector-%E5%AE%9E%E4%BE%8B%E5%8C%96">Selector 实例化</a>
+<ul>
+<li><a href="#kqueueselectorprovider-%E5%AE%9E%E4%BE%8B%E5%8C%96">KQueueSelectorProvider 实例化</a></li>
+<li><a href="#kqueueselectorimpl-%E5%AE%9E%E4%BE%8B%E5%8C%96">KqueueSelectorImpl 实例化</a></li>
+<li><a href="#kqueuearraywrapper-%E5%AE%9E%E4%BE%8B%E5%8C%96">KQueueArrayWrapper 实例化</a>
+<ul>
+<li><a href="#1%E8%AE%BF%E9%97%AE%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98">1.访问直接内存</a></li>
+<li><a href="#2%E5%88%9B%E5%BB%BA%E7%B3%BB%E7%BB%9Fkqueue">2.创建系统kqueue</a></li>
+</ul>
+</li>
+<li><a href="#kqueuearraywrapper%E6%B3%A8%E5%86%8C%E4%BA%8B%E4%BB%B6">KQueueArrayWrapper注册事件</a>
+<ul>
+<li><a href="#jni%E4%B8%AD%E7%9A%84register">JNI中的register</a></li>
+<li><a href="#kevent%E7%B3%BB%E7%BB%9F%E5%87%BD%E6%95%B0">kevent系统函数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wjkcoder.github.io/post/netty-nioeventloopgroup/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wjkcoder.github.io/post/netty-nioeventloopgroup/&sharesource=qzone&title=Netty Core NioEventLoopGroup&pics=https://wjkcoder.github.io/images/avatar.png?v=1679390455973&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://wjkcoder.github.io/post/netty-nioeventloopgroup/&sharesource=weibo&title=Netty Core NioEventLoopGroup + " - " + &pic="https://wjkcoder.github.io/images/avatar.png?v=1679390455973 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                        
+                        <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">#
+                                                Source Code Analysis
+                                                    </a>
+                                                    
+                        <a href="https://wjkcoder.github.io/tag/t2_-QPGel/">#
+                                                Netty
+                                                    </a>
+                                                    
+                                                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://wjkcoder.github.io/post/netty-serverbootstrap/">
+                                                                                            Netty Core ServerBootStrap
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                </section>
+                    </article>
+                </div>
+                
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Jikun WANG &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1679390455973);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

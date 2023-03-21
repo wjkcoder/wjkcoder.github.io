@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Jikun WANG
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://fastly.jsdelivr.net">
+<meta name="author" content="Jikun WANG">
+<meta name="description" content="Keep Track and Record ">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://wjkcoder.github.io/styles/main.css" />
+<link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+    
+            <script src="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://fastly.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://wjkcoder.github.io">
+                    Jikun WANG
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        Catalog
+                    </a>
+                    
+                    <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                        Groups
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <!-- <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form> -->
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://wjkcoder.github.io">
+                            Jikun WANG
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1679390455973" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/archives">
+                            Catalog
+                        </a>
+                        
+                        <a class="menu-item" href="https://wjkcoder.github.io/tags">
+                            Groups
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                SpringBoot Run
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Jikun WANG
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2021-03-05</a>
+                            </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">5.1
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">1058</a></span>
+                                    
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://wjkcoder.github.io/tag/JZ_dCeGSA/">SpringBoot</a>
+                                
+                                <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">Source Code Analysis</a>
+                                
+                            </span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://wjkcoder.github.io/post-images/springboot-run.jpeg" alt="">
+                          
+                        <div class="post-content">
+                            <ul>
+<li><a href="#%E5%88%9B%E5%BB%BAspringapplication">创建SpringApplication</a></li>
+<li><a href="#springapplicationrun">SpringApplication#run</a>
+<ul>
+<li><a href="#springapplicationrunlisteners%E5%AE%9E%E4%BE%8B">SpringApplicationRunListeners实例</a></li>
+<li><a href="#springapplicationrunlisteners%E5%AE%9E%E4%BE%8B%E5%BC%80%E5%90%AF%E7%9B%91%E5%90%AC">SpringApplicationRunListeners实例开启监听</a></li>
+<li><a href="#prepare%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">prepare环境变量</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAapplicationcontext">创建ApplicationContext</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%B3%A8%E8%A7%A3beandefinitionreader">创建注解beanDefinitionReader</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAclasspathbeandefinitionscanner">创建ClassPathBeanDefinitionScanner</a>
+<ul>
+<li><a href="#%E6%B3%A8%E5%86%8C%E9%BB%98%E8%AE%A4filter">注册默认filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#springapplicationpreparecontext">SpringApplication#prepareContext</a>
+<ul>
+<li><a href="#abstractapplicationcontextrefresh">AbstractApplicationContext#refresh</a>
+<ul>
+<li><a href="#abstractapplicationcontextpreparerefresh">AbstractApplicationContext#prepareRefresh</a></li>
+<li><a href="#abstractapplicationcontextpreparebeanfactory">AbstractApplicationContext#prepareBeanFactory</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0bpp-applicationcontextawareprocessor">添加BPP ApplicationContextAwareProcessor</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0ignore%E6%8E%A5%E5%8F%A3">添加ignore接口</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8Cdependency">注册dependency</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0bpp-applicationlistenerdetector">添加BPP ApplicationListenerDetector</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8C%E9%BB%98%E8%AE%A4%E7%8E%AF%E5%A2%83bean%E5%88%B0singleton">注册默认环境bean到singleton</a></li>
+</ul>
+</li>
+<li><a href="#postprocessbeanfactory">postProcessBeanFactory</a></li>
+<li><a href="#invokebeanfactorypostprocessors">invokeBeanFactoryPostProcessors</a>
+<ul>
+<li><a href="#invokebeandefinitionregistrypostprocessors">invokeBeanDefinitionRegistryPostProcessors</a>
+<ul>
+<li><a href="#configurationclasspostprocessorprocessconfigbeandefinitions">ConfigurationClassPostProcessor#processConfigBeanDefinitions</a></li>
+<li><a href="#configurationclassparserparse">ConfigurationClassParser#parse</a></li>
+</ul>
+</li>
+<li><a href="#invokebeanfactorypostprocessors-1">invokeBeanFactoryPostProcessors</a></li>
+<li><a href="#%E5%88%86%E6%89%B9%E6%AC%A1%E6%89%A7%E8%A1%8Cbeanfactoryprocessor">分批次执行BeanFactoryProcessor</a></li>
+</ul>
+</li>
+<li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a></li>
+<li><a href="#initmessagesource">initMessageSource</a></li>
+<li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
+<li><a href="#onfresh">onfresh</a></li>
+<li><a href="#registerlisteners">registerListeners</a></li>
+<li><a href="#finishbeanfactoryinitialization">finishBeanFactoryInitialization</a>
+<ul>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96bean">初始化bean</a>
+<ul>
+<li><a href="#1%E5%88%A4%E6%96%AD%E4%B8%8D%E6%98%AFabstract%E6%98%AF%E5%8D%95%E4%BE%8B%E9%9D%9E%E6%87%92%E5%8A%A0%E8%BD%BD%E6%89%A7%E8%A1%8Cgetbean">1.判断不是abstract，是单例非懒加载，执行getBean</a></li>
+<li><a href="#2abstractbeanfactorydogetbean">2.AbstractBeanFactory#doGetbean</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%A7%E8%A1%8Cbean%E5%90%8E%E7%BD%AE%E5%A4%84%E7%90%86">执行bean后置处理</a></li>
+</ul>
+</li>
+<li><a href="#finishrefresh">finishRefresh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#springapplicationafterrefresh">SpringApplication#afterRefresh</a></li>
+<li><a href="#listeners%E5%93%8D%E5%BA%94%E6%89%A7%E8%A1%8Cstart%E4%BA%8B%E4%BB%B6">listeners响应执行start事件</a></li>
+</ul>
+</li>
+</ul>
+<p>SpringBoot的启动过程<br>
+simple</p>
+<pre><code class="language-java">@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        ConfigurableApplicationContext ctx = SpringApplication.run(Application.class);
+        UserService userService = ctx.getBean(UserService.class);
+        userService.setUsername(&quot;wonder&quot;);
+        System.out.println(userService.getUsername());
+    }
+}
+</code></pre>
+<h1 id="创建springapplication">创建SpringApplication</h1>
+<ul>
+<li>推测webApplicationType</li>
+<li>根据Spring factories加载接口实现类名称<br>
+BootstrapRegistryInitializer<br>
+ApplicationContextInitializer<br>
+ApplicationListener</li>
+</ul>
+<pre><code class="language-java">	public SpringApplication(ResourceLoader resourceLoader, Class&lt;?&gt;... primarySources) {
+		this.resourceLoader = resourceLoader;
+		Assert.notNull(primarySources, &quot;PrimarySources must not be null&quot;);
+		this.primarySources = new LinkedHashSet&lt;&gt;(Arrays.asList(primarySources));
+		this.webApplicationType = WebApplicationType.deduceFromClasspath();
+		this.bootstrapRegistryInitializers = new ArrayList&lt;&gt;(
+				getSpringFactoriesInstances(BootstrapRegistryInitializer.class));
+		setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
+		setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+		this.mainApplicationClass = deduceMainApplicationClass();
+	}
+
+</code></pre>
+<h1 id="springapplicationrun">SpringApplication#run</h1>
+<pre><code class="language-java">public ConfigurableApplicationContext run(String... args) {
+		long startTime = System.nanoTime();
+		DefaultBootstrapContext bootstrapContext = createBootstrapContext();
+		ConfigurableApplicationContext context = null;
+		configureHeadlessProperty();
+		SpringApplicationRunListeners listeners = getRunListeners(args);
+		listeners.starting(bootstrapContext, this.mainApplicationClass);
+		try {
+			ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+			ConfigurableEnvironment environment = prepareEnvironment(listeners, bootstrapContext, applicationArguments);
+			configureIgnoreBeanInfo(environment);
+			Banner printedBanner = printBanner(environment);
+			context = createApplicationContext();
+			context.setApplicationStartup(this.applicationStartup);
+			prepareContext(bootstrapContext, context, environment, listeners, applicationArguments, printedBanner);
+			refreshContext(context);
+			afterRefresh(context, applicationArguments);
+			Duration timeTakenToStartup = Duration.ofNanos(System.nanoTime() - startTime);
+			if (this.logStartupInfo) {
+				new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), timeTakenToStartup);
+			}
+			listeners.started(context, timeTakenToStartup);
+			callRunners(context, applicationArguments);
+		}
+		catch (Throwable ex) {
+			handleRunFailure(context, ex, listeners);
+			throw new IllegalStateException(ex);
+		}
+		try {
+			Duration timeTakenToReady = Duration.ofNanos(System.nanoTime() - startTime);
+			listeners.ready(context, timeTakenToReady);
+		}
+		catch (Throwable ex) {
+			handleRunFailure(context, ex, null);
+			throw new IllegalStateException(ex);
+		}
+		return context;
+	}
+
+</code></pre>
+<h2 id="springapplicationrunlisteners实例">SpringApplicationRunListeners实例</h2>
+<pre><code>根据Spring factories加载SpringApplicationRunListener实现类名称，创建SpringApplicationRunListeners实例
+</code></pre>
+<h2 id="springapplicationrunlisteners实例开启监听">SpringApplicationRunListeners实例开启监听</h2>
+<h2 id="prepare环境变量">prepare环境变量</h2>
+<h2 id="创建applicationcontext">创建ApplicationContext</h2>
+<p>根据webApplicationType创建ApplicationContext</p>
+<pre><code class="language-java">ApplicationContextFactory DEFAULT = (webApplicationType) -&gt; {
+   try {
+      switch (webApplicationType) {
+      case SERVLET:
+         return new AnnotationConfigServletWebServerApplicationContext();
+      case REACTIVE:
+         return new AnnotationConfigReactiveWebServerApplicationContext();
+      default:
+         return new AnnotationConfigApplicationContext();
+      }
+   }
+   catch (Exception ex) {
+      throw new IllegalStateException(&quot;Unable create a default ApplicationContext instance, &quot;
+            + &quot;you may need a custom ApplicationContextFactory&quot;, ex);
+   }
+};
+
+</code></pre>
+<p>这里若不是web项目，则创建AnnotationConfigApplicationContext</p>
+<pre><code class="language-java">public AnnotationConfigApplicationContext() {
+   StartupStep createAnnotatedBeanDefReader = this.getApplicationStartup().start(&quot;spring.context.annotated-bean-reader.create&quot;);
+   this.reader = new AnnotatedBeanDefinitionReader(this);
+   createAnnotatedBeanDefReader.end();
+   this.scanner = new ClassPathBeanDefinitionScanner(this);
+}
+
+</code></pre>
+<h3 id="创建注解beandefinitionreader">创建注解beanDefinitionReader</h3>
+<p>根据实际情况选择添加以下beanDefinition到bdMap中</p>
+<ul>
+<li>org.springframework.context.annotation.internalConfigurationAnnotationProcessor</li>
+<li>org.springframework.context.annotation.internalAutowiredAnnotationProcessor</li>
+<li>org.springframework.context.annotation.internalCommonAnnotationProcessor</li>
+<li>org.springframework.context.annotation.internalPersistenceAnnotationProcessor</li>
+<li>org.springframework.context.event.internalEventListenerProcessor</li>
+<li>org.springframework.context.event.internalEventListenerFactory</li>
+</ul>
+<h3 id="创建classpathbeandefinitionscanner">创建ClassPathBeanDefinitionScanner</h3>
+<h4 id="注册默认filter">注册默认filter</h4>
+<ul>
+<li>Component.class</li>
+<li>JSR250 javax.annotation.ManagedBean</li>
+<li>JSR330 javax.inject.Named</li>
+</ul>
+<h2 id="springapplicationpreparecontext">SpringApplication#prepareContext</h2>
+<p>1.添加一个close事件监听</p>
+<h3 id="abstractapplicationcontextrefresh">AbstractApplicationContext#refresh</h3>
+<h4 id="abstractapplicationcontextpreparerefresh">AbstractApplicationContext#prepareRefresh</h4>
+<ul>
+<li>initPropertySources</li>
+<li>env验证必要属性</li>
+</ul>
+<h4 id="abstractapplicationcontextpreparebeanfactory">AbstractApplicationContext#prepareBeanFactory</h4>
+<h5 id="添加bpp-applicationcontextawareprocessor">添加BPP ApplicationContextAwareProcessor</h5>
+<h5 id="添加ignore接口">添加ignore接口</h5>
+<ol>
+<li>EnvironmentAware</li>
+<li>EmbeddedValueResolverAware</li>
+<li>ResourceLoaderAware</li>
+<li>ApplicationEventPublisherAware</li>
+<li>MessageSourceAware</li>
+<li>ApplicationContextAware</li>
+<li>ApplicationStartupAware</li>
+</ol>
+<h5 id="注册dependency">注册dependency</h5>
+<h5 id="添加bpp-applicationlistenerdetector">添加BPP ApplicationListenerDetector</h5>
+<h5 id="注册默认环境bean到singleton">注册默认环境bean到singleton</h5>
+<ol>
+<li>environment</li>
+<li>systemProperties</li>
+<li>systemEnvironment</li>
+<li>applicationStartup</li>
+</ol>
+<h4 id="postprocessbeanfactory">postProcessBeanFactory</h4>
+<h4 id="invokebeanfactorypostprocessors">invokeBeanFactoryPostProcessors</h4>
+<h5 id="invokebeandefinitionregistrypostprocessors">invokeBeanDefinitionRegistryPostProcessors</h5>
+<h6 id="configurationclasspostprocessorprocessconfigbeandefinitions">ConfigurationClassPostProcessor#processConfigBeanDefinitions</h6>
+<h6 id="configurationclassparserparse">ConfigurationClassParser#parse</h6>
+<ol>
+<li>判断是否有@Component，若有则处理成员变量</li>
+<li>处理任何有@PropertySource</li>
+<li>处理@ComponentScan<br>
+1.1 处理basePackages</li>
+</ol>
+<ul>
+<li>处理basePackageClasses</li>
+<li>若最终basePackages为空，添加配置类所在package到basePackages</li>
+<li>执行scanner.doScan</li>
+<li></li>
+</ul>
+<p>遍历每一个basePackage，组装路径，拿到所有class文件<br>
+遍历每一个class，拿到注解等元数据，判断是否满足扫描标准<br>
+若满足，生成一个bd ScannedGenericBeanDefinition<br>
+判断bd是否满足添加到bdSet的需求，若满足，添加并注册到bdSet<br>
+遍历bdSet，bd包装成BeanDefinitionHolder并注册</p>
+<ol>
+<li>处理@Import</li>
+<li>处理@ImportResource</li>
+<li>处理@Bean</li>
+<li>处理interface default method</li>
+<li>处理父类</li>
+</ol>
+<h5 id="invokebeanfactorypostprocessors-2">invokeBeanFactoryPostProcessors</h5>
+<h5 id="分批次执行beanfactoryprocessor">分批次执行BeanFactoryProcessor</h5>
+<ul>
+<li>PriorityOrdered</li>
+<li>Ordered</li>
+<li>all other BeanFactoryPostProcessors</li>
+</ul>
+<h4 id="registerbeanpostprocessors">registerBeanPostProcessors</h4>
+<ol>
+<li>注册实现PriorityOrdered接口的</li>
+<li>注册实现Ordered接口的</li>
+<li>注册所有的 regular BeanPostProcessors</li>
+<li>重新注册internal BeanPostProcessors</li>
+<li>添加BPP ApplicationListenerDetector</li>
+</ol>
+<h4 id="initmessagesource">initMessageSource</h4>
+<p>注册messageSource到singleton</p>
+<h4 id="initapplicationeventmulticaster">initApplicationEventMulticaster</h4>
+<p>实例化一个SimpleApplicationEventMulticaster并注册到singleton</p>
+<h4 id="onfresh">onfresh</h4>
+<p>子类的实现，初始化某些特殊的bean，比如ServletWebServerApplicationContext就会再次创建webServer</p>
+<h4 id="registerlisteners">registerListeners</h4>
+<ol>
+<li>所有的ApplicationListener绑定到eventMulticaster</li>
+<li>添加ApplicationListenerBean</li>
+<li>广播事件</li>
+</ol>
+<h4 id="finishbeanfactoryinitialization">finishBeanFactoryInitialization</h4>
+<h5 id="初始化bean">初始化bean</h5>
+<h6 id="1判断不是abstract是单例非懒加载执行getbean">1.判断不是abstract，是单例非懒加载，执行getBean</h6>
+<h6 id="2abstractbeanfactorydogetbean">2.AbstractBeanFactory#doGetbean</h6>
+<ol>
+<li>getSingleton获取到实例，直接返回</li>
+<li>标记为已创建</li>
+<li>处理依赖，若依赖没有被实例化，执行getBean（dep）</li>
+<li>getSingleton（beanName，beanFactory）</li>
+</ol>
+<ul>
+<li>
+<ol>
+<li>获取object，若空，执行beanFactory的getObject方法</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>调用getObject中的createBean</li>
+</ol>
+</li>
+<li>
+<ul>
+<li>
+<ol>
+<li>resolveBeforeInstantiation 若需要代理，相关beanPostProcessor在此创建后返回</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>doCreateBean</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>移除缓存</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>允许MergedBeanDefinitionPostProcessor修改beanDefinition</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="3">
+<li>提前暴露</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="4">
+<li>populateBean</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="5">
+<li>initializeBean</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>执行aware方法 BeanNameAware BeanClassLoaderAware BeanFactoryAware</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="2">
+<li>执行beanPostProcessor的before</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="3">
+<li>执行initMethod</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="4">
+<li>执行beanPostProcessor的after</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol start="6">
+<li>暴露并注册</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ol start="3">
+<li>添加object到singleton</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="执行bean后置处理">执行bean后置处理</h5>
+<h4 id="finishrefresh">finishRefresh</h4>
+<ol>
+<li>clearResourceCaches，清除一些元数据缓存</li>
+<li>initLifecycleProcessor，赋值lifeCycleProcessor</li>
+<li>执行lifecycyleProcessor的refresh</li>
+<li>publishEvent，发布一个refreshed事件</li>
+</ol>
+<h2 id="springapplicationafterrefresh">SpringApplication#afterRefresh</h2>
+<h2 id="listeners响应执行start事件">listeners响应执行start事件</h2>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#%E5%88%9B%E5%BB%BAspringapplication">创建SpringApplication</a></li>
+<li><a href="#springapplicationrun">SpringApplication#run</a>
+<ul>
+<li><a href="#springapplicationrunlisteners%E5%AE%9E%E4%BE%8B">SpringApplicationRunListeners实例</a></li>
+<li><a href="#springapplicationrunlisteners%E5%AE%9E%E4%BE%8B%E5%BC%80%E5%90%AF%E7%9B%91%E5%90%AC">SpringApplicationRunListeners实例开启监听</a></li>
+<li><a href="#prepare%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">prepare环境变量</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAapplicationcontext">创建ApplicationContext</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E6%B3%A8%E8%A7%A3beandefinitionreader">创建注解beanDefinitionReader</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAclasspathbeandefinitionscanner">创建ClassPathBeanDefinitionScanner</a>
+<ul>
+<li><a href="#%E6%B3%A8%E5%86%8C%E9%BB%98%E8%AE%A4filter">注册默认filter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#springapplicationpreparecontext">SpringApplication#prepareContext</a>
+<ul>
+<li><a href="#abstractapplicationcontextrefresh">AbstractApplicationContext#refresh</a>
+<ul>
+<li><a href="#abstractapplicationcontextpreparerefresh">AbstractApplicationContext#prepareRefresh</a></li>
+<li><a href="#abstractapplicationcontextpreparebeanfactory">AbstractApplicationContext#prepareBeanFactory</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0bpp-applicationcontextawareprocessor">添加BPP ApplicationContextAwareProcessor</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0ignore%E6%8E%A5%E5%8F%A3">添加ignore接口</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8Cdependency">注册dependency</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0bpp-applicationlistenerdetector">添加BPP ApplicationListenerDetector</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8C%E9%BB%98%E8%AE%A4%E7%8E%AF%E5%A2%83bean%E5%88%B0singleton">注册默认环境bean到singleton</a></li>
+</ul>
+</li>
+<li><a href="#postprocessbeanfactory">postProcessBeanFactory</a></li>
+<li><a href="#invokebeanfactorypostprocessors">invokeBeanFactoryPostProcessors</a>
+<ul>
+<li><a href="#invokebeandefinitionregistrypostprocessors">invokeBeanDefinitionRegistryPostProcessors</a>
+<ul>
+<li><a href="#configurationclasspostprocessorprocessconfigbeandefinitions">ConfigurationClassPostProcessor#processConfigBeanDefinitions</a></li>
+<li><a href="#configurationclassparserparse">ConfigurationClassParser#parse</a></li>
+</ul>
+</li>
+<li><a href="#invokebeanfactorypostprocessors-2">invokeBeanFactoryPostProcessors</a></li>
+<li><a href="#%E5%88%86%E6%89%B9%E6%AC%A1%E6%89%A7%E8%A1%8Cbeanfactoryprocessor">分批次执行BeanFactoryProcessor</a></li>
+</ul>
+</li>
+<li><a href="#registerbeanpostprocessors">registerBeanPostProcessors</a></li>
+<li><a href="#initmessagesource">initMessageSource</a></li>
+<li><a href="#initapplicationeventmulticaster">initApplicationEventMulticaster</a></li>
+<li><a href="#onfresh">onfresh</a></li>
+<li><a href="#registerlisteners">registerListeners</a></li>
+<li><a href="#finishbeanfactoryinitialization">finishBeanFactoryInitialization</a>
+<ul>
+<li><a href="#%E5%88%9D%E5%A7%8B%E5%8C%96bean">初始化bean</a>
+<ul>
+<li><a href="#1%E5%88%A4%E6%96%AD%E4%B8%8D%E6%98%AFabstract%E6%98%AF%E5%8D%95%E4%BE%8B%E9%9D%9E%E6%87%92%E5%8A%A0%E8%BD%BD%E6%89%A7%E8%A1%8Cgetbean">1.判断不是abstract，是单例非懒加载，执行getBean</a></li>
+<li><a href="#2abstractbeanfactorydogetbean">2.AbstractBeanFactory#doGetbean</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%A7%E8%A1%8Cbean%E5%90%8E%E7%BD%AE%E5%A4%84%E7%90%86">执行bean后置处理</a></li>
+</ul>
+</li>
+<li><a href="#finishrefresh">finishRefresh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#springapplicationafterrefresh">SpringApplication#afterRefresh</a></li>
+<li><a href="#listeners%E5%93%8D%E5%BA%94%E6%89%A7%E8%A1%8Cstart%E4%BA%8B%E4%BB%B6">listeners响应执行start事件</a></li>
+</ul>
+</li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wjkcoder.github.io/post/springboot-run/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wjkcoder.github.io/post/springboot-run/&sharesource=qzone&title=SpringBoot Run&pics=https://wjkcoder.github.io/images/avatar.png?v=1679390455973&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://wjkcoder.github.io/post/springboot-run/&sharesource=weibo&title=SpringBoot Run + " - " + &pic="https://wjkcoder.github.io/images/avatar.png?v=1679390455973 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                        
+                        <a href="https://wjkcoder.github.io/tag/JZ_dCeGSA/">#
+                                                SpringBoot
+                                                    </a>
+                                                    
+                        <a href="https://wjkcoder.github.io/tag/C5tzCiKHJ/">#
+                                                Source Code Analysis
+                                                    </a>
+                                                    
+                                                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://wjkcoder.github.io/post/netty-core-channel-readandwrite/">
+                                                                                                    Netty Core Channel Read&amp;Write
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
+                
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Jikun WANG &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                off
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1679390455973);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
